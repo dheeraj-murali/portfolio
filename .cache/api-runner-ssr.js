@@ -1,4 +1,19 @@
-var plugins = []
+var plugins = [{
+      plugin: require('/Users/Dheeraj/Documents/GitHub/portfolio/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/Dheeraj/Documents/GitHub/portfolio/node_modules/gatsby-plugin-feed/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/Dheeraj/Documents/GitHub/portfolio/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      options: {"plugins":[],"name":"Gatsby Starter Blog","short_name":"GatsbyJS","start_url":"/","background_color":"#ffffff","theme_color":"#663399","display":"minimal-ui","icon":"content/assets/gatsby-icon.png"},
+    },{
+      plugin: require('/Users/Dheeraj/Documents/GitHub/portfolio/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/Dheeraj/Documents/GitHub/portfolio/node_modules/gatsby-plugin-typography/gatsby-ssr'),
+      options: {"plugins":[],"pathToConfigModule":"src/utils/typography"},
+    }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {

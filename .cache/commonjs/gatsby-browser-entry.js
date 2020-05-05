@@ -43,7 +43,7 @@ function StaticQueryDataRenderer({
   render
 }) {
   const finalData = data ? data.data : staticQueryData[query] && staticQueryData[query].data;
-  return _react.default.createElement(_react.default.Fragment, null, finalData && render(finalData), !finalData && _react.default.createElement("div", null, "Loading (StaticQuery)"));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, finalData && render(finalData), !finalData && /*#__PURE__*/_react.default.createElement("div", null, "Loading (StaticQuery)"));
 }
 
 const StaticQuery = props => {
@@ -53,7 +53,7 @@ const StaticQuery = props => {
     render,
     children
   } = props;
-  return _react.default.createElement(StaticQueryContext.Consumer, null, staticQueryData => _react.default.createElement(StaticQueryDataRenderer, {
+  return /*#__PURE__*/_react.default.createElement(StaticQueryContext.Consumer, null, staticQueryData => /*#__PURE__*/_react.default.createElement(StaticQueryDataRenderer, {
     data: data,
     query: query,
     render: render || children,

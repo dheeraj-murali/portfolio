@@ -42,7 +42,9 @@ function maybeRedirect(pathname) {
 
   if (redirect != null) {
     if (process.env.NODE_ENV !== `production`) {
-      if (!_loader.default.isPageNotFound(pathname)) {
+      const pageResources = _loader.default.loadPageSync(pathname);
+
+      if (pageResources != null) {
         console.error(`The route "${pathname}" matches both a page and a redirect; this is probably not intentional.`);
       }
     }
@@ -230,7 +232,7 @@ class RouteAnnouncer extends _react.default.Component {
   }
 
   render() {
-    return _react.default.createElement("div", (0, _extends2.default)({}, _routeAnnouncerProps.RouteAnnouncerProps, {
+    return /*#__PURE__*/_react.default.createElement("div", (0, _extends2.default)({}, _routeAnnouncerProps.RouteAnnouncerProps, {
       ref: this.announcementRef
     }));
   }
@@ -264,7 +266,7 @@ class RouteUpdates extends _react.default.Component {
   }
 
   render() {
-    return _react.default.createElement(_react.default.Fragment, null, this.props.children, _react.default.createElement(RouteAnnouncer, {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, this.props.children, /*#__PURE__*/_react.default.createElement(RouteAnnouncer, {
       location: location
     }));
   }
