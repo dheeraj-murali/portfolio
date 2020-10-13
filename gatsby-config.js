@@ -5,6 +5,16 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: ["gatsby-plugin-chakra-ui"],
-}
+	/* Your site config here */
+	plugins: [
+		'gatsby-plugin-chakra-ui',
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/assets/`,
+			},
+		},
+	],
+};
