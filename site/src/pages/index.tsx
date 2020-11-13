@@ -18,13 +18,13 @@ export default function Home() {
   return (
     <>
       <SEO {...seo} />
-      <Header />
-      <Hero />
+      <Header {...header} />
+      {/* <Hero />
       <Service />
       <Portfolio />
       <About />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }

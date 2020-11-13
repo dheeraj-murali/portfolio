@@ -1,4 +1,4 @@
-import { PseudoBox } from "@chakra-ui/core"
+import { PseudoBox } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import React from "react"
 

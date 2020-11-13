@@ -6,7 +6,7 @@ import {
   useColorMode,
   Image,
   Text,
-} from "@chakra-ui/core"
+} from "@chakra-ui/react"
 import React from "react"
 
 export const Hero = () => {

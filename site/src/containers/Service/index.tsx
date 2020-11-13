@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid, useColorMode } from "@chakra-ui/core"
+import { Box, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react"
 import React from "react"
 import { Card } from "../../components"
 

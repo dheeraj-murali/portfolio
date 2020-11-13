@@ -1,4 +1,4 @@
-import { Box, Heading, PseudoBox, SimpleGrid } from "@chakra-ui/core"
+import { Box, Heading, PseudoBox, SimpleGrid } from "@chakra-ui/react"
 import bg from "../../assets/images/work.png"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"

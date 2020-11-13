@@ -1,9 +1,9 @@
-import { Flex, Heading, Image, PseudoBox, Text } from "@chakra-ui/core"
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react"
 import React from "react"
 
 export const Card = (props: CardProps) => {
   return (
-    <PseudoBox
+    <Box
       display="flex"
       justifyContent="space-between"
       w="full"
@@ -29,7 +29,7 @@ export const Card = (props: CardProps) => {
       </Flex>
 
       <Image src="/logo.svg" size="200px" />
-    </PseudoBox>
+    </Box>
   )
 }
 

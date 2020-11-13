@@ -1,4 +1,4 @@
-import { Box, Icon, Text, useColorMode } from "@chakra-ui/core"
+import { Box, Icon, Text, useColorMode } from "@chakra-ui/react"
 import React from "react"
 
 export const Logo = () => {
@@ -8,9 +8,8 @@ export const Logo = () => {
 
   return (
     <Box display="inline-flex" color={textColor[colorMode]} p="2">
-      <Icon name="at-sign" size="6" />
       <Text fontSize="lg" fontWeight="bold">
-        _mdrj
+        @_mdrj
       </Text>
     </Box>
   )

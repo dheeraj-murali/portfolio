@@ -38,11 +38,3 @@ export const SEO = (props: SEOProps) => {
     </Helmet>
   )
 }
-
-interface SEOProps {
-  title: string
-  description: string
-  image: string
-  siteUrl: string
-  twitterUsername: string
-}

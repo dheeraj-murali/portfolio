@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/core"
+import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 
 export const ReviewCard = (props: ReviewCardProps) => {

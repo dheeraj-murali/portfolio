@@ -1,8 +1,9 @@
-import { Flex, useColorMode } from "@chakra-ui/core"
+import { Flex, useColorMode } from "@chakra-ui/react"
 import React from "react"
 import { Logo, Nav, Social, ThemeToggle } from "../../components"
 
-export const Header = () => {
+export const Header = (props: HeaderProps) => {
+  const { nav, social } = props
   const { colorMode } = useColorMode()
 
   const textColor = { light: "black", dark: "white" }
@@ -18,11 +19,9 @@ export const Header = () => {
       shadow="sm"
     >
       <Logo />
-      <Nav />
-      <Social />
+      <Nav nav={nav} />
+      <Social social={social} />
       <ThemeToggle />
     </Flex>
   )
 }
-
-interface HeaderProps {}

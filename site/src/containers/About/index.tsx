@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/core"
+import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { ProfileCard, ReviewCard } from "../../components"

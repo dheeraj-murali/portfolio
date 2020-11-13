@@ -1,38 +1,36 @@
-import { Box, Flex, Link, List, ListItem } from "@chakra-ui/core"
+import { Flex, Icon, Link, List, ListItem } from "@chakra-ui/react"
 import React from "react"
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa"
+import { v4 as uuid } from "uuid"
 
-export const Social = () => {
+const getService = (service: "GitHub" | "LinkedIn" | "Twitter") => {
+  switch (service) {
+    case "GitHub":
+      return <Icon as={FaGithubSquare} w="6" h="6" />
+    case "LinkedIn":
+      return <Icon as={FaLinkedin} w="6" h="6" />
+    case "Twitter":
+      return <Icon as={FaTwitterSquare} w="6" h="6" />
+    default:
+      return null
+  }
+}
+
+export const Social = (props: SocialProps) => {
+  const { social } = props
+
   return (
     <Flex>
       <List display="inline-flex">
-        <ListItem p="2">
-          <Link
-            href="https://chakra-ui.com"
-            isExternal
-            _hover={{ color: "blue.500" }}
-          >
-            <Box as={FaGithubSquare} size="6" />
-          </Link>
-        </ListItem>
-        <ListItem p="2">
-          <Link
-            href="https://www.linkedin.com/in/dheeraj-murali/"
-            isExternal
-            _hover={{ color: "blue.500" }}
-          >
-            <Box as={FaLinkedin} size="6" />
-          </Link>
-        </ListItem>
-        <ListItem p="2">
-          <Link
-            href="https://twitter.com/_mdrj"
-            isExternal
-            _hover={{ color: "blue.500" }}
-          >
-            <Box as={FaTwitterSquare} size="6" />
-          </Link>
-        </ListItem>
+        {social.map(item => {
+          return (
+            <ListItem m="2" key={uuid()} display="flex">
+              <Link href={item.link} isExternal _hover={{ color: "blue.500" }}>
+                {getService(item.service)}
+              </Link>
+            </ListItem>
+          )
+        })}
       </List>
     </Flex>
   )
