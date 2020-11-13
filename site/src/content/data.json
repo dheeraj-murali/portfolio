@@ -1,0 +1,89 @@
+{
+  "seo": {
+    "title": "dheeraj murali",
+    "description": "Web designer and front-end developer"
+  },
+  "header": {
+    "nav": [
+      {
+        "title": "Services",
+        "link": "#services"
+      },
+      {
+        "title": "Portfolio",
+        "link": "#portfolio"
+      },
+      {
+        "title": "About",
+        "link": "#about"
+      },
+      {
+        "title": "Contact",
+        "link": "#contact"
+      }
+    ],
+    "social": [
+      {
+        "service": "GitHub",
+        "link": "#"
+      },
+      {
+        "service": "LinkedIn",
+        "link": "#"
+      },
+      {
+        "service": "Twitter",
+        "link": "#"
+      }
+    ]
+  },
+  "hero": {
+    "title": {
+      "text": "Hey, I'm a digital product developer",
+      "highlight": "digital"
+    },
+    "body": "I’m Dheeraj a Web designer and Front-end developer, who loves crafting fast and easy to use web applications.",
+    "image": ""
+  },
+  "service": {
+    "title": "Reach out to me for",
+    "items": [
+      {
+        "title": "Branding & logo",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "",
+        "color": "yellow"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Checkout some of my work",
+    "items": [
+      {
+        "title": "Cochin car rentals",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "",
+        "link": "#"
+      }
+    ]
+  },
+  "About": {
+    "title": {
+      "text": "Hi there, I'm a Web designer and Front-end developer who loves crafting fast and easy to use web applications.",
+      "highlight": "Web designer and Front-end developer"
+    },
+    "body": "Dictum aenean maecenas porta risus, facilisis maecenas donec amet porttitor. Eu, odio vel eros, nibh arcu egestas quis. Nunc neque, pulvinar quam feugiat nunc. Non nibh quam viverra pellentesque gravida. Aliquet dui mauris morbi ornare commodo pulvinar eget porttitor. Risus, at nulla risus, amet lorem eleifend arcu in. Feugiat nisl amet, neque in. Enim massa vivamus sapien, arcu. Sit massa sit dui iaculis. Facilisi eu volutpat quam tortor, non. Maecenas turpis massa volutpat sit molestie a. Facilisis quis congue mauris proin eget eu. Bibendum tincidunt sed praesent sed.",
+    "testimonials": [
+      {
+        "name": "Test user",
+        "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
+        "picture": ""
+      }
+    ]
+  },
+  "contact": {
+    "image": "",
+    "title": "Got a project? Let's talk",
+    "mail": "410dheeraj@gmail.com"
+  }
+}
