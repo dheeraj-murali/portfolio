@@ -1,16 +1,14 @@
-import React from 'react';
-import { Header } from '../Containers/Header';
-import { Hero } from '../Containers/Hero';
-import { Portfolio } from '../Containers/Portfolio';
-import { Service } from '../Containers/Service';
+import React from "react"
+import { About, Header, Hero, Portfolio, Service } from "../containers"
 
 export default function Home() {
-	return (
-		<>
-			<Header />
-			<Hero />
-			<Service />
-			<Portfolio />
-		</>
-	);
+  return (
+    <>
+      <Header />
+      <Hero />
+      <Service />
+      <Portfolio />
+      <About />
+    </>
+  )
 }

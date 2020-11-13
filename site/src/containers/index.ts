@@ -1,0 +1,5 @@
+export { About } from "./About"
+export { Header } from "./Header"
+export { Hero } from "./Hero"
+export { Portfolio } from "./Portfolio"
+export { Service } from "./Service"
