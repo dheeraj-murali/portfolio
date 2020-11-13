@@ -22,7 +22,7 @@ export default function Home() {
       <Service {...service} />
       <Portfolio {...portfolio} />
       <About {...about} />
-      {/* <Contact /> */}
+      <Contact {...contact} />
       {/* <Footer /> */}
     </>
   )

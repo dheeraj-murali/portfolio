@@ -107,3 +107,8 @@ interface ReviewCardProps {
   message: string
   picture: string
 }
+
+interface ContactProps {
+  title: string
+  mail: string
+}

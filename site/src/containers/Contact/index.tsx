@@ -1,7 +1,9 @@
-import { Flex, Heading, Image, Text, useColorMode } from "@chakra-ui/react"
+import { Flex, Heading, Image, Link } from "@chakra-ui/react"
 import React from "react"
+import { ContactProps } from "../../types"
 
-export const Contact = () => {
+export const Contact = (props: ContactProps) => {
+  const { mail, title } = props
   return (
     <Flex
       w="full"
@@ -9,15 +11,16 @@ export const Contact = () => {
       justifyContent="center"
       alignItems="center"
       p="5"
-      py={{ base: "5", lg: "20" }}
     >
       <Image src="/contact.svg" size="md" />
 
       <Flex flexDir="column" justifyContent="space-evenly" textAlign="center">
         <Heading as="h2" fontSize="5xl" mb="10">
-          Got a project? Let's talk
+          {title}
         </Heading>
-        <Text fontSize="3xl">410dheeraj@gmail.com</Text>
+        <Link href={`mailto:${mail}`} fontSize="3xl">
+          {mail}
+        </Link>
       </Flex>
     </Flex>
   )
