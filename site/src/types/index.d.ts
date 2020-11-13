@@ -39,3 +39,17 @@ interface HeroProps {
   body: string
   image: string
 }
+
+interface Service {
+  title: string
+  body: string
+  image: string
+  color: string
+}
+
+interface ServiceProps {
+  title: string
+  items: Service[]
+}
+
+interface CardProps extends Service {}

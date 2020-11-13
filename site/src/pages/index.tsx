@@ -20,7 +20,7 @@ export default function Home() {
       <SEO {...seo} />
       <Header {...header} />
       <Hero {...hero} />
-      {/* <Service /> */}
+      <Service {...service} />
       {/* <Portfolio /> */}
       {/* <About /> */}
       {/* <Contact /> */}

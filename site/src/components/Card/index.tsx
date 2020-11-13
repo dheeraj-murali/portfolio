@@ -1,38 +1,40 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react"
+import { Flex, Heading, Image, Text, useColorModeValue } from "@chakra-ui/react"
 import React from "react"
 
 export const Card = (props: CardProps) => {
+  const { title, body, color, image } = props
+
+  const bg = useColorModeValue(`${color}.200`, `${color}.800`)
+  const titleColor = useColorModeValue(`${color}.800`, `${color}.200`)
+
   return (
-    <Box
-      display="flex"
+    <Flex
+      flexDir={{ base: "column-reverse", md: "row" }}
       justifyContent="space-between"
+      alignItems="center"
       w="full"
       h="full"
       rounded="sm"
       p="5"
       shadow="lg"
-      bg={props.color}
+      bg={bg}
       _hover={{ boxShadow: "outline" }}
-      color="black"
     >
-      <Flex w="50%" flexDir="column">
-        <Heading as="h3" fontSize="xl" fontWeight="bold">
-          Branding & logo
+      <Flex w={{ base: "full", md: "50%" }} flexDir="column">
+        <Heading as="h3" size="lg" color={titleColor}>
+          {title}
         </Heading>
 
-        <Text py="5">
-          Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat
-          veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea
-          voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore
-          nihil.
-        </Text>
+        <Text py="5">{body}</Text>
       </Flex>
 
-      <Image src="/logo.svg" size="200px" />
-    </Box>
+      <Image
+        src={`/${image}`}
+        boxSize={{ base: "150px", lg: "200px" }}
+        objectFit="cover"
+        alt={title}
+        my={{ base: "5", md: "0" }}
+      />
+    </Flex>
   )
-}
-
-interface CardProps {
-  color: string
 }

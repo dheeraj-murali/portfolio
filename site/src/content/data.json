@@ -54,8 +54,26 @@
       {
         "title": "Branding & logo",
         "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
-        "image": "",
+        "image": "logo.svg",
         "color": "yellow"
+      },
+      {
+        "title": "Design",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "design.svg",
+        "color": "green"
+      },
+      {
+        "title": "Development",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "development.svg",
+        "color": "blue"
+      },
+      {
+        "title": "SEO",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "seo.svg",
+        "color": "pink"
       }
     ]
   },
