@@ -19,12 +19,12 @@ export default function Home() {
     <>
       <SEO {...seo} />
       <Header {...header} />
-      {/* <Hero />
-      <Service />
-      <Portfolio />
-      <About />
-      <Contact />
-      <Footer /> */}
+      <Hero {...hero} />
+      {/* <Service /> */}
+      {/* <Portfolio /> */}
+      {/* <About /> */}
+      {/* <Contact /> */}
+      {/* <Footer /> */}
     </>
   )
 }

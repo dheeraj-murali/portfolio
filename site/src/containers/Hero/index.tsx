@@ -1,15 +1,9 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  useColorMode,
-  Image,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Flex, Heading, Image, Text, useColorMode } from "@chakra-ui/react"
 import React from "react"
+import { generateTitle } from "../../utils/index"
 
-export const Hero = () => {
+export const Hero = (props: HeroProps) => {
+  const { title, body, image } = props
   const { colorMode } = useColorMode()
 
   const textColor = { light: "black", dark: "white" }
@@ -24,20 +18,19 @@ export const Hero = () => {
       color={textColor[colorMode]}
     >
       <Flex flexDir="column" justifyContent="space-evenly" maxW="md">
-        <Heading as="h1" fontSize="6xl" mb="10">
-          Hey, I'm a<span style={{ color: "#4299E1" }}> digital </span>
-          product developer
-        </Heading>
-        <Text>
-          Hi, I’m Dheeraj a Web designer and Front-end developer, who loves
-          crafting fast and easy to use web applications.
-        </Text>
+        <Heading
+          as="h1"
+          size="4xl"
+          mb="10"
+          dangerouslySetInnerHTML={{
+            __html: generateTitle(title.text, title.highlight),
+          }}
+        />
+        <Text>{body}</Text>
       </Flex>
       <Box>
-        <Image src="/hero.svg" size="lg" />
+        <Image src={`/${image}`} size="lg" />
       </Box>
     </Flex>
   )
 }
-
-interface HeroProps {}

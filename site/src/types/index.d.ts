@@ -28,3 +28,14 @@ interface NavProps {
 interface SocialProps {
   social: Social[]
 }
+
+interface Title {
+  text: string
+  highlight: string
+}
+
+interface HeroProps {
+  title: Title
+  body: string
+  image: string
+}
