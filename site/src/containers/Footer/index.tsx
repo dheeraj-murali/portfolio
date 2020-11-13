@@ -11,7 +11,7 @@ export const Footer = () => {
       alignItems="center"
       p="5"
       py={{ base: "5", lg: "20" }}
-      bg="teal.900"
+      bg="blue.900"
     ></Flex>
   )
 }
