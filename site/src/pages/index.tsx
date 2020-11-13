@@ -1,5 +1,13 @@
 import React from "react"
-import { About, Header, Hero, Portfolio, Service } from "../containers"
+import {
+  About,
+  Contact,
+  Footer,
+  Header,
+  Hero,
+  Portfolio,
+  Service,
+} from "../containers"
 
 export default function Home() {
   return (
@@ -9,6 +17,8 @@ export default function Home() {
       <Service />
       <Portfolio />
       <About />
+      <Contact />
+      <Footer />
     </>
   )
 }
