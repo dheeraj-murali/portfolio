@@ -1,27 +1,49 @@
-import { Flex, useColorMode } from "@chakra-ui/react"
+import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Flex,
+  Icon,
+} from "@chakra-ui/react"
 import React from "react"
+import { FaBars } from "react-icons/fa"
 import { Logo, Nav, Social, ThemeToggle } from "../../components"
 
 export const Header = (props: HeaderProps) => {
   const { nav, social } = props
-  const { colorMode } = useColorMode()
-
-  const textColor = { light: "black", dark: "white" }
 
   return (
-    <Flex
-      w="full"
-      flexDir={{ base: "column", md: "row" }}
-      justifyContent="space-around"
-      p="5"
-      color={textColor[colorMode]}
-      zIndex={3}
-      shadow="sm"
-    >
-      <Logo />
-      <Nav nav={nav} />
-      <Social social={social} />
-      <ThemeToggle />
-    </Flex>
+    <Box shadow="sm" w="full">
+      <Box
+        justifyContent="space-between"
+        alignItems="center"
+        display={{ base: "none", md: "flex" }}
+        px={{ base: "3", lg: "10" }}
+        py="3"
+        w="full"
+      >
+        <Logo />
+        <Nav nav={nav} />
+        <Social social={social} />
+        <ThemeToggle />
+      </Box>
+      <Accordion allowToggle>
+        <AccordionItem display={{ base: "block", md: "none" }} w="full">
+          <AccordionButton display="flex" justifyContent="space-between">
+            <Logo />
+            <Icon as={FaBars} w="6" h="6" />
+          </AccordionButton>
+          <AccordionPanel>
+            <Flex flexDir="column">
+              <Nav nav={nav} />
+              <Social social={social} />
+              <ThemeToggle />
+            </Flex>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+    </Box>
   )
 }
