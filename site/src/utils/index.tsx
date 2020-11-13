@@ -3,10 +3,14 @@ import { FluidObject } from "gatsby-image"
 import React from "react"
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa"
 
-export const generateTitle = (text: string, highlight: string) => {
+export const generateTitle = (
+  text: string,
+  highlight: string,
+  color: string
+) => {
   return text.replace(
     highlight,
-    `<span style="color:#4299E1">${highlight}</span>`
+    `<span style="color:${color}">${highlight}</span>`
   )
 }
 

@@ -1,8 +1,9 @@
-import { Avatar, Flex, Heading } from "@chakra-ui/react"
+import { Avatar, Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
+import { ProfileCardProps } from "../../types"
 
 export const ProfileCard = (props: ProfileCardProps) => {
-  const { profileImage } = props
+  const { image, name, role } = props
 
   return (
     <Flex
@@ -13,19 +14,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
       bg="white"
       rounded="lg"
       color="black"
-      w="xs"
+      maxW="xs"
     >
-      <Avatar src={profileImage} size="lg" name="Dheeraj Murali" />
+      <Avatar src={image} size="lg" name={name} />
 
-      <Flex flexDir="column">
-        <Heading fontSize="md">Dheeraj Murali</Heading>
+      <Flex flexDir="column" ml="5">
+        <Heading fontSize="md">{name}</Heading>
 
-        <text>Senior software engineer</text>
+        <Text>{role}</Text>
       </Flex>
     </Flex>
   )
-}
-
-interface ProfileCardProps {
-  profileImage: string
 }

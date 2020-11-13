@@ -1,10 +1,11 @@
 import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
+import { ReviewCardProps } from "../../types"
 
 export const ReviewCard = (props: ReviewCardProps) => {
-  const { message, name } = props
+  const { message, name, picture } = props
   return (
-    <Box position="relative" maxW="xs" overflow="hidden" mx="5">
+    <Box position="relative" minW="xs" maxW="sm" overflow="hidden" mx="5">
       <Flex
         mt="10"
         flexDir="column"
@@ -23,6 +24,7 @@ export const ReviewCard = (props: ReviewCardProps) => {
           shadow="lg"
           name={name}
           size="2xl"
+          src={picture}
         />
 
         <Box mt="20">
@@ -37,9 +39,4 @@ export const ReviewCard = (props: ReviewCardProps) => {
       </Flex>
     </Box>
   )
-}
-
-interface ReviewCardProps {
-  name: string
-  message: string
 }

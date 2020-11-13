@@ -79,3 +79,31 @@ interface PortfolioModalProps {
   onOpen: () => void
   onClose: () => void
 }
+
+interface Testimonial {
+  name: string
+  message: string
+  picture: string
+}
+
+interface Profile {
+  name: string
+  role: string
+}
+
+interface AboutProps {
+  title: Title
+  body: string
+  testimonials: Testimonial[]
+  profile: Profile
+}
+
+interface ProfileCardProps extends Profile {
+  image: string
+}
+
+interface ReviewCardProps {
+  name: string
+  message: string
+  picture: string
+}

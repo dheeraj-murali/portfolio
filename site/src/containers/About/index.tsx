@@ -1,9 +1,13 @@
-import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Flex, Heading, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import { v4 as uuid } from "uuid"
 import { ProfileCard, ReviewCard } from "../../components"
+import { AboutProps } from "../../types"
+import { generateTitle } from "../../utils"
 
-export const About = () => {
+export const About = (props: AboutProps) => {
+  const { title, body, testimonials, profile } = props
   const images = useStaticQuery(graphql`
     query {
       background: file(relativePath: { eq: "images/client.png" }) {
@@ -40,48 +44,35 @@ export const About = () => {
     <Box
       id="service"
       w="100vw"
-      p="10"
+      p="5"
       backgroundColor="orange.900"
       color="white"
     >
-      <Heading as="h2" maxW="4xl" my="10">
-        Hi there, I'm a{" "}
-        <span style={{ color: "#FAF089" }}>
-          Web designer and Front-end developer
-        </span>{" "}
-        who loves crafting fast and easy to use web applications.
-      </Heading>
+      <Heading
+        as="h2"
+        maxW="4xl"
+        mb="10"
+        dangerouslySetInnerHTML={{
+          __html: generateTitle(title.text, title.highlight, "#FAF089"),
+        }}
+      />
 
-      <Text maxW="4xl">
-        Dictum aenean maecenas porta risus, facilisis maecenas donec amet
-        porttitor. Eu, odio vel eros, nibh arcu egestas quis. Nunc neque,
-        pulvinar quam feugiat nunc. Non nibh quam viverra pellentesque gravida.
-        Aliquet dui mauris morbi ornare commodo pulvinar eget porttitor. Risus,
-        at nulla risus, amet lorem eleifend arcu in. Feugiat nisl amet, neque
-        in. Enim massa vivamus sapien, arcu. Sit massa sit dui iaculis. Facilisi
-        eu volutpat quam tortor, non. Maecenas turpis massa volutpat sit
-        molestie a. Facilisis quis congue mauris proin eget eu. Bibendum
-        tincidunt sed praesent sed.
-      </Text>
+      <Text maxW="4xl">{body}</Text>
 
-      <ProfileCard profileImage={images.me.childImageSharp.fluid.src} />
+      <ProfileCard {...profile} image={images.me.childImageSharp.fluid.src} />
 
       <Flex
-        justifyContent="center"
-        alignItems="center"
-        w="full"
-        h="lg"
         bg="purple.800"
         bgImg={`url(${images.background.childImageSharp.fluid.src})`}
+        h="lg"
+        justifyContent="center"
+        alignItems="center"
       >
-        <ReviewCard
-          name="test user"
-          message="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?"
-        />
-        <ReviewCard
-          name="test user"
-          message="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?"
-        />
+        <Flex overflow="scroll" w="full">
+          {testimonials.map(review => (
+            <ReviewCard {...review} key={uuid()} />
+          ))}
+        </Flex>
       </Flex>
     </Box>
   )

@@ -112,7 +112,21 @@
       "highlight": "Web designer and Front-end developer"
     },
     "body": "Dictum aenean maecenas porta risus, facilisis maecenas donec amet porttitor. Eu, odio vel eros, nibh arcu egestas quis. Nunc neque, pulvinar quam feugiat nunc. Non nibh quam viverra pellentesque gravida. Aliquet dui mauris morbi ornare commodo pulvinar eget porttitor. Risus, at nulla risus, amet lorem eleifend arcu in. Feugiat nisl amet, neque in. Enim massa vivamus sapien, arcu. Sit massa sit dui iaculis. Facilisi eu volutpat quam tortor, non. Maecenas turpis massa volutpat sit molestie a. Facilisis quis congue mauris proin eget eu. Bibendum tincidunt sed praesent sed.",
+    "profile": {
+      "name": "Dheeraj Murali",
+      "role": "Senior software engineer"
+    },
     "testimonials": [
+      {
+        "name": "Test user",
+        "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
+        "picture": ""
+      },
+      {
+        "name": "Test user",
+        "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
+        "picture": ""
+      },
       {
         "name": "Test user",
         "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",

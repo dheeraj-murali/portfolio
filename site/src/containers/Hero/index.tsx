@@ -24,7 +24,7 @@ export const Hero = (props: HeroProps) => {
           size="4xl"
           mb="10"
           dangerouslySetInnerHTML={{
-            __html: generateTitle(title.text, title.highlight),
+            __html: generateTitle(title.text, title.highlight, "#4299E1"),
           }}
         />
         <Text>{body}</Text>
