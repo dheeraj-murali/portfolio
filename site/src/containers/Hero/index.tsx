@@ -11,10 +11,11 @@ export const Hero = (props: HeroProps) => {
   return (
     <Flex
       w="full"
+      flexDir={{ base: "column-reverse", md: "row" }}
       justifyContent="space-evenly"
       alignItems="center"
       p="5"
-      py={{ base: "5", lg: "20" }}
+      py="12"
       color={textColor[colorMode]}
     >
       <Flex flexDir="column" justifyContent="space-evenly" maxW="md">
