@@ -1,7 +1,11 @@
 {
   "seo": {
     "title": "dheeraj murali",
-    "description": "Web designer and front-end developer"
+    "description": "Web designer and front-end developer",
+    "siteUrl": "",
+    "image": "",
+    "article": "",
+    "twitterUsername": ""
   },
   "header": {
     "nav": [
@@ -67,7 +71,7 @@
       }
     ]
   },
-  "About": {
+  "about": {
     "title": {
       "text": "Hi there, I'm a Web designer and Front-end developer who loves crafting fast and easy to use web applications.",
       "highlight": "Web designer and Front-end developer"
