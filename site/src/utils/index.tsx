@@ -1,4 +1,5 @@
 import { Icon } from "@chakra-ui/react"
+import { FluidObject } from "gatsby-image"
 import React from "react"
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa"
 
@@ -9,7 +10,7 @@ export const generateTitle = (text: string, highlight: string) => {
   )
 }
 
-export const getService = (service: "GitHub" | "LinkedIn" | "Twitter") => {
+export const getService = (service: string) => {
   switch (service) {
     case "GitHub":
       return <Icon as={FaGithubSquare} w="6" h="6" />
@@ -20,4 +21,16 @@ export const getService = (service: "GitHub" | "LinkedIn" | "Twitter") => {
     default:
       return null
   }
+}
+
+export const getFluid = (
+  edges: any,
+  image: string
+): FluidObject | FluidObject[] => {
+  let fluid: FluidObject | FluidObject[]
+  edges.forEach(edge => {
+    if (edge.node.name === image) fluid = edge.node.childImageSharp.fluid
+  })
+
+  return fluid
 }

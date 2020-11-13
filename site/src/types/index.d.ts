@@ -1,3 +1,5 @@
+import { FluidObject } from "gatsby-image"
+
 interface SEOProps {
   title: string
   description: string
@@ -12,7 +14,7 @@ interface Nav {
 }
 
 interface Social {
-  service: "GitHub" | "LinkedIn" | "Twitter"
+  service: string
   link: string
 }
 
@@ -53,3 +55,27 @@ interface ServiceProps {
 }
 
 interface CardProps extends Service {}
+
+interface PortfolioItem {
+  title: string
+  body: string
+  image: string
+  link: string
+}
+
+interface PortfolioProps {
+  title: string
+  items: PortfolioItem[]
+}
+
+interface PortfolioCardProps extends PortfolioItem {}
+
+interface PortfolioModalProps {
+  title: string
+  body: string
+  fluid: FluidObject | FluidObject[]
+  link: string
+  isOpen: boolean
+  onOpen: () => void
+  onClose: () => void
+}

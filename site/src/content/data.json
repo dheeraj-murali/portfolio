@@ -83,7 +83,25 @@
       {
         "title": "Cochin car rentals",
         "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
-        "image": "",
+        "image": "cochin-car-rental",
+        "link": "#"
+      },
+      {
+        "title": "Zeal Academy",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "zeal-academy",
+        "link": "#"
+      },
+      {
+        "title": "Camelcase",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "camelcase",
+        "link": "#"
+      },
+      {
+        "title": "Rice & Rice",
+        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "image": "rice-and-rice",
         "link": "#"
       }
     ]
