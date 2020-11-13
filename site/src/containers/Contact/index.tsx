@@ -10,7 +10,7 @@ export const Contact = (props: ContactProps) => {
       flexDir="column"
       justifyContent="center"
       alignItems="center"
-      p="5"
+      p={{ base: "5", lg: "10", xl: "16" }}
     >
       <Image src="/contact.svg" size="md" />
 

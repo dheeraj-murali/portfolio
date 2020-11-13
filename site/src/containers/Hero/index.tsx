@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Image, Text, useColorMode } from "@chakra-ui/react"
 import React from "react"
+import { HeroProps } from "../../types"
 import { generateTitle } from "../../utils/index"
 
 export const Hero = (props: HeroProps) => {

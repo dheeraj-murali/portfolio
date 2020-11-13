@@ -1,6 +1,7 @@
+import { useLocation } from "@reach/router"
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useLocation } from "@reach/router"
+import { SEOProps } from "../../types"
 
 export const SEO = (props: SEOProps) => {
   const { siteUrl, description, image, title, twitterUsername } = props

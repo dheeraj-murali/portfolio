@@ -1,28 +1,14 @@
-import {
-  Box,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Button,
-  Text,
-  Link,
-  Icon,
-} from "@chakra-ui/react"
+import { Box, useDisclosure } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import { PortfolioCardProps } from "../../types"
 import { getFluid } from "../../utils"
 import { PortfolioModal } from "../PortfolioModal"
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { body, title, image, link } = props
+  const { image } = props
   const bg = useStaticQuery(graphql`
     query {
       allFile(

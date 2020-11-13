@@ -1,5 +1,6 @@
 import { Flex, Heading, Image, Text, useColorModeValue } from "@chakra-ui/react"
 import React from "react"
+import { CardProps } from "../../types"
 
 export const Card = (props: CardProps) => {
   const { title, body, color, image } = props

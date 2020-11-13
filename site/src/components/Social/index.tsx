@@ -1,6 +1,7 @@
 import { Flex, Link, List, ListItem } from "@chakra-ui/react"
 import React from "react"
 import { v4 as uuid } from "uuid"
+import { SocialProps } from "../../types"
 import { getService } from "../../utils/index"
 
 export const Social = (props: SocialProps) => {

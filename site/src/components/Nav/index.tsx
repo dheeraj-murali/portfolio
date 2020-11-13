@@ -1,6 +1,7 @@
-import { Link, Flex, List, ListItem } from "@chakra-ui/react"
-import { v4 as uuid } from "uuid"
+import { Flex, Link, List, ListItem } from "@chakra-ui/react"
 import React from "react"
+import { v4 as uuid } from "uuid"
+import { NavProps } from "../../types"
 
 export const Nav = (props: NavProps) => {
   const { nav } = props

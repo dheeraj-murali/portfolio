@@ -1,9 +1,20 @@
-import { Avatar, Box, Flex, Heading, Text } from "@chakra-ui/react"
+import {
+  Avatar,
+  Box,
+  Flex,
+  Heading,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react"
 import React from "react"
 import { ReviewCardProps } from "../../types"
 
 export const ReviewCard = (props: ReviewCardProps) => {
   const { message, name, picture } = props
+
+  const bg = useColorModeValue("white", "gray.800")
+  const color = useColorModeValue("black", "white")
+
   return (
     <Box position="relative" minW="xs" maxW="sm" overflow="hidden" mx="5">
       <Flex
@@ -13,9 +24,9 @@ export const ReviewCard = (props: ReviewCardProps) => {
         alignItems="center"
         w="full"
         p="5"
-        bg="white"
+        bg={bg}
         shadow="lg"
-        color="black"
+        color={color}
       >
         <Avatar
           position="absolute"

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { v4 as uuid } from "uuid"
 import { PortfolioCard } from "../../components/PortfolioCard"
+import { PortfolioProps } from "../../types"
 
 export const Portfolio = (props: PortfolioProps) => {
   const { items, title } = props
@@ -28,15 +29,14 @@ export const Portfolio = (props: PortfolioProps) => {
     <Box
       id="portfolio"
       w="full"
-      py="20"
-      p="5"
+      p={{ base: "5", lg: "10", xl: "16" }}
       bgImg={`url(${images.background.childImageSharp.fluid.src})`}
       backgroundColor="blue.900"
       color="white"
     >
       <Heading as="h2">{title}</Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} my="10">
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} mt="10">
         {items.map(item => (
           <PortfolioCard {...item} key={uuid()} />
         ))}

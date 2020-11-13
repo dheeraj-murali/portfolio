@@ -14,6 +14,7 @@ import {
 import Img from "gatsby-image"
 import React from "react"
 import { FaExternalLinkAlt } from "react-icons/fa"
+import { PortfolioModalProps } from "../../types"
 
 export const PortfolioModal = (props: PortfolioModalProps) => {
   const { body, title, fluid, link, isOpen, onOpen, onClose } = props

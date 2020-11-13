@@ -1,9 +1,18 @@
-import { Avatar, Flex, Heading, Text } from "@chakra-ui/react"
+import {
+  Avatar,
+  Flex,
+  Heading,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react"
 import React from "react"
 import { ProfileCardProps } from "../../types"
 
 export const ProfileCard = (props: ProfileCardProps) => {
   const { image, name, role } = props
+
+  const bg = useColorModeValue("white", "gray.800")
+  const color = useColorModeValue("black", "white")
 
   return (
     <Flex
@@ -11,9 +20,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
       justifyContent="space-around"
       my="10"
       p="5"
-      bg="white"
+      bg={bg}
       rounded="lg"
-      color="black"
+      color={color}
       maxW="xs"
     >
       <Avatar src={image} size="lg" name={name} />

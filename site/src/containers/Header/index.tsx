@@ -10,6 +10,7 @@ import {
 import React from "react"
 import { FaBars } from "react-icons/fa"
 import { Logo, Nav, Social, ThemeToggle } from "../../components"
+import { HeaderProps } from "../../types"
 
 export const Header = (props: HeaderProps) => {
   const { nav, social } = props
