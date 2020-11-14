@@ -27,6 +27,11 @@ interface NavProps {
   nav: Nav[]
 }
 
+declare interface ScrollAssistProps {
+  leftClickFn: () => void
+  rightClickFn: () => void
+}
+
 interface SocialProps {
   social: Social[]
 }
