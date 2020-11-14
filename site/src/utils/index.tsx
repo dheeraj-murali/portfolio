@@ -32,9 +32,20 @@ export const getFluid = (
   image: string
 ): FluidObject | FluidObject[] => {
   let fluid: FluidObject | FluidObject[]
+
   edges.forEach(edge => {
     if (edge.node.name === image) fluid = edge.node.childImageSharp.fluid
   })
 
   return fluid
+}
+
+export const getSrc = (edges: any, image: string): string => {
+  let src: string
+
+  edges.forEach(edge => {
+    if (edge.node.name === image) src = edge.node.childImageSharp.fluid.src
+  })
+
+  return src
 }

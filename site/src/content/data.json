@@ -111,29 +111,23 @@
       "text": "Hi there, I'm a Web designer and Front-end developer who loves crafting fast and easy to use web applications.",
       "highlight": "Web designer and Front-end developer"
     },
-    "body": "I love design, web development and passionate about open source. A big believer in simple and elegant design, and doing more by doing less. As a Front end developer with 4+ years of experience designing and developing customizable data driven user interfaces for Healthcare, eCommerce and Product Quality analytics domain.",
+    "body": "I love design, web development and passionate about open source. A big believer in minimalism and elegant design, and doing more by doing less. I've worked as a Front end developer for 4+ years, designing and developing customizable data driven user interfaces for Healthcare, eCommerce, Product Quality analytics domain and more...",
     "profile": {
       "name": "Dheeraj Murali",
       "role": "Senior software engineer"
     },
     "testimonials": [
       {
-        "name": "Test user",
-        "role": "Senior software engineer",
-        "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
-        "picture": ""
+        "name": "Jithin Joseph",
+        "role": "Developer | Camelcase",
+        "message": "He has exceptional knowledge in Frontend Development and he is an awesome teacher. A master at creating, minimalistic and creative solutions. We love working with him!",
+        "picture": "jithin-joseph"
       },
       {
-        "name": "Test user",
+        "name": "Jijo Raju",
         "role": "Senior software engineer",
-        "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
-        "picture": ""
-      },
-      {
-        "name": "Test user",
-        "role": "Senior software engineer",
-        "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
-        "picture": ""
+        "message": "A talented React developer with enormous amount of passion and determination. He is very precise in performing his task as well as very responsive and helpful.",
+        "picture": "jijo-raju"
       }
     ]
   },

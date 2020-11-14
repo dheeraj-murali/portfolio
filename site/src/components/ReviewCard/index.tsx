@@ -6,14 +6,44 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { ReviewCardProps } from "../../types"
+import { getSrc } from "../../utils"
 
 export const ReviewCard = (props: ReviewCardProps) => {
   const { message, name, picture, role } = props
 
   const bg = useColorModeValue("white", "gray.800")
   const color = useColorModeValue("black", "white")
+
+  const image = useStaticQuery(graphql`
+    query {
+      allFile(
+        filter: {
+          extension: { regex: "/(jpg)/" }
+          relativePath: { regex: "/(clients)/" }
+        }
+      ) {
+        edges {
+          node {
+            name
+            childImageSharp {
+              fluid(quality: 80) {
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <Box position="relative" minW="xs" maxW="sm" overflow="hidden" mx="5">
@@ -35,7 +65,7 @@ export const ReviewCard = (props: ReviewCardProps) => {
           shadow="lg"
           name={name}
           size="2xl"
-          src={picture}
+          src={getSrc(image.allFile.edges, picture)}
         />
 
         <Box mt="20">
