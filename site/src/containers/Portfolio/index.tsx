@@ -30,7 +30,7 @@ export const Portfolio = (props: PortfolioProps) => {
       id="portfolio"
       w="full"
       bgImg={`url(${images.background.childImageSharp.fluid.src})`}
-      backgroundColor="blue.900"
+      backgroundColor="blue.600"
       color="white"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"

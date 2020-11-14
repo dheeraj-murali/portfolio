@@ -46,7 +46,7 @@ export const About = (props: AboutProps) => {
       w="100vw"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
-      backgroundColor="orange.900"
+      backgroundColor="purple.900"
       color="white"
     >
       <Heading
@@ -54,7 +54,7 @@ export const About = (props: AboutProps) => {
         maxW="4xl"
         mb="10"
         dangerouslySetInnerHTML={{
-          __html: generateTitle(title.text, title.highlight, "#FAF089"),
+          __html: generateTitle(title.text, title.highlight, "#F6E05E"),
         }}
       />
 
