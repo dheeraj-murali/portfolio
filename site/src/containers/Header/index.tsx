@@ -16,7 +16,7 @@ export const Header = (props: HeaderProps) => {
   const { nav, social } = props
 
   return (
-    <Box shadow="sm" w="full">
+    <Box id="header" shadow="sm" w="full">
       <Box
         justifyContent="space-between"
         alignItems="center"

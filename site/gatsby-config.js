@@ -16,5 +16,6 @@ module.exports = {
     `@chakra-ui/gatsby-plugin`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-smoothscroll`,
   ],
 }

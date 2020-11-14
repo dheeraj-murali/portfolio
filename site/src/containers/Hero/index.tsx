@@ -11,6 +11,7 @@ export const Hero = (props: HeroProps) => {
 
   return (
     <Flex
+      id="main"
       w="full"
       flexDir={{ base: "column-reverse", md: "row" }}
       justifyContent="space-evenly"

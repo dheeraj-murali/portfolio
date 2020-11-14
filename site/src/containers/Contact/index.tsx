@@ -6,6 +6,7 @@ export const Contact = (props: ContactProps) => {
   const { mail, title } = props
   return (
     <Flex
+      id="contact"
       w="full"
       flexDir="column"
       justifyContent="center"

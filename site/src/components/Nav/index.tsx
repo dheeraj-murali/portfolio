@@ -1,7 +1,8 @@
-import { Flex, Link, List, ListItem } from "@chakra-ui/react"
+import { Flex, Button, List, ListItem } from "@chakra-ui/react"
 import React from "react"
 import { v4 as uuid } from "uuid"
 import { NavProps } from "../../types"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 export const Nav = (props: NavProps) => {
   const { nav } = props
@@ -11,9 +12,13 @@ export const Nav = (props: NavProps) => {
       <List display="inline-flex">
         {nav.map(item => (
           <ListItem p="2" key={uuid()}>
-            <Link href={item.link} _hover={{ color: "blue.500" }}>
+            <Button
+              onClick={() => scrollTo(item.link)}
+              variant="ghost"
+              colorScheme="blue"
+            >
               {item.title}
-            </Link>
+            </Button>
           </ListItem>
         ))}
       </List>

@@ -4,6 +4,7 @@ import React from "react"
 export const Footer = () => {
   return (
     <Flex
+      id="footer"
       w="full"
       h="md"
       flexDir="column"
