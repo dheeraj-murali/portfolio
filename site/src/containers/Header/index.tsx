@@ -21,8 +21,8 @@ export const Header = (props: HeaderProps) => {
         justifyContent="space-between"
         alignItems="center"
         display={{ base: "none", md: "flex" }}
-        px={{ base: "3", lg: "10" }}
-        py="3"
+        px={{ base: "5", lg: "10", xl: "16" }}
+        py="5"
         w="full"
       >
         <Logo />

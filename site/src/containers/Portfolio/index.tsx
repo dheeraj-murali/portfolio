@@ -29,10 +29,11 @@ export const Portfolio = (props: PortfolioProps) => {
     <Box
       id="portfolio"
       w="full"
-      p={{ base: "5", lg: "10", xl: "16" }}
       bgImg={`url(${images.background.childImageSharp.fluid.src})`}
       backgroundColor="blue.900"
       color="white"
+      px={{ base: "5", lg: "10", xl: "16" }}
+      py="32"
     >
       <Heading as="h2">{title}</Heading>
 

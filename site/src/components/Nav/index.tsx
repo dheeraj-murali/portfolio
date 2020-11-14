@@ -9,7 +9,7 @@ export const Nav = (props: NavProps) => {
 
   return (
     <Flex>
-      <List display="inline-flex">
+      <List display="flex" flexWrap="wrap">
         {nav.map(item => (
           <ListItem p="2" key={uuid()}>
             <Button

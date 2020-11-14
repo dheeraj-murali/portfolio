@@ -11,7 +11,8 @@ export const Contact = (props: ContactProps) => {
       flexDir="column"
       justifyContent="center"
       alignItems="center"
-      p={{ base: "5", lg: "10", xl: "16" }}
+      px={{ base: "5", lg: "10", xl: "16" }}
+      py="32"
     >
       <Image src="/contact.svg" size="md" />
 

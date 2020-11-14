@@ -16,15 +16,15 @@ export const Hero = (props: HeroProps) => {
       flexDir={{ base: "column-reverse", md: "row" }}
       justifyContent="space-evenly"
       alignItems="center"
-      p="5"
-      py="12"
+      px={{ base: "5", lg: "10", xl: "16" }}
+      py="32"
       color={textColor[colorMode]}
     >
-      <Flex flexDir="column" justifyContent="space-evenly" maxW="md">
+      <Flex flexDir="column" justifyContent="space-between" maxW="md">
         <Heading
           as="h1"
           size="4xl"
-          mb="10"
+          my="10"
           dangerouslySetInnerHTML={{
             __html: generateTitle(title.text, title.highlight, "#4299E1"),
           }}
