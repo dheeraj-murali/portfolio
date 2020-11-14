@@ -28,15 +28,15 @@
     "social": [
       {
         "service": "GitHub",
-        "link": "#"
+        "link": "https://github.com/dheeraj-murali"
       },
       {
         "service": "LinkedIn",
-        "link": "#"
+        "link": "https://www.linkedin.com/in/dheeraj-murali/"
       },
       {
         "service": "Twitter",
-        "link": "#"
+        "link": "https://twitter.com/_mdrj"
       }
     ]
   },
@@ -53,25 +53,25 @@
     "items": [
       {
         "title": "Branding & logo",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "body": "Find the perfect name, design and logo to distinctly identify your business. We provide creative and fun ways to make your brand stand out.",
         "image": "logo.svg",
         "color": "yellow"
       },
       {
         "title": "Design",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "body": "Get custom designed, tailor made high-quality websites. Whether you’re promoting your business, showcasing your work, opening your store or starting a blog — we can do it all.",
         "image": "design.svg",
         "color": "green"
       },
       {
         "title": "Development",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "body": "Get help and assistance in build super fast and reliable code base. Give you responsive design with accessibility in mind, we build reusable components with efficient composition making your code base clean simple and highly scalable.",
         "image": "development.svg",
         "color": "blue"
       },
       {
         "title": "SEO",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "body": "Reach million through carefully added optimizations to your website. Master the art of ranking high on a search engine without any fuzz.",
         "image": "seo.svg",
         "color": "pink"
       }
@@ -81,28 +81,28 @@
     "title": "Checkout some of my work",
     "items": [
       {
-        "title": "Cochin car rentals",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "title": "Cochincarrental.com",
+        "body": "A sister concern of Series tours, Cochin car rental is one of the leading Kerala Tour Operators - engaged in the promotion of Kerala Tourism. They focus on providing customers with the best car rental and tour package they can enjoy inside of Kerala. With a fleet of trained drivers, highly maintained vehicles and exceptional customer service, they have become one of the best taxi services in Kerala.",
         "image": "cochin-car-rental",
-        "link": "#"
+        "link": "https://cochincarrental.com"
       },
       {
-        "title": "Zeal Academy",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "title": "Zealacademy.info",
+        "body": "Zeal Academy is one of the emerging preeminent institution for pharmacy graduates who are aiming to build a healthcare career abroad. They are committed in nurturing dreams of becoming a part of healthcare foreign jobs with comprehensive education services. They are creating new, radical and certifying opportunities that helps students recognize the accurate path of accomplishment that helps as the springboard for their future career.",
         "image": "zeal-academy",
-        "link": "#"
+        "link": "https://zealacademy.info"
       },
       {
         "title": "Camelcase",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "body": "Camelcase is a team of developers who will help you build applications using advanced frameworks with minimal footprint. Ready to build using React, Angular, Ionic, Spring, Django, MongoDB or whatever you prefer.",
         "image": "camelcase",
-        "link": "#"
+        "link": "https://camelcase.in"
       },
       {
-        "title": "Rice & Rice",
-        "body": "Lorem oipsum sit amet consectetur adipisicing elit. Esse earum, fugiat veritatis vel deserunt ipsam suscipit nesciunt ipsa, atque velit ea voluptatem dolores, asperiores eaque. Doloribus vel dolorem labore nihil.",
+        "title": "Riceandricecalicut.com",
+        "body": "Rice & Rice Calicut is acknowledged for providing high-quality rice making use of superior grade rice as inputs. With expert done selection of types of rices, they work with a team of deft professionals who manage the entire task proficiently and lay special emphasis on product packaging so as to ensure no damage till it reaches the end-user with affordable pricing.",
         "image": "rice-and-rice",
-        "link": "#"
+        "link": "https://riceandricecalicut.com"
       }
     ]
   },
@@ -111,7 +111,7 @@
       "text": "Hi there, I'm a Web designer and Front-end developer who loves crafting fast and easy to use web applications.",
       "highlight": "Web designer and Front-end developer"
     },
-    "body": "Dictum aenean maecenas porta risus, facilisis maecenas donec amet porttitor. Eu, odio vel eros, nibh arcu egestas quis. Nunc neque, pulvinar quam feugiat nunc. Non nibh quam viverra pellentesque gravida. Aliquet dui mauris morbi ornare commodo pulvinar eget porttitor. Risus, at nulla risus, amet lorem eleifend arcu in. Feugiat nisl amet, neque in. Enim massa vivamus sapien, arcu. Sit massa sit dui iaculis. Facilisi eu volutpat quam tortor, non. Maecenas turpis massa volutpat sit molestie a. Facilisis quis congue mauris proin eget eu. Bibendum tincidunt sed praesent sed.",
+    "body": "I love design, web development and passionate about open source. A big believer in simple and elegant design, and doing more by doing less. As a Front end developer with 4+ years of experience designing and developing customizable data driven user interfaces for Healthcare, eCommerce and Product Quality analytics domain.",
     "profile": {
       "name": "Dheeraj Murali",
       "role": "Senior software engineer"
@@ -119,16 +119,19 @@
     "testimonials": [
       {
         "name": "Test user",
+        "role": "Senior software engineer",
         "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
         "picture": ""
       },
       {
         "name": "Test user",
+        "role": "Senior software engineer",
         "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
         "picture": ""
       },
       {
         "name": "Test user",
+        "role": "Senior software engineer",
         "message": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti consectetur optio aut, unde dignissimos tempore ratione, voluptas suscipit placeat natus maxime! Modi, maiores vitae. Molestias ipsum cum error optio officiis?",
         "picture": ""
       }

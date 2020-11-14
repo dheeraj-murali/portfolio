@@ -87,6 +87,7 @@ interface PortfolioModalProps {
 
 interface Testimonial {
   name: string
+  role: string
   message: string
   picture: string
 }
@@ -107,11 +108,7 @@ interface ProfileCardProps extends Profile {
   image: string
 }
 
-interface ReviewCardProps {
-  name: string
-  message: string
-  picture: string
-}
+interface ReviewCardProps extends Testimonial {}
 
 interface ContactProps {
   title: string

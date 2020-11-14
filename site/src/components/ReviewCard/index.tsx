@@ -10,7 +10,7 @@ import React from "react"
 import { ReviewCardProps } from "../../types"
 
 export const ReviewCard = (props: ReviewCardProps) => {
-  const { message, name, picture } = props
+  const { message, name, picture, role } = props
 
   const bg = useColorModeValue("white", "gray.800")
   const color = useColorModeValue("black", "white")
@@ -42,6 +42,9 @@ export const ReviewCard = (props: ReviewCardProps) => {
           <Heading as="h2" fontSize="lg" textAlign="center">
             {name}
           </Heading>
+          <Text pb="3" textAlign="center" fontSize="sm">
+            {role}
+          </Text>
 
           <Text p="3" textAlign="center" fontSize="sm" fontWeight="light">
             {message}
