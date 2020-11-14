@@ -70,7 +70,7 @@ export const About = (props: AboutProps) => {
 
       <ProfileCard {...profile} image={images.me.childImageSharp.fluid.src} />
 
-      <Flex
+      {/* <Flex
         bg="purple.800"
         bgImg={`url(${images.background.childImageSharp.fluid.src})`}
         h="lg"
@@ -88,7 +88,7 @@ export const About = (props: AboutProps) => {
           leftClickFn={() => scrollFn(container, 450, "l")}
           rightClickFn={() => scrollFn(container, 450, "r")}
         />
-      </Flex>
+      </Flex> */}
     </Box>
   )
 }
