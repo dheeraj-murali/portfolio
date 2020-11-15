@@ -15,7 +15,7 @@ export const Hero = (props: HeroProps) => {
     query {
       file(relativePath: { eq: "images/hero.png" }) {
         childImageSharp {
-          fluid(pngQuality: 10) {
+          fluid(pngQuality: 90) {
             aspectRatio
             base64
             src
