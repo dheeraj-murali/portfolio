@@ -1,13 +1,33 @@
-import { Box, Flex, Heading, Image, Text, useColorMode } from "@chakra-ui/react"
+import { Box, Flex, Heading, Text, useColorMode } from "@chakra-ui/react"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 import React from "react"
 import { HeroProps } from "../../types"
 import { generateTitle } from "../../utils/index"
 
 export const Hero = (props: HeroProps) => {
-  const { title, body, image } = props
+  const { title, body } = props
   const { colorMode } = useColorMode()
 
   const textColor = { light: "black", dark: "white" }
+
+  const hero = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "images/hero.png" }) {
+        childImageSharp {
+          fluid(pngQuality: 10) {
+            aspectRatio
+            base64
+            src
+            srcSet
+            sizes
+            srcSetWebp
+            srcWebp
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <Flex
@@ -31,8 +51,12 @@ export const Hero = (props: HeroProps) => {
         />
         <Text>{body}</Text>
       </Flex>
-      <Box>
-        <Image src={`/${image}`} size="lg" />
+      <Box w="lg" h="lg">
+        <Img
+          fluid={hero.file.childImageSharp.fluid}
+          alt={`${title} screenshot`}
+          style={{ width: "100%", height: "100%" }}
+        />
       </Box>
     </Flex>
   )
