@@ -10,6 +10,8 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import React from "react"
@@ -43,14 +45,25 @@ export const PortfolioModal = (props: PortfolioModalProps) => {
           </ModalBody>
 
           <ModalFooter>
-            <Link href={link} isExternal mx="5" _hover={{ color: "blue.500" }}>
-              <Button colorScheme="blue" rightIcon={<FaExternalLinkAlt />}>
-                Visit website
-              </Button>
-            </Link>
-            <Button colorScheme="red" onClick={onClose}>
-              Close
-            </Button>
+            <Wrap>
+              <WrapItem>
+                <Button
+                  as={Link}
+                  href={link}
+                  isExternal
+                  colorScheme="blue"
+                  variant="ghost"
+                  rightIcon={<FaExternalLinkAlt />}
+                >
+                  Visit website
+                </Button>
+              </WrapItem>
+              <WrapItem>
+                <Button colorScheme="red" onClick={onClose}>
+                  Close
+                </Button>
+              </WrapItem>
+            </Wrap>
           </ModalFooter>
         </ModalContent>
       </Modal>

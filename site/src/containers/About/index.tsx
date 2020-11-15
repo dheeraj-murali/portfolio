@@ -1,20 +1,14 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Heading, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import React, { useRef } from "react"
-import { v4 as uuid } from "uuid"
-import {
-  ProfileCard,
-  ReviewCard,
-  ScrollAssist,
-  scrollFn,
-} from "../../components"
+import React from "react"
+import { ProfileCard } from "../../components"
 import { AboutProps } from "../../types"
 import { generateTitle } from "../../utils"
 
 export const About = (props: AboutProps) => {
   const { title, body, testimonials, profile } = props
 
-  const container = useRef<HTMLDivElement>(null!)
+  // const container = useRef<HTMLDivElement>(null!)
 
   const images = useStaticQuery(graphql`
     query {

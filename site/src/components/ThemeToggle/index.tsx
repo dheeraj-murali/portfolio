@@ -8,7 +8,7 @@ export const ThemeToggle = () => {
   const themeIcon = { light: <FaMoon />, dark: <FaSun /> }
 
   return (
-    <Box p="2">
+    <Box>
       <IconButton
         aria-label="toggle dark/light mode"
         icon={themeIcon[colorMode]}
