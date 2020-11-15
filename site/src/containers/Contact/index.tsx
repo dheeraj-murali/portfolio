@@ -17,7 +17,7 @@ export const Contact = (props: ContactProps) => {
       <Image src="/contact.svg" size="md" />
 
       <Flex flexDir="column" justifyContent="space-evenly" textAlign="center">
-        <Heading as="h2" fontSize="5xl" mb="10">
+        <Heading as="h2" fontSize="5xl" mb="10" lineHeight="3rem">
           {title}
         </Heading>
         <Link href={`mailto:${mail}`} fontSize="3xl">

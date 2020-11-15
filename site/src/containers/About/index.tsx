@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react"
+import { Box, Heading, Text, useToken } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { ProfileCard } from "../../components"
@@ -9,6 +9,8 @@ export const About = (props: AboutProps) => {
   const { title, body, testimonials, profile } = props
 
   // const container = useRef<HTMLDivElement>(null!)
+
+  const [yellow500] = useToken("colors", ["yellow.300"])
 
   const images = useStaticQuery(graphql`
     query {
@@ -56,7 +58,7 @@ export const About = (props: AboutProps) => {
         maxW="4xl"
         mb="10"
         dangerouslySetInnerHTML={{
-          __html: generateTitle(title.text, title.highlight, "#F6E05E"),
+          __html: generateTitle(title.text, title.highlight, yellow500),
         }}
       />
 
