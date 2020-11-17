@@ -47,7 +47,7 @@ export const About = (props: AboutProps) => {
   return (
     <Box
       id="about"
-      w="100vw"
+      w="full"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
       backgroundColor="purple.900"

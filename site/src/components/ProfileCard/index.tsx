@@ -18,7 +18,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     <Flex
       alignItems="center"
       justifyContent="space-around"
-      my="10"
+      mt="10"
       p="5"
       bg={bg}
       rounded="lg"
