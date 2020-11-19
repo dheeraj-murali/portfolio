@@ -1,17 +1,9 @@
 import { Box, Flex, Heading, SlideFade, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React, { useEffect, useState } from "react"
+import React from "react"
 
 export default function notFound() {
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsOpen(true)
-    }, 1500)
-  }, [])
-
   const image = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/404.png" }) {
@@ -38,7 +30,7 @@ export default function notFound() {
       justifyContent="space-evenly"
       alignItems="center"
     >
-      <SlideFade offsetY={500} in={isOpen}>
+      <SlideFade offsetY={500} in={true}>
         <Box w="xs">
           <Img
             fluid={image.file.childImageSharp.fluid}
