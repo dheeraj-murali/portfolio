@@ -17,8 +17,8 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
           as={Button}
           overflow="hidden"
           objectFit="cover"
-          _hover={{ boxShadow: `0px 0px 20px ${color}` }}
-          _focus={{ boxShadow: `5px 5px 15px ${color}` }}
+          _hover={{ boxShadow: `0px 0px 15px ${color}` }}
+          _focus={{ boxShadow: `0px 0px 15px ${color}` }}
           style={{ width: "100%", height: "100%" }}
           onClick={onOpen}
           color={`${color}.300`}
