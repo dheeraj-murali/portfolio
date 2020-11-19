@@ -1,6 +1,8 @@
 import {
   Box,
   Button,
+  DarkMode,
+  LightMode,
   Link,
   Modal,
   ModalBody,
@@ -22,10 +24,10 @@ export const PortfolioModal = (props: PortfolioModalProps) => {
   const { body, title, fluid, link, isOpen, onOpen, onClose } = props
 
   return (
-    <>
+    <DarkMode>
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent color="white">
           <ModalHeader>{title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -59,14 +61,16 @@ export const PortfolioModal = (props: PortfolioModalProps) => {
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button colorScheme="red" onClick={onClose}>
-                  Close
-                </Button>
+                <LightMode>
+                  <Button colorScheme="red" onClick={onClose}>
+                    Close
+                  </Button>
+                </LightMode>
               </WrapItem>
             </Wrap>
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+    </DarkMode>
   )
 }

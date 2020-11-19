@@ -68,6 +68,7 @@ interface PortfolioItem {
   body: string
   image: string
   link: string
+  color: string
 }
 
 interface PortfolioProps {
