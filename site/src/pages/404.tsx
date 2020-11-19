@@ -1,7 +1,7 @@
-import { Box, Flex, Heading, Slide, SlideFade, Text } from "@chakra-ui/react"
+import { Box, Flex, Heading, SlideFade, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
+import React, { useEffect, useState } from "react"
 
 export default function notFound() {
   const [isOpen, setIsOpen] = useState(false)

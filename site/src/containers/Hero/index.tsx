@@ -2,31 +2,23 @@ import {
   Box,
   Flex,
   Heading,
-  SlideFade,
   Text,
   useColorMode,
   useToken,
 } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { HeroProps } from "../../types"
 import { generateTitle } from "../../utils/index"
 
 export const Hero = (props: HeroProps) => {
   const { title, body } = props
-  const [isOpen, setIsOpen] = useState(false)
 
   const { colorMode } = useColorMode()
 
   const textColor = { light: "black", dark: "white" }
   const [blue500] = useToken("colors", ["blue.500"])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsOpen(true)
-    }, 200)
-  }, [])
 
   const image = useStaticQuery(graphql`
     query {
@@ -62,18 +54,16 @@ export const Hero = (props: HeroProps) => {
         justifyContent="space-between"
         maxW={{ base: "full", md: "sm" }}
       >
-        <SlideFade in={true} offsetY={2000}>
-          <Heading
-            as="h1"
-            size="4xl"
-            my="10"
-            fontWeight="regular"
-            dangerouslySetInnerHTML={{
-              __html: generateTitle(title.text, title.highlight, blue500),
-            }}
-          />
-          <Text>{body}</Text>
-        </SlideFade>
+        <Heading
+          as="h1"
+          size="4xl"
+          my="10"
+          fontWeight="regular"
+          dangerouslySetInnerHTML={{
+            __html: generateTitle(title.text, title.highlight, blue500),
+          }}
+        />
+        <Text>{body}</Text>
       </Flex>
       <Box w={{ base: "xs", md: "md", xl: "xl" }}>
         <Img
