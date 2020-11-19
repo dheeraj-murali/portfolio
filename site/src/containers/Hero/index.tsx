@@ -19,7 +19,7 @@ export const Hero = (props: HeroProps) => {
   const textColor = { light: "black", dark: "white" }
   const [blue500] = useToken("colors", ["blue.500"])
 
-  const hero = useStaticQuery(graphql`
+  const image = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/hero.png" }) {
         childImageSharp {
@@ -57,20 +57,18 @@ export const Hero = (props: HeroProps) => {
           as="h1"
           size="4xl"
           my="10"
+          fontWeight="regular"
           dangerouslySetInnerHTML={{
             __html: generateTitle(title.text, title.highlight, blue500),
           }}
         />
         <Text>{body}</Text>
       </Flex>
-      <Box
-        w={{ base: "xs", md: "md", xl: "xl" }}
-        h={{ base: "xs", md: "md", xl: "xl" }}
-      >
+      <Box w={{ base: "xs", md: "md", xl: "xl" }}>
         <Img
-          fluid={hero.file.childImageSharp.fluid}
+          fluid={image.file.childImageSharp.fluid}
           alt={`${title} screenshot`}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%" }}
         />
       </Box>
     </Flex>

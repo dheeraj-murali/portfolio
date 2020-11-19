@@ -57,6 +57,7 @@ export const About = (props: AboutProps) => {
         as="h2"
         maxW="4xl"
         mb="10"
+        fontWeight="regular"
         dangerouslySetInnerHTML={{
           __html: generateTitle(title.text, title.highlight, yellow500),
         }}

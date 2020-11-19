@@ -46,7 +46,7 @@
       "highlight": "digital"
     },
     "body": "I’m Dheeraj a Web designer and Front-end developer, who loves crafting fast and easy to use web applications.",
-    "image": "hero.png"
+    "image": "hero1.png"
   },
   "service": {
     "title": "Reach out to me for",
@@ -54,26 +54,26 @@
       {
         "title": "Branding & logo",
         "body": "Find the perfect name, design and logo to distinctly identify your business. We provide creative and fun ways to make your brand stand out.",
-        "image": "logo.svg",
-        "color": "yellow"
+        "image": "branding",
+        "color": "orange"
       },
       {
         "title": "Design",
         "body": "Get custom designed, tailor made high-quality websites. Whether you’re promoting your business, showcasing your work, opening your store or starting a blog — we can do it all.",
-        "image": "design.svg",
+        "image": "design",
         "color": "green"
       },
       {
         "title": "Development",
-        "body": "Get help and assistance in build super fast and reliable code base. Give you responsive design with accessibility in mind, we build reusable components with efficient composition making your code base clean simple and highly scalable.",
-        "image": "development.svg",
+        "body": "Get help and assistance in build super fast and reliable code base. Give you responsive design with accessibility in mind, with a clean, simple and scalable design.",
+        "image": "development",
         "color": "blue"
       },
       {
         "title": "SEO",
         "body": "Reach million through carefully added optimizations to your website. Master the art of ranking high on a search engine without any fuzz.",
-        "image": "seo.svg",
-        "color": "pink"
+        "image": "seo",
+        "color": "red"
       }
     ]
   },

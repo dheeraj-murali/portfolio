@@ -59,7 +59,9 @@ interface ServiceProps {
   items: Service[]
 }
 
-interface CardProps extends Service {}
+interface CardProps extends Service {
+  edges: any
+}
 
 interface PortfolioItem {
   title: string
@@ -73,7 +75,9 @@ interface PortfolioProps {
   items: PortfolioItem[]
 }
 
-interface PortfolioCardProps extends PortfolioItem {}
+interface PortfolioCardProps extends PortfolioItem {
+  edges: any
+}
 
 interface PortfolioModalProps {
   title: string
