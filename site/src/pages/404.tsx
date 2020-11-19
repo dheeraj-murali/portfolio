@@ -6,6 +6,12 @@ import Img from "gatsby-image"
 export default function notFound() {
   const [isOpen, setIsOpen] = useState(false)
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsOpen(true)
+    }, 1500)
+  }, [])
+
   const image = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/404.png" }) {
@@ -23,12 +29,6 @@ export default function notFound() {
       }
     }
   `)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsOpen(true)
-    }, 1500)
-  }, [])
 
   return (
     <Flex

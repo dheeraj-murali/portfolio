@@ -61,6 +61,7 @@ interface ServiceProps {
 
 interface CardProps extends Service {
   edges: any
+  inView: boolean
 }
 
 interface PortfolioItem {
