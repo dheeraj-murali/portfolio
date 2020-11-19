@@ -1,9 +1,11 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Flex, Heading, Slide, SlideFade, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
 
-export default function Home() {
+export default function notFound() {
+  const [isOpen, setIsOpen] = useState(false)
+
   const image = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/404.png" }) {
@@ -22,6 +24,12 @@ export default function Home() {
     }
   `)
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsOpen(true)
+    }, 1500)
+  }, [])
+
   return (
     <Flex
       w="full"
@@ -30,13 +38,15 @@ export default function Home() {
       justifyContent="space-evenly"
       alignItems="center"
     >
-      <Box w="xs">
-        <Img
-          fluid={image.file.childImageSharp.fluid}
-          alt={`404`}
-          style={{ width: "100%" }}
-        />
-      </Box>
+      <SlideFade offsetY={500} in={isOpen}>
+        <Box w="xs">
+          <Img
+            fluid={image.file.childImageSharp.fluid}
+            alt={`404`}
+            style={{ width: "100%" }}
+          />
+        </Box>
+      </SlideFade>
 
       <Heading as="h1" size="4xl" fontWeight="regular">
         He has been Taken!!
