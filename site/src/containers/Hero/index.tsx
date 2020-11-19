@@ -2,24 +2,33 @@ import {
   Box,
   Flex,
   Heading,
+  SlideFade,
   Text,
   useColorMode,
   useToken,
 } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { HeroProps } from "../../types"
 import { generateTitle } from "../../utils/index"
 
 export const Hero = (props: HeroProps) => {
   const { title, body } = props
+  const [isOpen, setIsOpen] = useState(false)
+
   const { colorMode } = useColorMode()
 
   const textColor = { light: "black", dark: "white" }
   const [blue500] = useToken("colors", ["blue.500"])
 
-  const hero = useStaticQuery(graphql`
+  useEffect(() => {
+    setTimeout(() => {
+      setIsOpen(true)
+    }, 200)
+  }, [])
+
+  const image = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "images/hero.png" }) {
         childImageSharp {
@@ -53,24 +62,24 @@ export const Hero = (props: HeroProps) => {
         justifyContent="space-between"
         maxW={{ base: "full", md: "sm" }}
       >
-        <Heading
-          as="h1"
-          size="4xl"
-          my="10"
-          dangerouslySetInnerHTML={{
-            __html: generateTitle(title.text, title.highlight, blue500),
-          }}
-        />
-        <Text>{body}</Text>
+        <SlideFade in={true} offsetY={2000}>
+          <Heading
+            as="h1"
+            size="4xl"
+            my="10"
+            fontWeight="regular"
+            dangerouslySetInnerHTML={{
+              __html: generateTitle(title.text, title.highlight, blue500),
+            }}
+          />
+          <Text>{body}</Text>
+        </SlideFade>
       </Flex>
-      <Box
-        w={{ base: "xs", md: "md", xl: "xl" }}
-        h={{ base: "xs", md: "md", xl: "xl" }}
-      >
+      <Box w={{ base: "xs", md: "md", xl: "xl" }}>
         <Img
-          fluid={hero.file.childImageSharp.fluid}
+          fluid={image.file.childImageSharp.fluid}
           alt={`${title} screenshot`}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%" }}
         />
       </Box>
     </Flex>

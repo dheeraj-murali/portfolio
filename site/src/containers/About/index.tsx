@@ -47,7 +47,7 @@ export const About = (props: AboutProps) => {
   return (
     <Box
       id="about"
-      w="100vw"
+      w="full"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
       backgroundColor="purple.900"
@@ -57,6 +57,7 @@ export const About = (props: AboutProps) => {
         as="h2"
         maxW="4xl"
         mb="10"
+        fontWeight="regular"
         dangerouslySetInnerHTML={{
           __html: generateTitle(title.text, title.highlight, yellow500),
         }}

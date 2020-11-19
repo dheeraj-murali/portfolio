@@ -22,6 +22,30 @@ export const Portfolio = (props: PortfolioProps) => {
           }
         }
       }
+
+      screenshots: allFile(
+        filter: {
+          extension: { regex: "/(png)/" }
+          relativePath: { regex: "/(portfolio)/" }
+        }
+      ) {
+        edges {
+          node {
+            name
+            childImageSharp {
+              fluid(quality: 80) {
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -35,11 +59,17 @@ export const Portfolio = (props: PortfolioProps) => {
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
     >
-      <Heading as="h2">{title}</Heading>
+      <Heading as="h2" fontWeight="regular">
+        {title}
+      </Heading>
 
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} mt="10">
         {items.map(item => (
-          <PortfolioCard {...item} key={uuid()} />
+          <PortfolioCard
+            {...item}
+            edges={images.screenshots.edges}
+            key={uuid()}
+          />
         ))}
       </SimpleGrid>
     </Box>

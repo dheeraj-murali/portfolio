@@ -1,5 +1,4 @@
 import { Box, Button, useDisclosure } from "@chakra-ui/react"
-import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
 import { PortfolioCardProps } from "../../types"
@@ -8,34 +7,7 @@ import { PortfolioModal } from "../PortfolioModal"
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { image, title } = props
-  const bg = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: {
-          extension: { regex: "/(png)/" }
-          relativePath: { regex: "/(portfolio)/" }
-        }
-      ) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(quality: 80) {
-                aspectRatio
-                base64
-                sizes
-                src
-                srcSet
-                srcSetWebp
-                srcWebp
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  const { image, title, edges } = props
 
   return (
     <>
@@ -51,7 +23,7 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
         p="0"
       >
         <Img
-          fluid={getFluid(bg.allFile.edges, image)}
+          fluid={getFluid(edges, image)}
           alt={`${title} screenshot`}
           style={{ width: "100%", height: "100%" }}
         />
@@ -62,7 +34,7 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
         onOpen={onOpen}
         onClose={onClose}
         {...props}
-        fluid={getFluid(bg.allFile.edges, image)}
+        fluid={getFluid(edges, image)}
       />
     </>
   )

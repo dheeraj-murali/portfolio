@@ -1,41 +1,58 @@
-import { Flex, Heading, Image, Text, useColorModeValue } from "@chakra-ui/react"
+import {
+  Box,
+  Flex,
+  Heading,
+  ScaleFade,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react"
+import Img from "gatsby-image"
 import React from "react"
 import { CardProps } from "../../types"
+import { getFluid } from "../../utils"
 
 export const Card = (props: CardProps) => {
-  const { title, body, color, image } = props
+  const { title, body, color, image, edges, inView } = props
 
   const bg = useColorModeValue(`${color}.200`, `${color}.800`)
   const titleColor = useColorModeValue(`${color}.800`, `${color}.200`)
 
   return (
-    <Flex
-      flexDir={{ base: "column-reverse", md: "row" }}
-      justifyContent="space-between"
-      alignItems="center"
-      w="full"
-      h="full"
-      rounded="sm"
-      p="5"
-      shadow="lg"
-      bg={bg}
-      _hover={{ boxShadow: "outline" }}
-    >
-      <Flex w={{ base: "full", md: "50%" }} flexDir="column">
-        <Heading as="h3" size="lg" color={titleColor}>
-          {title}
-        </Heading>
+    <ScaleFade initialScale={0.9} in={inView}>
+      <Flex
+        flexDir={{ base: "column-reverse", md: "row" }}
+        justifyContent="space-evenly"
+        alignItems="center"
+        _hover={{ boxShadow: "outline" }}
+        w="full"
+        minH="2xs"
+        rounded="sm"
+        shadow="lg"
+        bg={bg}
+        p="5"
+      >
+        <Flex w={{ base: "full", md: "50%" }} flexDir="column">
+          <Heading as="h3" size="lg" color={titleColor} fontWeight="regular">
+            {title}
+          </Heading>
 
-        <Text py="5">{body}</Text>
+          <Text py="5">{body}</Text>
+        </Flex>
+
+        <Box
+          overflow="hidden"
+          objectFit="cover"
+          w={{ base: "full", lg: "250px" }}
+          my={{ base: "5", md: "0" }}
+          p="0"
+        >
+          <Img
+            fluid={getFluid(edges, image)}
+            alt={`${title}`}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </Box>
       </Flex>
-
-      <Image
-        src={`/${image}`}
-        boxSize={{ base: "150px", lg: "200px" }}
-        objectFit="cover"
-        alt={title}
-        my={{ base: "5", md: "0" }}
-      />
-    </Flex>
+    </ScaleFade>
   )
 }
