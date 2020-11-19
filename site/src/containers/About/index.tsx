@@ -50,7 +50,7 @@ export const About = (props: AboutProps) => {
       w="full"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
-      backgroundColor="purple.900"
+      backgroundColor="blue.800"
       color="white"
     >
       <Heading
