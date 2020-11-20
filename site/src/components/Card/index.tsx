@@ -1,29 +1,33 @@
 import { Flex, Heading, useColorModeValue } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import React from "react"
+import { animated, useSpring } from "react-spring"
 import { CardProps } from "../../types"
-import { getFluid } from "../../utils"
+import { calcText, getFluid, transText } from "../../utils"
 
 export const Card = (props: CardProps) => {
   const { title, color, image, edges } = props
 
-  const bg = useColorModeValue(`${color}.50`, `${color}.800`)
-  const titleColor = useColorModeValue(`${color}.800`, `${color}.200`)
+  const titleColor = useColorModeValue(`${color}.600`, `${color}.200`)
+
+  const [spring, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 140 },
+  }))
 
   return (
     <Flex
+      as={animated.div}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calcText(x, y) })}
+      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      // @ts-ignore
+      style={{ transform: spring.xys.interpolate(transText) }}
       flexDir={{ base: "column" }}
       justifyContent="space-between"
       alignItems="center"
-      // _hover={{
-      //   boxShadow: `0px 0px 15px ${color}`,
-      // }}
       w="full"
       minH="2xs"
-      rounded="lg"
-      // shadow="lg"
       p="5"
-      // bg={bg}
     >
       <Flex
         justifyContent="center"

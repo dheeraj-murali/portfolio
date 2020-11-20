@@ -49,3 +49,19 @@ export const getSrc = (edges: any, image: string): string => {
 
   return src
 }
+
+export const calcText = (x, y) => [
+  -(y - window.innerHeight / 5) / 20,
+  -(x - window.innerWidth / 2) / 20,
+  1.1,
+]
+
+export const calcImage = (x, y) => [
+  x - window.innerWidth / 2,
+  y - window.innerHeight / 2,
+]
+
+export const transText = (x, y, s) =>
+  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+
+export const transImage = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
