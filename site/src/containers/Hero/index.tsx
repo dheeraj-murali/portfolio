@@ -2,6 +2,7 @@ import {
   Box,
   Flex,
   Heading,
+  ScaleFade,
   Text,
   useColorMode,
   useToken,
@@ -54,16 +55,18 @@ export const Hero = (props: HeroProps) => {
         justifyContent="space-between"
         maxW={{ base: "full", md: "sm" }}
       >
-        <Heading
-          as="h1"
-          size="4xl"
-          my="10"
-          fontWeight="regular"
-          dangerouslySetInnerHTML={{
-            __html: generateTitle(title.text, title.highlight, blue500),
-          }}
-        />
-        <Text>{body}</Text>
+        <ScaleFade initialScale={0.5} in={true}>
+          <Heading
+            as="h1"
+            size="4xl"
+            my="10"
+            fontWeight="regular"
+            dangerouslySetInnerHTML={{
+              __html: generateTitle(title.text, title.highlight, blue500),
+            }}
+          />
+          <Text>{body}</Text>
+        </ScaleFade>
       </Flex>
       <Box w={{ base: "xs", md: "md", xl: "xl" }}>
         <Img

@@ -1,49 +1,50 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from "@chakra-ui/react"
+import { Flex, Heading, useColorModeValue } from "@chakra-ui/react"
 import Img from "gatsby-image"
 import React from "react"
 import { CardProps } from "../../types"
 import { getFluid } from "../../utils"
 
 export const Card = (props: CardProps) => {
-  const { title, body, color, image, edges } = props
+  const { title, color, image, edges } = props
 
-  const bg = useColorModeValue(`${color}.200`, `${color}.800`)
+  const bg = useColorModeValue(`${color}.50`, `${color}.800`)
   const titleColor = useColorModeValue(`${color}.800`, `${color}.200`)
 
   return (
     <Flex
-      flexDir={{ base: "column-reverse", md: "row" }}
-      justifyContent="space-evenly"
+      flexDir={{ base: "column" }}
+      justifyContent="space-between"
       alignItems="center"
-      _hover={{ boxShadow: "outline" }}
+      // _hover={{
+      //   boxShadow: `0px 0px 15px ${color}`,
+      // }}
       w="full"
       minH="2xs"
-      rounded="sm"
-      shadow="lg"
-      bg={bg}
+      rounded="lg"
+      // shadow="lg"
       p="5"
+      // bg={bg}
     >
-      <Flex w={{ base: "full", md: "50%" }} flexDir="column">
-        <Heading as="h3" size="lg" color={titleColor} fontWeight="regular">
-          {title}
-        </Heading>
-
-        <Text py="5">{body}</Text>
-      </Flex>
-
-      <Box
+      <Flex
+        justifyContent="center"
+        alignItems="center"
         overflow="hidden"
-        objectFit="cover"
-        w={{ base: "full", lg: "250px" }}
-        my={{ base: "5", md: "0" }}
+        w="xs"
         p="0"
+        my="3"
       >
         <Img
           fluid={getFluid(edges, image)}
           alt={`${title}`}
           style={{ width: "100%", height: "100%" }}
         />
-      </Box>
+      </Flex>
+
+      <Flex w="full" justifyContent="center" alignItems="center">
+        <Heading as="h3" size="lg" color={titleColor} fontWeight="regular">
+          {title}
+        </Heading>
+      </Flex>
     </Flex>
   )
 }

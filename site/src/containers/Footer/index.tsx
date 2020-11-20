@@ -12,11 +12,11 @@ export const Footer = () => {
         <Text>
           Designed and developed by{" "}
           <Link href="https://twitter.com/_mdrj" isExternal>
-            @_mdrj
+            @_mdrj.
           </Link>
         </Text>
         <Spacer />
-        <Text>copyright © {year} @_mdrj. All rights reserved.</Text>
+        <Text> © {year} @_mdrj. All rights reserved.</Text>
       </Flex>
     </Box>
   )
