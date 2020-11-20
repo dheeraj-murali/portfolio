@@ -12,7 +12,11 @@ import Img from "gatsby-image"
 import React from "react"
 import { animated, useSpring } from "react-spring"
 import { HeroProps } from "../../types"
-import { calcImage, generateTitle, transImage } from "../../utils/index"
+import { calcImage, generateTitle } from "../../utils/index"
+
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
+const trans2 = (x, y) => `translate3d(${x / 8}px,${y / 8}px,0)`
+const trans3 = (x, y) => `translate3d(${x / 6}px,${y / 6}px,0)`
 
 export const Hero = (props: HeroProps) => {
   const { title, body } = props
@@ -29,7 +33,35 @@ export const Hero = (props: HeroProps) => {
 
   const image = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "images/hero.png" }) {
+      heroMe: file(relativePath: { eq: "images/heroMe.png" }) {
+        childImageSharp {
+          fluid(pngQuality: 90) {
+            aspectRatio
+            base64
+            src
+            srcSet
+            sizes
+            srcSetWebp
+            srcWebp
+          }
+        }
+      }
+
+      heroChair: file(relativePath: { eq: "images/heroChair.png" }) {
+        childImageSharp {
+          fluid(pngQuality: 90) {
+            aspectRatio
+            base64
+            src
+            srcSet
+            sizes
+            srcSetWebp
+            srcWebp
+          }
+        }
+      }
+
+      heroBg: file(relativePath: { eq: "images/heroBg.png" }) {
         childImageSharp {
           fluid(pngQuality: 90) {
             aspectRatio
@@ -53,7 +85,7 @@ export const Hero = (props: HeroProps) => {
       justifyContent="space-evenly"
       alignItems="center"
       px={{ base: "5", lg: "10", xl: "16" }}
-      py="20"
+      py="10"
       color={textColor[colorMode]}
       onMouseMove={({ clientX: x, clientY: y }) =>
         setImage({ xy: calcImage(x, y) })
@@ -79,16 +111,91 @@ export const Hero = (props: HeroProps) => {
         </ScaleFade>
       </Flex>
       <Box
-        as={animated.div}
         w={{ base: "xs", md: "md", xl: "xl" }}
-        // @ts-ignore
-        style={{ transform: springImage.xy.interpolate(transImage) }}
+        h={{ base: "xs", md: "md", xl: "xl" }}
+        position="relative"
       >
-        <Img
-          fluid={image.file.childImageSharp.fluid}
-          alt={`${title} screenshot`}
-          style={{ width: "100%" }}
-        />
+        <Box
+          onDragStart={e => {
+            e.preventDefault()
+          }}
+          as={animated.div}
+          p="0"
+          m="0"
+          w="full"
+          h="full"
+          style={{
+            // @ts-ignore
+            transform: springImage.xy.interpolate(trans1),
+            position: "absolute",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            willChange: "transform",
+          }}
+        >
+          <Img
+            fluid={image.heroBg.childImageSharp.fluid}
+            alt={`${title} screenshot`}
+            style={{
+              width: "100%",
+            }}
+          />
+        </Box>
+        <Box
+          onDragStart={e => {
+            e.preventDefault()
+          }}
+          as={animated.div}
+          p="0"
+          m="0"
+          w="full"
+          h="full"
+          style={{
+            // @ts-ignore
+            transform: springImage.xy.interpolate(trans2),
+            position: "absolute",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            willChange: "transform",
+          }}
+        >
+          <Img
+            fluid={image.heroChair.childImageSharp.fluid}
+            alt={`${title} screenshot`}
+            style={{
+              width: "100%",
+            }}
+          />
+        </Box>
+        <Box
+          onDragStart={e => {
+            e.preventDefault()
+          }}
+          as={animated.div}
+          p="0"
+          m="0"
+          w="full"
+          h="full"
+          style={{
+            // @ts-ignore
+            transform: springImage.xy.interpolate(trans3),
+            position: "absolute",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            willChange: "transform",
+          }}
+        >
+          <Img
+            fluid={image.heroMe.childImageSharp.fluid}
+            alt={`${title} screenshot`}
+            style={{
+              width: "100%",
+            }}
+          />
+        </Box>
       </Box>
     </Flex>
   )
