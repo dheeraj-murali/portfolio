@@ -57,7 +57,7 @@ export const Portfolio = (props: PortfolioProps) => {
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
     >
-      <Heading as="h2" fontWeight="regular" color="white">
+      <Heading as="h2" fontWeight="regular" color="white" size="md">
         {title}
       </Heading>
 

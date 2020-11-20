@@ -1,11 +1,18 @@
-import { Box, Flex, Heading, Image, Link } from "@chakra-ui/react"
+import { Box, Flex, Heading, Link } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
+import { animated, useSpring } from "react-spring"
 import { ContactProps } from "../../types"
+import { calcText, transText } from "../../utils"
 
 export const Contact = (props: ContactProps) => {
   const { mail, title } = props
+
+  const [spring, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 140 },
+  }))
 
   const image = useStaticQuery(graphql`
     query {
@@ -35,7 +42,17 @@ export const Contact = (props: ContactProps) => {
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
     >
-      <Box w={{ base: "xs", md: "md", lg: "lg" }} mb="16">
+      <Box
+        as={animated.div}
+        onMouseMove={({ clientX: x, clientY: y }) =>
+          set({ xys: calcText(x, y) })
+        }
+        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+        // @ts-ignore
+        style={{ transform: spring.xys.interpolate(transText) }}
+        w={{ base: "xs", md: "md", lg: "lg" }}
+        mb="16"
+      >
         <Img
           fluid={image.file.childImageSharp.fluid}
           alt={`${title} screenshot`}

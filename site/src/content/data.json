@@ -42,7 +42,7 @@
   },
   "hero": {
     "title": {
-      "text": "Hey, I'm a digital product developer",
+      "text": "Hey, I'm a digital product developer.",
       "highlight": "digital"
     },
     "body": "I’m Dheeraj a Web designer and Front-end developer, who loves crafting fast and easy to use web applications.",
@@ -51,12 +51,6 @@
   "service": {
     "title": "Reach out to me for",
     "items": [
-      {
-        "title": "Branding & logo",
-        "body": "Find the perfect name, design and logo to distinctly identify your business. We provide creative and fun ways to make your brand stand out.",
-        "image": "branding",
-        "color": "orange"
-      },
       {
         "title": "Design",
         "body": "Get custom designed, tailor made high-quality websites. Whether you’re promoting your business, showcasing your work, opening your store or starting a blog — we can do it all.",
@@ -136,7 +130,7 @@
     ]
   },
   "contact": {
-    "title": "Got a project? Let's talk",
+    "title": "Got a project? Let's talk.",
     "mail": "410dheeraj@gmail.com"
   }
 }

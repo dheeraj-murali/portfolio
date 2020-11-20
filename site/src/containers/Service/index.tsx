@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
+import { Box, Flex, Heading, SimpleGrid } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { v4 as uuid } from "uuid"
@@ -38,11 +38,11 @@ export const Service = (props: ServiceProps) => {
 
   return (
     <Box id="services" w="full" px={{ base: "5", lg: "10", xl: "16" }} py="32">
-      <Heading as="h2" fontWeight="regular">
+      <Heading as="h2" fontWeight="regular" size="md">
         {title}
       </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} my="10">
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} my="10">
         {items.map(item => (
           <Card {...item} edges={images.allFile.edges} key={uuid()} />
         ))}
