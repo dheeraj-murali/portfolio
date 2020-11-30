@@ -97,7 +97,6 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
       name={formName}
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      data-netlify-recaptcha="true"
       onSubmit={formik.handleSubmit}
       style={{ width: "100%", height: "100%" }}
       method="post"
@@ -180,8 +179,6 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
           />
           <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
         </FormControl>
-
-        <Box data-netlify-recaptcha="true" />
 
         <Button
           isLoading={formik.isSubmitting}
