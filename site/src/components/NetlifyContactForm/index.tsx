@@ -1,17 +1,19 @@
 import {
-  Box,
   Button,
+  Flex,
   FormControl,
   FormErrorMessage,
   FormHelperText,
   Input,
   Textarea,
+  useColorMode,
   useToast,
   VStack,
 } from "@chakra-ui/react"
-import { useFormik, FormikErrors } from "formik"
-import React from "react"
+import { FormikErrors, useFormik } from "formik"
+import React, { useEffect, useState } from "react"
 import Recaptcha from "react-google-recaptcha"
+import { FaRobot } from "react-icons/fa"
 
 const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
 
@@ -72,7 +74,28 @@ const initialValues: FormValues = {
 export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
   const { formName } = props
 
-  const recaptchaRef = React.createRef<any>()
+  const { colorMode } = useColorMode()
+
+  const reCaptchaRef = React.createRef<any>()
+
+  const [formDisabled, setFormDisabled] = useState<boolean>(false)
+
+  const handleReCaptchaError = () => {
+    setFormDisabled(true)
+    toast({
+      position: "bottom-left",
+      title: `reCAPTCHA didn't load`,
+      description:
+        "reCAPTCHA didn't load, you can not submit the contact form right now",
+      status: "warning",
+      duration: 9000,
+      isClosable: true,
+    })
+  }
+
+  const handleReCaptchaLoad = () => {
+    setFormDisabled(false)
+  }
 
   const toast = useToast()
 
@@ -80,39 +103,52 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
     initialValues,
     validate,
     onSubmit: (values, actions) => {
-      const recaptchaValue = recaptchaRef.current.getValue()
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": formName,
-          "g-recaptcha-response": recaptchaValue,
-          ...values,
-        }),
-      })
-        .then(() => {
-          actions.setSubmitting(false)
-          toast({
-            position: "bottom-left",
-            title: "Done!",
-            description: "Your message send successfully.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          })
-          actions.resetForm()
+      const recaptchaValue = reCaptchaRef.current.getValue()
+
+      if (recaptchaValue) {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": formName,
+            "g-recaptcha-response": recaptchaValue,
+            ...values,
+          }),
         })
-        .catch(error => {
-          actions.resetForm()
-          toast({
-            position: "bottom-left",
-            title: "An error occurred.",
-            description: "Unable to send message.",
-            status: "error",
-            duration: 9000,
-            isClosable: true,
+          .then(() => {
+            actions.setSubmitting(false)
+            toast({
+              position: "bottom-left",
+              title: "Done!",
+              description: "Your message send successfully.",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+            })
+            actions.resetForm()
           })
+          .catch(error => {
+            actions.resetForm()
+            reCaptchaRef.current.reset()
+            toast({
+              position: "bottom-left",
+              title: "An error occurred.",
+              description: "Unable to send message.",
+              status: "error",
+              duration: 9000,
+              isClosable: true,
+            })
+          })
+      } else {
+        toast({
+          position: "bottom-left",
+          title: `You are not a human?`,
+          description: "Please complete the reCAPTCHA",
+          status: "warning",
+          duration: 9000,
+          isClosable: true,
         })
+      }
     },
   })
 
@@ -204,12 +240,21 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
           <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
         </FormControl>
 
-        <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
+        <Flex w="full" justifyContent="center" alignItems="center">
+          <Recaptcha
+            ref={reCaptchaRef}
+            sitekey={RECAPTCHA_KEY}
+            onErrored={handleReCaptchaError}
+            asyncScriptOnLoad={handleReCaptchaLoad}
+            theme={colorMode}
+          />
+        </Flex>
 
         <Button
           isLoading={formik.isSubmitting}
           colorScheme="blue"
           type="submit"
+          isDisabled={formDisabled}
         >
           Send message
         </Button>
