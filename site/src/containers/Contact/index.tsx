@@ -39,20 +39,20 @@ export const Contact = (props: ContactProps) => {
         as="h2"
         fontSize="5xl"
         mt="20"
+        textAlign="center"
         lineHeight="3rem"
         fontWeight="regular"
       >
         {title}
       </Heading>
-      <SimpleGrid columns={[1, null, 2]}>
+      <SimpleGrid columns={[1, null, 2]} spacing={10} my="10">
         <Flex
           id="contact"
           w="full"
           flexDir="column"
           justifyContent="center"
           alignItems="center"
-          px={{ base: "5", lg: "10", xl: "16" }}
-          py="32"
+          p="10"
         >
           <NetlifyContactForm formName="portfolio-contact" />
         </Flex>
@@ -63,8 +63,7 @@ export const Contact = (props: ContactProps) => {
           flexDir="column"
           justifyContent="center"
           alignItems="center"
-          px={{ base: "5", lg: "10", xl: "16" }}
-          py="32"
+          p="10"
         >
           <Box
             as={animated.div}
