@@ -6,6 +6,7 @@ interface SEOProps {
   image: string
   siteUrl: string
   twitterUsername: string
+  keywords: string
 }
 
 interface Nav {

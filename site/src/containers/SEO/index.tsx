@@ -4,13 +4,23 @@ import { Helmet } from "react-helmet"
 import { SEOProps } from "../../types"
 
 export const SEO = (props: SEOProps) => {
-  const { siteUrl, description, image, title, twitterUsername } = props
+  const {
+    siteUrl,
+    description,
+    image,
+    title,
+    twitterUsername,
+    keywords,
+  } = props
   const { pathname } = useLocation()
 
   return (
     <Helmet title={title} titleTemplate={title}>
+      <meta charSet="utf-8" />
       <meta name="description" content={description} />
+      <meta name="Keywords" content={keywords} />
       <meta name="image" content={`${siteUrl}${image}`} />
+      <link rel="canonical" href="https://dheerajmurali.com/" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
