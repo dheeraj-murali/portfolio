@@ -11,6 +11,18 @@ import {
 } from "@chakra-ui/react"
 import { useFormik, FormikErrors } from "formik"
 import React from "react"
+import Recaptcha from "react-google-recaptcha"
+
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
+
+if (typeof RECAPTCHA_KEY === "undefined") {
+  throw new Error(`
+  Env var SITE_RECAPTCHA_KEY is undefined! 
+  You probably forget to set it in your Netlify build environment variables. 
+  Make sure to get a Recaptcha key at https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
+  Note this demo is specifically for Recaptcha v2
+  `)
+}
 
 export const encode = (data: FormValues) => {
   return Object.keys(data)
@@ -42,6 +54,10 @@ export const validate = (values: FormValues) => {
     errors.message = "Must be at least 5 characters or more"
   }
 
+  if (values.bot) {
+    errors.message = "Are you a bot?"
+  }
+
   return errors
 }
 
@@ -50,10 +66,13 @@ const initialValues: FormValues = {
   email: "",
   phone: "",
   message: "",
+  bot: "",
 }
 
 export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
   const { formName } = props
+
+  const recaptchaRef = React.createRef<any>()
 
   const toast = useToast()
 
@@ -61,10 +80,15 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
     initialValues,
     validate,
     onSubmit: (values, actions) => {
+      const recaptchaValue = recaptchaRef.current.getValue()
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": formName, ...values }),
+        body: encode({
+          "form-name": formName,
+          "g-recaptcha-response": recaptchaValue,
+          ...values,
+        }),
       })
         .then(() => {
           actions.setSubmitting(false)
@@ -96,7 +120,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
     <form
       name={formName}
       data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      data-netlify-recaptcha="true"
       onSubmit={formik.handleSubmit}
       style={{ width: "100%", height: "100%" }}
       method="post"
@@ -180,6 +204,8 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
           <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
         </FormControl>
 
+        <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
+
         <Button
           isLoading={formik.isSubmitting}
           colorScheme="blue"
@@ -197,7 +223,9 @@ declare interface FormValues {
   email: string
   phone: string
   message: string
+  bot: string
   "form-name"?: string
+  "g-recaptcha-response"?: string
 }
 
 declare interface NetlifyContactFormProps {
