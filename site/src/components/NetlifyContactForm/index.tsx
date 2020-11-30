@@ -13,7 +13,7 @@ import { useFormik, FormikErrors } from "formik"
 import React from "react"
 import Recaptcha from "react-google-recaptcha"
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
+const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
 
 if (typeof RECAPTCHA_KEY === "undefined") {
   throw new Error(`
