@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "license": "0BSD",
   "scripts": {
-    "build": "echo SITE_RECAPTCHA_KEY=6Lc3nfMZAAAAAOJZQhJrECtcGFxP2eu6Rx8uJ1yh >> .env.production && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

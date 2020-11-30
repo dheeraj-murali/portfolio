@@ -20,9 +20,7 @@ const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
 if (typeof RECAPTCHA_KEY === "undefined") {
   throw new Error(`
   Env var SITE_RECAPTCHA_KEY is undefined! 
-  You probably forget to set it in your Netlify build environment variables. 
-  Make sure to get a Recaptcha key at https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
-  Note this demo is specifically for Recaptcha v2
+  You probably forget to set it in your environment variables. 
   `)
 }
 
@@ -86,7 +84,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
       position: "bottom-left",
       title: `reCAPTCHA didn't load`,
       description:
-        "reCAPTCHA didn't load, you can not submit the contact form right now",
+        "reCAPTCHA didn't load, you can not submit the contact form right now. Try reloading the page",
       status: "warning",
       duration: 9000,
       isClosable: true,
@@ -129,7 +127,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
           })
           .catch(error => {
             actions.resetForm()
-            reCaptchaRef.current.reset()
+            actions.setSubmitting(false)
             toast({
               position: "bottom-left",
               title: "An error occurred.",
@@ -140,6 +138,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             })
           })
       } else {
+        actions.setSubmitting(false)
         toast({
           position: "bottom-left",
           title: `You are not a human?`,

@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Dheeraj Murali`,
-    description: `Web designer and Front-end developer, who loves crafting fast and easy to use web applications.`,
-    author: `@_mdrj`,
+    title: "Dheeraj Murali",
+    description:
+      "Web designer and Front-end developer, who loves crafting fast and easy to use web applications.",
+    author: "@_mdrj",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
