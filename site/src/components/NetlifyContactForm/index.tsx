@@ -11,9 +11,8 @@ import {
   VStack,
 } from "@chakra-ui/react"
 import { FormikErrors, useFormik } from "formik"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Recaptcha from "react-google-recaptcha"
-import { FaRobot } from "react-icons/fa"
 
 const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
 
@@ -84,7 +83,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
       position: "bottom-left",
       title: `reCAPTCHA didn't load`,
       description:
-        "reCAPTCHA didn't load, you can not submit the contact form right now. Try reloading the page",
+        "reCAPTCHA didn't load, you may not be able to submit the contact form right now. Try reloading the page",
       status: "warning",
       duration: 9000,
       isClosable: true,
@@ -117,8 +116,8 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             actions.setSubmitting(false)
             toast({
               position: "bottom-left",
-              title: "Done!",
-              description: "Your message send successfully.",
+              title: "Thank you!",
+              description: "Got your message. I'll get back to you ASAP.",
               status: "success",
               duration: 9000,
               isClosable: true,
@@ -141,7 +140,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
         actions.setSubmitting(false)
         toast({
           position: "bottom-left",
-          title: `You are not a human?`,
+          title: `You are sure you are a human?`,
           description: "Please complete the reCAPTCHA",
           status: "warning",
           duration: 9000,
