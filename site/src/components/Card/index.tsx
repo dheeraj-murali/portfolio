@@ -8,7 +8,7 @@ import { calcText, getFluid, transText } from "../../utils"
 export const Card = (props: CardProps) => {
   const { title, color, image, edges } = props
 
-  const titleColor = useColorModeValue(`${color}.600`, `${color}.200`)
+  const titleColor = useColorModeValue(`${color}.100`, `${color}.700`)
 
   const [spring, set] = useSpring(() => ({
     xys: [0, 0, 1],
@@ -28,6 +28,9 @@ export const Card = (props: CardProps) => {
       w="full"
       minH="2xs"
       p="5"
+      shadow="lg"
+      bg={titleColor}
+      rounded="lg"
     >
       <Flex
         justifyContent="center"
@@ -45,7 +48,7 @@ export const Card = (props: CardProps) => {
       </Flex>
 
       <Flex w="full" justifyContent="center" alignItems="center">
-        <Heading as="h3" size="lg" color={titleColor} fontWeight="regular">
+        <Heading as="h3" size="lg" fontWeight="regular">
           {title}
         </Heading>
       </Flex>
