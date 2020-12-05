@@ -36,7 +36,7 @@ export const Card = (props: CardProps) => {
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
-        w="2xs"
+        w="full"
         p="0"
         my="3"
       >

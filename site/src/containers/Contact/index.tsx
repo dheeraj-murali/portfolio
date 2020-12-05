@@ -45,25 +45,24 @@ export const Contact = (props: ContactProps) => {
       >
         {title}
       </Heading>
-      <SimpleGrid columns={[1, null, 2]} spacing={10} my="10">
+      <SimpleGrid w="full" columns={[1, null, null, 2]} my="10">
         <Flex
           id="contact"
-          w="full"
           flexDir="column"
           justifyContent="center"
           alignItems="center"
-          p="10"
+          py="10"
+          px={[2, null, 10]}
         >
           <NetlifyContactForm formName="portfolio-contact" />
         </Flex>
 
         <Flex
           id="contact"
-          w="full"
           flexDir="column"
           justifyContent="center"
           alignItems="center"
-          p="10"
+          py="10"
         >
           <Box
             as={animated.div}
