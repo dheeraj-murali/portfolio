@@ -140,7 +140,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
         actions.setSubmitting(false)
         toast({
           position: "bottom-left",
-          title: `You are sure you are a human?`,
+          title: `Forgot something?`,
           description: "Please complete the reCAPTCHA",
           status: "warning",
           duration: 9000,
