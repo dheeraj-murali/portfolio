@@ -15,7 +15,7 @@ export const Service = (props: ServiceProps) => {
         {title}
       </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} my="10">
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} my="10">
         {items.map(item => (
           <Card {...item} key={uuid()} />
         ))}

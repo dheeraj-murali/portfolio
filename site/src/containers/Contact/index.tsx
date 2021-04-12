@@ -1,7 +1,6 @@
 import { Flex, Heading, useColorModeValue } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { useSpring } from "react-spring"
 import { NetlifyContactForm } from "../../components/NetlifyContactForm"
 import { ContactProps } from "../../types"
 
