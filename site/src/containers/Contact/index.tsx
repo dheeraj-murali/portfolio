@@ -49,7 +49,7 @@ export const Contact = (props: ContactProps) => {
 
       <Flex
         id="contact"
-        w="lg"
+        w={["sm", "md", "lg", "xl"]}
         flexDir="column"
         justifyContent="center"
         alignItems="center"
