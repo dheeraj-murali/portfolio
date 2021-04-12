@@ -56,7 +56,7 @@
         "title": "Design",
         "body": "Get custom designed, tailor made high-quality websites. Whether you’re promoting your business, showcasing your work, opening your store or starting a blog — we can do it all.",
         "image": "design",
-        "color": "green"
+        "color": "orange"
       },
       {
         "title": "Development",
@@ -68,7 +68,7 @@
         "title": "SEO",
         "body": "Reach million through carefully added optimizations to your website. Master the art of ranking high on a search engine without any fuzz.",
         "image": "seo",
-        "color": "red"
+        "color": "teal"
       }
     ]
   },
@@ -76,11 +76,11 @@
     "title": "Checkout some of my work",
     "items": [
       {
-        "title": "Cochincarrental.com",
-        "body": "A sister concern of Series tours, Cochin car rental is one of the leading Kerala Tour Operators - engaged in the promotion of Kerala Tourism. They focus on providing customers with the best car rental and tour package they can enjoy inside of Kerala. With a fleet of trained drivers, highly maintained vehicles and exceptional customer service, they have become one of the best taxi services in Kerala.",
-        "image": "cochin-car-rental",
-        "link": "https://cochincarrental.com",
-        "color": "red"
+        "title": "Camelcase.in",
+        "body": "Camelcase is a team of developers who will help you build applications using advanced frameworks with minimal footprint. Ready to build using React, Angular, Ionic, Spring, Django, MongoDB or whatever you prefer.",
+        "image": "camelcase",
+        "link": "https://camelcase.in",
+        "color": "gray"
       },
       {
         "title": "Zealacademy.info",
@@ -90,11 +90,11 @@
         "color": "green"
       },
       {
-        "title": "Camelcase.in",
-        "body": "Camelcase is a team of developers who will help you build applications using advanced frameworks with minimal footprint. Ready to build using React, Angular, Ionic, Spring, Django, MongoDB or whatever you prefer.",
-        "image": "camelcase",
-        "link": "https://camelcase.in",
-        "color": "gray"
+        "title": "Cochincarrental.com",
+        "body": "A sister concern of Series tours, Cochin car rental is one of the leading Kerala Tour Operators - engaged in the promotion of Kerala Tourism. They focus on providing customers with the best car rental and tour package they can enjoy inside of Kerala. With a fleet of trained drivers, highly maintained vehicles and exceptional customer service, they have become one of the best taxi services in Kerala.",
+        "image": "cochin-car-rental",
+        "link": "https://cochincarrental.com",
+        "color": "red"
       },
       {
         "title": "Riceandricecalicut.com",

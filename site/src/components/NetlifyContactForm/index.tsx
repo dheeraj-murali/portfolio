@@ -7,6 +7,7 @@ import {
   Input,
   Textarea,
   useColorMode,
+  useColorModeValue,
   useToast,
   VStack,
 } from "@chakra-ui/react"
@@ -74,11 +75,13 @@ const initialValues: FormValues = {
 export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
   const { formName } = props
 
-  const { colorMode } = useColorMode()
-
   const reCaptchaRef = React.createRef<any>()
 
   const [formDisabled, setFormDisabled] = useState<boolean>(false)
+
+  const { colorMode } = useColorMode()
+
+  const bgColor = useColorModeValue("white", "gray.800")
 
   const handleReCaptchaError = () => {
     setFormDisabled(true)
@@ -178,6 +181,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             errorBorderColor="red.300"
             focusBorderColor="blue.500"
             borderColor="gray.500"
+            bg={bgColor}
           />
           <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
         </FormControl>
@@ -198,6 +202,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             errorBorderColor="red.300"
             focusBorderColor="blue.500"
             borderColor="gray.500"
+            bg={bgColor}
           />
           <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
           <FormHelperText>
@@ -217,6 +222,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             errorBorderColor="red.300"
             focusBorderColor="blue.500"
             borderColor="gray.500"
+            bg={bgColor}
           />
         </FormControl>
 
@@ -236,6 +242,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             rounded="lg"
             focusBorderColor="blue.500"
             borderColor="gray.500"
+            bg={bgColor}
           />
           <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
         </FormControl>

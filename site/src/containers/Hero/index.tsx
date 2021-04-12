@@ -5,6 +5,7 @@ import {
   ScaleFade,
   Text,
   useColorMode,
+  useColorModeValue,
   useToken,
 } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
@@ -26,10 +27,9 @@ export const Hero = (props: HeroProps) => {
     config: { mass: 10, tension: 350, friction: 100 },
   }))
 
-  const { colorMode } = useColorMode()
-
-  const textColor = { light: "black", dark: "white" }
-  const [blue500] = useToken("colors", ["blue.500"])
+  const titleColor = useColorModeValue("gray.600", "gray.200")
+  const textColor = useColorModeValue("gray.600", "gray.400")
+  const [blue] = useToken("colors", ["blue.500"])
 
   const image = useStaticQuery(graphql`
     query {
@@ -86,7 +86,6 @@ export const Hero = (props: HeroProps) => {
       alignItems="center"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="10"
-      color={textColor[colorMode]}
       onMouseMove={({ clientX: x, clientY: y }) =>
         setImage({ xy: calcImage(x, y) })
       }
@@ -102,12 +101,12 @@ export const Hero = (props: HeroProps) => {
             as="h1"
             size="4xl"
             my="10"
-            fontWeight="regular"
+            color={titleColor}
             dangerouslySetInnerHTML={{
-              __html: generateTitle(title.text, title.highlight, blue500),
+              __html: generateTitle(title.text, title.highlight, blue),
             }}
           />
-          <Text>{body}</Text>
+          <Text color={textColor}>{body}</Text>
         </ScaleFade>
       </Flex>
       <Box

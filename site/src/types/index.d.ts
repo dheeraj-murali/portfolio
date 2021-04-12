@@ -60,9 +60,7 @@ interface ServiceProps {
   items: Service[]
 }
 
-interface CardProps extends Service {
-  edges: any
-}
+interface CardProps extends Service {}
 
 interface PortfolioItem {
   title: string
