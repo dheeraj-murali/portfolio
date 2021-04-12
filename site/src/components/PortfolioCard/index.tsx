@@ -25,7 +25,7 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
       <Box
         d="inline-block"
         p="0"
-        minW="sm"
+        w="full"
         bg={bgColor}
         my="5"
         rounded="lg"

@@ -64,7 +64,7 @@ export const Portfolio = (props: PortfolioProps) => {
         {title}
       </Heading>
 
-      <Box sx={{ columnCount: [1, 2, 3], columnGap: "5" }} mt="10">
+      <Box sx={{ columnCount: [1, 2, 2, 3], columnGap: "5" }} mt="10">
         {items.map(item => (
           <PortfolioCard
             {...item}
