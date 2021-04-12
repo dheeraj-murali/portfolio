@@ -27,7 +27,7 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
         p="0"
         minW="sm"
         bg={bgColor}
-        mb="5"
+        my="5"
         rounded="lg"
         overflow="hidden"
         shadow="lg"
