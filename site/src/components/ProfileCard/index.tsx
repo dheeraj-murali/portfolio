@@ -11,8 +11,9 @@ import { ProfileCardProps } from "../../types"
 export const ProfileCard = (props: ProfileCardProps) => {
   const { image, name, role } = props
 
-  const bg = useColorModeValue("white", "gray.800")
-  const color = useColorModeValue("black", "white")
+  const titleColor = useColorModeValue("gray.600", "gray.400")
+  const bgColor = useColorModeValue("white", "gray.900")
+  const textColor = useColorModeValue("gray.500", "gray.500")
 
   return (
     <Flex
@@ -20,15 +21,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
       justifyContent="space-around"
       mt="10"
       p="5"
-      bg={bg}
+      bg={bgColor}
       rounded="lg"
-      color={color}
+      color={textColor}
       maxW="xs"
+      shadow="lg"
     >
       <Avatar src={image} size="lg" name={name} />
 
       <Flex flexDir="column" ml="5">
-        <Heading fontSize="md">{name}</Heading>
+        <Heading fontSize="md" color={titleColor}>
+          {name}
+        </Heading>
 
         <Text>{role}</Text>
       </Flex>

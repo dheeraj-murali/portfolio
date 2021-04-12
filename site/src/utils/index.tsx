@@ -1,7 +1,14 @@
 import { Icon } from "@chakra-ui/react"
 import { FluidObject } from "gatsby-image"
 import React from "react"
-import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa"
+import {
+  FaCode,
+  FaGithubSquare,
+  FaLinkedin,
+  FaPaintBrush,
+  FaSearchPlus,
+  FaTwitterSquare,
+} from "react-icons/fa"
 import { FormikErrors } from "formik"
 import { FormValues } from "../types"
 
@@ -24,6 +31,19 @@ export const getService = (service: string) => {
       return <Icon as={FaLinkedin} w="6" h="6" />
     case "Twitter":
       return <Icon as={FaTwitterSquare} w="6" h="6" />
+    default:
+      return null
+  }
+}
+
+export const getIcons = (service: string) => {
+  switch (service) {
+    case "Design":
+      return <Icon as={FaPaintBrush} w="10" h="10" />
+    case "Development":
+      return <Icon as={FaCode} w="10" h="10" />
+    case "SEO":
+      return <Icon as={FaSearchPlus} w="10" h="10" />
     default:
       return null
   }

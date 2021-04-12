@@ -1,19 +1,11 @@
-import { Box, Flex, Heading, SimpleGrid } from "@chakra-ui/react"
+import { Flex, Heading, useColorModeValue } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 import React from "react"
-import { animated, useSpring } from "react-spring"
 import { NetlifyContactForm } from "../../components/NetlifyContactForm"
 import { ContactProps } from "../../types"
-import { calcText, transText } from "../../utils"
 
 export const Contact = (props: ContactProps) => {
   const { title } = props
-
-  const [spring, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 140 },
-  }))
 
   const image = useStaticQuery(graphql`
     query {
@@ -33,56 +25,38 @@ export const Contact = (props: ContactProps) => {
     }
   `)
 
+  const titleColor = useColorModeValue("gray.600", "gray.400")
+  const bgColor = useColorModeValue("gray.50", "gray.900")
+
   return (
-    <Flex w="full" flexDir="column" justifyContent="center" alignItems="center">
+    <Flex
+      w="full"
+      flexDir="column"
+      justifyContent="center"
+      alignItems="center"
+      bg={bgColor}
+    >
       <Heading
         as="h2"
         fontSize="5xl"
         mt="20"
         textAlign="center"
         lineHeight="3rem"
-        fontWeight="regular"
+        color={titleColor}
       >
         {title}
       </Heading>
-      <SimpleGrid w="full" columns={[1, null, null, 2]} my="10">
-        <Flex
-          id="contact"
-          flexDir="column"
-          justifyContent="center"
-          alignItems="center"
-          py="10"
-          px={[2, null, 10]}
-        >
-          <NetlifyContactForm formName="portfolio-contact" />
-        </Flex>
 
-        <Flex
-          id="contact"
-          flexDir="column"
-          justifyContent="center"
-          alignItems="center"
-          py="10"
-        >
-          <Box
-            as={animated.div}
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({ xys: calcText(x, y) })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            // @ts-ignore
-            style={{ transform: spring.xys.interpolate(transText) }}
-            w={{ base: "xs", md: "md", lg: "lg" }}
-            mb="16"
-          >
-            <Img
-              fluid={image.file.childImageSharp.fluid}
-              alt={`${title} screenshot`}
-              style={{ width: "100%" }}
-            />
-          </Box>
-        </Flex>
-      </SimpleGrid>
+      <Flex
+        id="contact"
+        w="lg"
+        flexDir="column"
+        justifyContent="center"
+        alignItems="center"
+        p="10"
+      >
+        <NetlifyContactForm formName="portfolio-contact" />
+      </Flex>
     </Flex>
   )
 }

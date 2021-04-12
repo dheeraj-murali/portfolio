@@ -1,57 +1,46 @@
-import { Flex, Heading, useColorModeValue } from "@chakra-ui/react"
-import Img from "gatsby-image"
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  useColorModeValue,
+  VStack,
+} from "@chakra-ui/react"
 import React from "react"
-import { animated, useSpring } from "react-spring"
 import { CardProps } from "../../types"
-import { calcText, getFluid, transText } from "../../utils"
+import { getIcons } from "../../utils"
 
 export const Card = (props: CardProps) => {
-  const { title, color, image, edges } = props
+  const { title, color, body } = props
 
-  const titleColor = useColorModeValue(`${color}.100`, `${color}.700`)
-
-  const [spring, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 140 },
-  }))
+  const titleColor = useColorModeValue(`${color}.500`, `${color}.200`)
+  const textColor = useColorModeValue("gray.600", "gray.400")
+  const iconColor = useColorModeValue(`${color}.800`, `${color}.800`)
 
   return (
-    <Flex
-      as={animated.div}
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calcText(x, y) })}
-      onMouseLeave={() => set({ xys: [0, 0, 1] })}
-      // @ts-ignore
-      style={{ transform: spring.xys.interpolate(transText) }}
-      flexDir={{ base: "column" }}
-      justifyContent="space-between"
-      alignItems="center"
-      w="full"
-      minH="2xs"
-      p="5"
-      shadow="lg"
-      bg={titleColor}
-      rounded="lg"
-    >
-      <Flex
-        justifyContent="center"
-        alignItems="center"
-        overflow="hidden"
-        w="full"
-        p="0"
+    <VStack align="flex-start" w="full" minH="2xs" p="5">
+      <Box
+        p="5"
         my="3"
+        bg={`${color}.200`}
+        rounded="lg"
+        shadow="lg"
+        color={iconColor}
       >
-        <Img
-          fluid={getFluid(edges, image)}
-          alt={`${title}`}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </Flex>
+        {getIcons(title)}
+      </Box>
 
-      <Flex w="full" justifyContent="center" alignItems="center">
-        <Heading as="h3" size="lg" fontWeight="regular">
+      <Flex
+        flexDir="column"
+        w="full"
+        justifyContent="center"
+        alignItems="flex-start"
+      >
+        <Heading as="h3" size="lg" color={titleColor} my="5">
           {title}
         </Heading>
+        <Text color={textColor}>{body}</Text>
       </Flex>
-    </Flex>
+    </VStack>
   )
 }

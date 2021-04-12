@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid } from "@chakra-ui/react"
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { v4 as uuid } from "uuid"
@@ -49,19 +49,22 @@ export const Portfolio = (props: PortfolioProps) => {
     }
   `)
 
+  const titleColor = useColorModeValue("gray.600", "gray.500")
+  const bgColor = useColorModeValue("gray.50", "gray.900")
+
   return (
     <Box
       id="portfolio"
       w="full"
-      bg="gray.900"
       px={{ base: "5", lg: "10", xl: "16" }}
-      py="32"
+      py="20"
+      bg={bgColor}
     >
-      <Heading as="h2" fontWeight="regular" color="white" size="md">
+      <Heading as="h2" size="lg" color={titleColor}>
         {title}
       </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} mt="10">
+      <Box sx={{ columnCount: [1, 2, 3], columnGap: "5" }} mt="10">
         {items.map(item => (
           <PortfolioCard
             {...item}
@@ -69,7 +72,7 @@ export const Portfolio = (props: PortfolioProps) => {
             key={uuid()}
           />
         ))}
-      </SimpleGrid>
+      </Box>
     </Box>
   )
 }

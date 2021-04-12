@@ -1,48 +1,70 @@
-import { Button, DarkMode, Flex, Text, useDisclosure } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  Heading,
+  Link,
+  Text,
+  useColorModeValue,
+  VStack,
+} from "@chakra-ui/react"
 import Img from "gatsby-image"
 import React from "react"
+import { FaExternalLinkAlt } from "react-icons/fa"
 import { PortfolioCardProps } from "../../types"
 import { getFluid } from "../../utils"
-import { PortfolioModal } from "../PortfolioModal"
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const { image, title, color, edges } = props
+  const { image, title, edges, body, link } = props
+
+  const titleColor = useColorModeValue("gray.600", "gray.400")
+  const bgColor = useColorModeValue("white", "gray.800")
+  const textColor = useColorModeValue("gray.500", "gray.500")
 
   return (
     <>
-      <DarkMode>
-        <Flex
-          flexDir="column"
-          as={Button}
-          overflow="hidden"
-          objectFit="cover"
-          _hover={{ boxShadow: `0px 0px 15px ${color}` }}
-          _focus={{ boxShadow: `0px 0px 15px ${color}` }}
-          style={{ width: "100%", height: "100%" }}
-          onClick={onOpen}
-          color={`${color}.300`}
-          borderColor={`${color}.300`}
-          variant="solid"
-          p="0"
-        >
-          <Img
-            fluid={getFluid(edges, image)}
-            alt={`${title} screenshot`}
-            style={{ width: "100%", height: "100%" }}
-          />
-
-          <Text py="5">{title}</Text>
-        </Flex>
-
-        <PortfolioModal
-          isOpen={isOpen}
-          onOpen={onOpen}
-          onClose={onClose}
-          {...props}
+      <Box
+        d="inline-block"
+        p="0"
+        minW="sm"
+        bg={bgColor}
+        mb="5"
+        rounded="lg"
+        overflow="hidden"
+        shadow="lg"
+      >
+        <Img
           fluid={getFluid(edges, image)}
+          alt={`${title} screenshot`}
+          style={{ width: "100%", height: "100%" }}
         />
-      </DarkMode>
+
+        <VStack align="flex-start" spacing="5" px="5" py="10">
+          <Heading fontSize="2xl" color={titleColor}>
+            {title}
+          </Heading>
+          <Text color={textColor}>{body}</Text>
+          <Box display="flex" flexDir="row-reverse" w="full">
+            <Button
+              as={Link}
+              href={link}
+              isExternal
+              colorScheme="blue"
+              variant="ghost"
+              rightIcon={<FaExternalLinkAlt />}
+            >
+              Visit website
+            </Button>
+          </Box>
+        </VStack>
+      </Box>
+
+      {/* <PortfolioModal
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onClose={onClose}
+        {...props}
+        fluid={getFluid(edges, image)}
+      /> */}
     </>
   )
 }

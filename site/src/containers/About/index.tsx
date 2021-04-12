@@ -1,4 +1,10 @@
-import { Box, Heading, Text, useToken } from "@chakra-ui/react"
+import {
+  Box,
+  Heading,
+  Text,
+  useColorModeValue,
+  useToken,
+} from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import { ProfileCard } from "../../components"
@@ -7,10 +13,6 @@ import { generateTitle } from "../../utils"
 
 export const About = (props: AboutProps) => {
   const { title, body, testimonials, profile } = props
-
-  // const container = useRef<HTMLDivElement>(null!)
-
-  const [yellow500] = useToken("colors", ["yellow.300"])
 
   const images = useStaticQuery(graphql`
     query {
@@ -44,26 +46,32 @@ export const About = (props: AboutProps) => {
     }
   `)
 
+  const [color] = useToken("colors", ["blue.500"])
+  const titleColor = useColorModeValue("gray.600", "gray.400")
+  const bgColor = useColorModeValue("white", "gray.800")
+  const textColor = useColorModeValue("gray.500", "gray.500")
+
   return (
     <Box
       id="about"
       w="full"
       px={{ base: "5", lg: "10", xl: "16" }}
       py="32"
-      backgroundColor="blue.800"
-      color="white"
+      bg={bgColor}
     >
       <Heading
         as="h2"
         maxW="4xl"
         mb="10"
-        fontWeight="regular"
+        color={titleColor}
         dangerouslySetInnerHTML={{
-          __html: generateTitle(title.text, title.highlight, yellow500),
+          __html: generateTitle(title.text, title.highlight, color),
         }}
       />
 
-      <Text maxW="4xl">{body}</Text>
+      <Text maxW="4xl" color={textColor}>
+        {body}
+      </Text>
 
       <ProfileCard {...profile} image={images.me.childImageSharp.fluid.src} />
 
