@@ -49,11 +49,10 @@ export const Contact = (props: ContactProps) => {
 
       <Flex
         id="contact"
-        w={["sm", "md", "lg", "xl"]}
         flexDir="column"
         justifyContent="center"
         alignItems="center"
-        p="10"
+        py="10"
       >
         <NetlifyContactForm formName="portfolio-contact" />
       </Flex>
