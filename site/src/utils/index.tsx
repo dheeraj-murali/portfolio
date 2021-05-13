@@ -1,15 +1,27 @@
-import { Icon } from "@chakra-ui/react"
+import { Icon, Tooltip } from "@chakra-ui/react"
+import { FormikErrors } from "formik"
 import { FluidObject } from "gatsby-image"
 import React from "react"
 import {
+  FaBootstrap,
   FaCode,
+  FaCss3Alt,
   FaGithubSquare,
+  FaHtml5,
+  FaJs,
   FaLinkedin,
   FaPaintBrush,
+  FaReact,
   FaSearchPlus,
   FaTwitterSquare,
 } from "react-icons/fa"
-import { FormikErrors } from "formik"
+import {
+  SiGatsby,
+  SiGraphql,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si"
+import { CgBolt } from "react-icons/cg"
 import { FormValues } from "../types"
 
 export const generateTitle = (
@@ -119,4 +131,123 @@ export const validate = (values: FormValues) => {
   }
 
   return errors
+}
+
+export const getTechIcons = (tech: string) => {
+  switch (tech) {
+    case "react":
+      return (
+        <Tooltip hasArrow label="ReactJS" placement="top" shouldWrapChildren>
+          <Icon
+            aria-label="ReactJS"
+            as={FaReact}
+            boxSize="6"
+            color="blue.500"
+          />
+        </Tooltip>
+      )
+
+    case "html":
+      return (
+        <Tooltip hasArrow label="HTML" placement="top" shouldWrapChildren>
+          <Icon aria-label="HTML" as={FaHtml5} boxSize="6" color="orange.500" />
+        </Tooltip>
+      )
+
+    case "css":
+      return (
+        <Tooltip hasArrow label="CSS" placement="top" shouldWrapChildren>
+          <Icon aria-label="CSS" as={FaCss3Alt} boxSize="6" color="blue.500" />
+        </Tooltip>
+      )
+
+    case "js":
+      return (
+        <Tooltip hasArrow label="JS" placement="top" shouldWrapChildren>
+          <Icon aria-label="JS" as={FaJs} boxSize="6" color="yellow.500" />
+        </Tooltip>
+      )
+
+    case "bootstrap":
+      return (
+        <Tooltip hasArrow label="Bootstrap" placement="top" shouldWrapChildren>
+          <Icon
+            aria-label="Bootstrap"
+            as={FaBootstrap}
+            boxSize="6"
+            color="purple.500"
+          />
+        </Tooltip>
+      )
+
+    case "gatsby":
+      return (
+        <Tooltip hasArrow label="GatsbyJS" placement="top" shouldWrapChildren>
+          <Icon
+            aria-label="GatsbyJS"
+            as={SiGatsby}
+            boxSize="6"
+            color="purple.500"
+          />
+        </Tooltip>
+      )
+
+    case "graphql":
+      return (
+        <Tooltip hasArrow label="GraphQL" placement="top" shouldWrapChildren>
+          <Icon
+            aria-label="GraphQL"
+            as={SiGraphql}
+            boxSize="6"
+            color="pink.500"
+          />
+        </Tooltip>
+      )
+
+    case "tailwind":
+      return (
+        <Tooltip
+          hasArrow
+          label="Tailwind CSS"
+          placement="top"
+          shouldWrapChildren
+        >
+          <Icon
+            aria-label="Tailwind CSS"
+            as={SiTailwindcss}
+            boxSize="6"
+            color="teal.500"
+          />
+        </Tooltip>
+      )
+
+    case "typescript":
+      return (
+        <Tooltip hasArrow label="Typescript" placement="top" shouldWrapChildren>
+          <Icon
+            aria-label="Typescript"
+            as={SiTypescript}
+            boxSize="6"
+            color="blue.500"
+          />
+        </Tooltip>
+      )
+
+    case "chakra":
+      return (
+        <Tooltip hasArrow label="Chakra UI" placement="top" shouldWrapChildren>
+          <Icon
+            aria-label="Chakra UI"
+            bg="green.500"
+            rounded="full"
+            as={CgBolt}
+            boxSize="6"
+            color="white"
+          />
+        </Tooltip>
+      )
+
+    default:
+      return null
+  }
 }

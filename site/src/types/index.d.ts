@@ -1,5 +1,3 @@
-import { FluidObject } from "gatsby-image"
-
 interface SEOProps {
   title: string
   description: string
@@ -68,6 +66,7 @@ interface PortfolioItem {
   image: string
   link: string
   color: string
+  tech: string[]
 }
 
 interface PortfolioProps {
@@ -79,15 +78,16 @@ interface PortfolioCardProps extends PortfolioItem {
   edges: any
 }
 
-interface PortfolioModalProps {
-  title: string
-  body: string
-  fluid: FluidObject | FluidObject[]
-  link: string
-  isOpen: boolean
-  onOpen: () => void
-  onClose: () => void
-}
+// interface PortfolioModalProps {
+//   title: string
+//   body: string
+//   fluid: FluidObject | FluidObject[]
+//   link: string
+//   tech: string[]
+//   isOpen: boolean
+//   onOpen: () => void
+//   onClose: () => void
+// }
 
 interface Testimonial {
   name: string
