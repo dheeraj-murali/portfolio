@@ -17,33 +17,21 @@ export const ReviewCard = (props: ReviewCardProps) => {
   const bg = useColorModeValue("white", "gray.800")
   const color = useColorModeValue("black", "white")
 
-  const image = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: {
-          extension: { regex: "/(jpg)/" }
-          relativePath: { regex: "/(clients)/" }
-        }
-      ) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(quality: 80) {
-                aspectRatio
-                base64
-                sizes
-                src
-                srcSet
-                srcSetWebp
-                srcWebp
-              }
-            }
-          }
+  const image = useStaticQuery(graphql`{
+  allFile(
+    filter: {extension: {regex: "/(jpg)/"}, relativePath: {regex: "/(clients)/"}}
+  ) {
+    edges {
+      node {
+        name
+        childImageSharp {
+          gatsbyImageData(quality: 80, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
     }
-  `)
+  }
+}
+`)
 
   return (
     <Box position="relative" minW="xs" maxW="sm" overflow="hidden" mx="5">

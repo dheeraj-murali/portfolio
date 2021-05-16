@@ -1,4 +1,4 @@
-interface SEOProps {
+export interface SEOProps {
   title: string
   description: string
   image: string
@@ -7,60 +7,60 @@ interface SEOProps {
   keywords: string
 }
 
-interface Nav {
+export interface Nav {
   title: string
   link: string
 }
 
-interface Social {
+export interface Social {
   service: string
   link: string
 }
 
-interface HeaderProps {
+export interface HeaderProps {
   nav: Nav[]
   social: Social[]
 }
 
-interface NavProps {
+export interface NavProps {
   nav: Nav[]
 }
 
-declare interface ScrollAssistProps {
+export interface ScrollAssistProps {
   leftClickFn: () => void
   rightClickFn: () => void
 }
 
-interface SocialProps {
+export interface SocialProps {
   social: Social[]
 }
 
-interface Title {
+export interface Title {
   text: string
   highlight: string
 }
 
-interface HeroProps {
+export interface HeroProps {
   title: Title
   body: string
   image: string
 }
 
-interface Service {
+export interface Service {
   title: string
   body: string
   image: string
   color: string
 }
 
-interface ServiceProps {
+export interface ServiceProps {
   title: string
   items: Service[]
 }
 
-interface CardProps extends Service {}
+export interface CardProps extends Service {}
 
-interface PortfolioItem {
+export interface PortfolioItem {
   title: string
   body: string
   image: string
@@ -69,52 +69,55 @@ interface PortfolioItem {
   tech: string[]
 }
 
-interface PortfolioProps {
+export interface PortfolioProps {
   title: string
   items: PortfolioItem[]
 }
 
-interface PortfolioCardProps extends PortfolioItem {
+export interface PortfolioCardProps extends PortfolioItem {
   edges: any
 }
 
-// interface PortfolioModalProps {
-//   title: string
-//   body: string
-//   fluid: FluidObject | FluidObject[]
-//   link: string
-//   tech: string[]
-//   isOpen: boolean
-//   onOpen: () => void
-//   onClose: () => void
-// }
-
-interface Testimonial {
+export interface Testimonial {
   name: string
   role: string
   message: string
   picture: string
 }
 
-interface Profile {
+export interface Profile {
   name: string
   role: string
 }
 
-interface AboutProps {
+export interface AboutProps {
   title: Title
   body: string
   testimonials: Testimonial[]
   profile: Profile
 }
 
-interface ProfileCardProps extends Profile {
+export interface ProfileCardProps extends Profile {
   image: string
 }
 
-interface ReviewCardProps extends Testimonial {}
+export interface ReviewCardProps extends Testimonial {}
 
-interface ContactProps {
+export interface ContactProps {
   title: string
   mail: string
+}
+
+export interface FormValues {
+  name: string
+  email: string
+  phone: string
+  message: string
+  bot: string
+  "form-name"?: string
+  "g-recaptcha-response"?: string
+}
+
+export interface NetlifyContactFormProps {
+  formName: string
 }

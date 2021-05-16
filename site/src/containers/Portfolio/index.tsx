@@ -7,47 +7,26 @@ import { PortfolioProps } from "../../types"
 
 export const Portfolio = (props: PortfolioProps) => {
   const { items, title } = props
-  const images = useStaticQuery(graphql`
-    query {
-      background: file(relativePath: { eq: "images/work.png" }) {
+  const images = useStaticQuery(graphql`{
+  background: file(relativePath: {eq: "images/work.png"}) {
+    childImageSharp {
+      gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+    }
+  }
+  screenshots: allFile(
+    filter: {extension: {regex: "/(png)/"}, relativePath: {regex: "/(portfolio)/"}}
+  ) {
+    edges {
+      node {
+        name
         childImageSharp {
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
-        }
-      }
-
-      screenshots: allFile(
-        filter: {
-          extension: { regex: "/(png)/" }
-          relativePath: { regex: "/(portfolio)/" }
-        }
-      ) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(quality: 80) {
-                aspectRatio
-                base64
-                sizes
-                src
-                srcSet
-                srcSetWebp
-                srcWebp
-              }
-            }
-          }
+          gatsbyImageData(quality: 80, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
     }
-  `)
+  }
+}
+`)
 
   const titleColor = useColorModeValue("gray.600", "gray.500")
   const bgColor = useColorModeValue("gray.50", "gray.900")

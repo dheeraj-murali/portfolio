@@ -1,22 +1,14 @@
 import { Box, Flex, Heading, SlideFade, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 
 export default function notFound() {
   const image = useStaticQuery(graphql`
-    query {
+    {
       file(relativePath: { eq: "images/404.png" }) {
         childImageSharp {
-          fluid(pngQuality: 90) {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
     }
@@ -32,8 +24,8 @@ export default function notFound() {
     >
       <SlideFade offsetY={500} in={true}>
         <Box w="xs">
-          <Img
-            fluid={image.file.childImageSharp.fluid}
+          <GatsbyImage
+            image={image.file.childImageSharp.gatsbyImageData}
             alt={`404`}
             style={{ width: "100%" }}
           />

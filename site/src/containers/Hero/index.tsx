@@ -9,7 +9,7 @@ import {
   useToken,
 } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { animated, useSpring } from "react-spring"
 import { HeroProps } from "../../types"
@@ -32,46 +32,20 @@ export const Hero = (props: HeroProps) => {
   const [blue] = useToken("colors", ["blue.500"])
 
   const image = useStaticQuery(graphql`
-    query {
+    {
       heroMe: file(relativePath: { eq: "images/heroMe.png" }) {
         childImageSharp {
-          fluid(pngQuality: 90) {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
-
       heroChair: file(relativePath: { eq: "images/heroChair.png" }) {
         childImageSharp {
-          fluid(pngQuality: 90) {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
-
       heroBg: file(relativePath: { eq: "images/heroBg.png" }) {
         childImageSharp {
-          fluid(pngQuality: 90) {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
     }
@@ -133,8 +107,8 @@ export const Hero = (props: HeroProps) => {
             willChange: "transform",
           }}
         >
-          <Img
-            fluid={image.heroBg.childImageSharp.fluid}
+          <GatsbyImage
+            image={image.heroBg.childImageSharp.gatsbyImageData}
             alt={`${title} screenshot`}
             style={{
               width: "100%",
@@ -160,8 +134,8 @@ export const Hero = (props: HeroProps) => {
             willChange: "transform",
           }}
         >
-          <Img
-            fluid={image.heroChair.childImageSharp.fluid}
+          <GatsbyImage
+            image={image.heroChair.childImageSharp.gatsbyImageData}
             alt={`${title} screenshot`}
             style={{
               width: "100%",
@@ -187,8 +161,8 @@ export const Hero = (props: HeroProps) => {
             willChange: "transform",
           }}
         >
-          <Img
-            fluid={image.heroMe.childImageSharp.fluid}
+          <GatsbyImage
+            image={image.heroMe.childImageSharp.gatsbyImageData}
             alt={`${title} screenshot`}
             style={{
               width: "100%",

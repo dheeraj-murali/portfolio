@@ -1,6 +1,6 @@
 import { Icon, Tooltip } from "@chakra-ui/react"
 import { FormikErrors } from "formik"
-import { FluidObject } from "gatsby-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
 import {
   FaBootstrap,
@@ -61,24 +61,23 @@ export const getIcons = (service: string) => {
   }
 }
 
-export const getFluid = (
-  edges: any,
-  image: string
-): FluidObject | FluidObject[] => {
-  let fluid: FluidObject | FluidObject[]
+export const getImage = (edges: any, image: string): IGatsbyImageData => {
+  let img: IGatsbyImageData
 
   edges.forEach(edge => {
-    if (edge.node.name === image) fluid = edge.node.childImageSharp.fluid
+    if (edge.node.name === image)
+      img = edge.node.childImageSharp.gatsbyImageData
   })
 
-  return fluid
+  return img
 }
 
 export const getSrc = (edges: any, image: string): string => {
   let src: string
 
   edges.forEach(edge => {
-    if (edge.node.name === image) src = edge.node.childImageSharp.fluid.src
+    if (edge.node.name === image)
+      src = edge.node.childImageSharp.gatsbyImageData.images.fallback.src
   })
 
   return src
