@@ -13,6 +13,7 @@ module.exports = {
         path: `${__dirname}/src/assets/`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -29,6 +30,14 @@ module.exports = {
     },
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-smoothscroll`,
-    `gatsby-plugin-offline`,
+
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
   ],
 }

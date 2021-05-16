@@ -15,7 +15,7 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react"
 import { FaExternalLinkAlt } from "react-icons/fa"
 import { PortfolioModalProps } from "../../types"
@@ -37,11 +37,10 @@ export const PortfolioModal = (props: PortfolioModalProps) => {
               objectFit="cover"
               onClick={onOpen}
             >
-              <Img
-                fluid={fluid}
+              <GatsbyImage
+                image={fluid}
                 alt="Profile image"
-                style={{ width: "100%", height: "100%" }}
-              />
+                style={{ width: "100%", height: "100%" }} />
             </Box>
             <Text py="5">{body}</Text>
           </ModalBody>
@@ -72,5 +71,5 @@ export const PortfolioModal = (props: PortfolioModalProps) => {
         </ModalContent>
       </Modal>
     </DarkMode>
-  )
+  );
 }

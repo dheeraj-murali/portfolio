@@ -12,35 +12,22 @@ import { AboutProps } from "../../types"
 import { generateTitle } from "../../utils"
 
 export const About = (props: AboutProps) => {
-  const { title, body, testimonials, profile } = props
+  const { title, body, profile } = props
 
   const images = useStaticQuery(graphql`
-    query {
+    {
       background: file(relativePath: { eq: "images/client.png" }) {
         childImageSharp {
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
-
       me: file(relativePath: { eq: "images/me.jpeg" }) {
         childImageSharp {
-          fluid {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(
+            placeholder: BLURRED
+            layout: FULL_WIDTH
+            formats: JPG
+          )
         }
       }
     }
@@ -73,7 +60,12 @@ export const About = (props: AboutProps) => {
         {body}
       </Text>
 
-      <ProfileCard {...profile} image={images.me.childImageSharp.fluid.src} />
+      <ProfileCard
+        {...profile}
+        image={images.me.childImageSharp.gatsbyImageData.images.fallback.src}
+      />
+
+      {/* Testimonies */}
 
       {/* <Flex
         bg="purple.800"
