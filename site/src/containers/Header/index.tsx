@@ -4,16 +4,19 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Button,
   Flex,
   Icon,
+  Spacer,
 } from "@chakra-ui/react"
+import { Link } from "gatsby"
 import React from "react"
 import { FaBars } from "react-icons/fa"
 import { Logo, Nav, Social, ThemeToggle } from "../../components"
 import { HeaderProps } from "../../types"
 
 export const Header = (props: HeaderProps) => {
-  const { nav, social } = props
+  const { nav, social, fromBlog } = props
 
   return (
     <Box id="header" w="full">
@@ -26,8 +29,12 @@ export const Header = (props: HeaderProps) => {
         w="full"
       >
         <Logo />
-        <Nav nav={nav} />
-        <Social social={social} />
+        {!fromBlog && (
+          <>
+            <Nav nav={nav} />
+            <Social social={social} />
+          </>
+        )}
         <ThemeToggle />
       </Box>
       <Accordion allowToggle>
@@ -38,8 +45,12 @@ export const Header = (props: HeaderProps) => {
           </AccordionButton>
           <AccordionPanel>
             <Flex flexDir="column">
-              <Nav nav={nav} />
-              <Social social={social} />
+              {!fromBlog && (
+                <>
+                  <Nav nav={nav} />
+                  <Social social={social} />
+                </>
+              )}
               <ThemeToggle />
             </Flex>
           </AccordionPanel>
