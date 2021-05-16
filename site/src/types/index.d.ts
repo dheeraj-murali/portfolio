@@ -20,6 +20,7 @@ export interface Social {
 export interface HeaderProps {
   nav: Nav[]
   social: Social[]
+  fromBlog?: boolean
 }
 
 export interface NavProps {
