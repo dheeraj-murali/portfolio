@@ -33,19 +33,31 @@ export const Hero = (props: HeroProps) => {
 
   const image = useStaticQuery(graphql`
     {
-      heroMe: file(relativePath: { eq: "images/heroMe.png" }) {
+      heroMe: file(relativePath: { eq: "images/hero/heroMe.png" }) {
         childImageSharp {
-          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
+          gatsbyImageData(
+            quality: 90
+            placeholder: TRACED_SVG
+            layout: FULL_WIDTH
+          )
         }
       }
-      heroChair: file(relativePath: { eq: "images/heroChair.png" }) {
+      heroChair: file(relativePath: { eq: "images/hero/heroChair.png" }) {
         childImageSharp {
-          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
+          gatsbyImageData(
+            quality: 90
+            placeholder: TRACED_SVG
+            layout: FULL_WIDTH
+          )
         }
       }
-      heroBg: file(relativePath: { eq: "images/heroBg.png" }) {
+      heroBg: file(relativePath: { eq: "images/hero/heroBg.png" }) {
         childImageSharp {
-          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
+          gatsbyImageData(
+            quality: 90
+            placeholder: TRACED_SVG
+            layout: FULL_WIDTH
+          )
         }
       }
     }

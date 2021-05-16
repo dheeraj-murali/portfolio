@@ -9,6 +9,7 @@ import {
   SEO,
   Service,
 } from "../containers"
+import { Blog } from "../containers/Blog"
 import data from "../content/data.json"
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Header {...header} />
       <Hero {...hero} />
       <Service {...service} />
+      <Blog />
       <Portfolio {...portfolio} />
       <About {...about} />
       <Contact {...contact} />
