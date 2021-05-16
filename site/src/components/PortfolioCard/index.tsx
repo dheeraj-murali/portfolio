@@ -12,12 +12,12 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { FaExternalLinkAlt } from "react-icons/fa"
 import { v4 } from "uuid"
 import { PortfolioCardProps } from "../../types"
-import { getFluid, getTechIcons } from "../../utils"
+import { getImage, getTechIcons } from "../../utils"
 
 export const PortfolioCard = (props: PortfolioCardProps) => {
   const { image, title, edges, body, link, tech } = props
@@ -38,8 +38,8 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
         overflow="hidden"
         shadow="lg"
       >
-        <Img
-          fluid={getFluid(edges, image)}
+        <GatsbyImage
+          image={getImage(edges, image)}
           alt={`${title} screenshot`}
           style={{ width: "100%", height: "100%" }}
         />
@@ -71,20 +71,8 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
               </Button>
             </Flex>
           </SimpleGrid>
-
-          {/* <Flex justify="space-between" w="full">
-            <Spacer />
-          </Flex> */}
         </VStack>
       </Box>
-
-      {/* <PortfolioModal
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onClose={onClose}
-        {...props}
-        fluid={getFluid(edges, image)}
-      /> */}
     </>
   )
 }

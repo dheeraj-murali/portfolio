@@ -14,6 +14,7 @@ import {
 import { FormikErrors, useFormik } from "formik"
 import React, { useState } from "react"
 import Recaptcha from "react-google-recaptcha"
+import { FormValues, NetlifyContactFormProps } from "../../types"
 
 const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
 
@@ -266,18 +267,4 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
       </VStack>
     </form>
   )
-}
-
-declare interface FormValues {
-  name: string
-  email: string
-  phone: string
-  message: string
-  bot: string
-  "form-name"?: string
-  "g-recaptcha-response"?: string
-}
-
-declare interface NetlifyContactFormProps {
-  formName: string
 }

@@ -8,18 +8,10 @@ export const Contact = (props: ContactProps) => {
   const { title } = props
 
   const image = useStaticQuery(graphql`
-    query {
+    {
       file(relativePath: { eq: "images/contact.png" }) {
         childImageSharp {
-          fluid(pngQuality: 90) {
-            aspectRatio
-            base64
-            src
-            srcSet
-            sizes
-            srcSetWebp
-            srcWebp
-          }
+          gatsbyImageData(quality: 90, placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
     }
