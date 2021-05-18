@@ -48,29 +48,28 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
           <Heading fontSize="2xl" color={titleColor}>
             {title}
           </Heading>
+
           <Text color={textColor}>{body}</Text>
 
-          <SimpleGrid columns={[1, 1, 1, 2]} spacing="5" w="full">
-            <Wrap spacing="5" align="center">
-              {tech.map(item => (
-                <WrapItem key={v4()}>{getTechIcons(item)}</WrapItem>
-              ))}
-            </Wrap>
+          <Wrap spacing="5" align="center" w="full">
+            {tech.map(item => (
+              <WrapItem key={v4()}>{getTechIcons(item)}</WrapItem>
+            ))}
+          </Wrap>
 
-            <Flex align="center">
-              <Spacer />
-              <Button
-                as={Link}
-                href={link}
-                isExternal
-                colorScheme="blue"
-                variant="ghost"
-                rightIcon={<FaExternalLinkAlt />}
-              >
-                Visit website
-              </Button>
-            </Flex>
-          </SimpleGrid>
+          <Flex align="center" w="full">
+            <Spacer />
+            <Button
+              as={Link}
+              href={link}
+              isExternal
+              colorScheme="blue"
+              variant="ghost"
+              rightIcon={<FaExternalLinkAlt />}
+            >
+              Visit website
+            </Button>
+          </Flex>
         </VStack>
       </Box>
     </>
