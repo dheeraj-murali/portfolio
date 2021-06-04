@@ -122,3 +122,12 @@ export interface FormValues {
 export interface NetlifyContactFormProps {
   formName: string
 }
+
+export interface BlogCardProps {
+  date: string
+  title: string
+  tags: string
+  description?: string
+  excerpt: string
+  slug: string
+}

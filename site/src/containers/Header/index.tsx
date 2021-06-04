@@ -4,12 +4,9 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
-  Button,
   Flex,
   Icon,
-  Spacer,
 } from "@chakra-ui/react"
-import { Link } from "gatsby"
 import React from "react"
 import { FaBars } from "react-icons/fa"
 import { Logo, Nav, Social, ThemeToggle } from "../../components"

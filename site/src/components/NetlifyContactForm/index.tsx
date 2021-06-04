@@ -55,6 +55,16 @@ export const validate = (values: FormValues) => {
     errors.message = "Must be at least 5 characters or more"
   }
 
+  if (!values.phone) {
+    errors.phone = ""
+  } else if (
+    !/\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/g.test(
+      values.phone
+    )
+  ) {
+    errors.phone = "Invalid phone number"
+  }
+
   if (values.bot) {
     errors.message = "Are you a bot?"
   }
@@ -209,7 +219,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
           </FormHelperText>
         </FormControl>
 
-        <FormControl id="phone">
+        <FormControl id="phone" isInvalid={Boolean(formik.errors.phone)}>
           <Input
             id="phone"
             name="phone"
@@ -223,6 +233,7 @@ export const NetlifyContactForm = (props: NetlifyContactFormProps) => {
             borderColor="gray.500"
             bg={bgColor}
           />
+          <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
         </FormControl>
 
         <FormControl

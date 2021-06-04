@@ -1,6 +1,5 @@
 import { Flex, IconButton, Link, Wrap, WrapItem } from "@chakra-ui/react"
 import React from "react"
-import { v4 as uuid } from "uuid"
 import { SocialProps } from "../../types"
 import { getService } from "../../utils/index"
 
@@ -10,9 +9,9 @@ export const Social = (props: SocialProps) => {
   return (
     <Flex>
       <Wrap display="inline-flex">
-        {social.map(item => {
+        {social.map((item, index) => {
           return (
-            <WrapItem key={uuid()} display="flex">
+            <WrapItem key={index} display="flex">
               <IconButton
                 aria-label={item.service}
                 icon={getService(item.service)}

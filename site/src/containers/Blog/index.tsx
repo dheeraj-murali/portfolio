@@ -1,32 +1,7 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Tag,
-  Text,
-  useColorModeValue,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { sample } from "lodash"
+import { Box, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react"
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { FaLink } from "react-icons/fa"
-import { v4 } from "uuid"
-
-const colors = [
-  "red",
-  "blue",
-  "green",
-  "yellow",
-  "orange",
-  "purple",
-  "pink",
-  "cyan",
-  "teal",
-]
+import { BlogCard } from "../../components/BlogCard"
 
 export function Blog() {
   const data = useStaticQuery(graphql`
@@ -52,7 +27,6 @@ export function Blog() {
 
   const titleColor = useColorModeValue("gray.600", "gray.500")
   const bgColor = useColorModeValue("gray.50", "gray.900")
-  const cardBgColor = useColorModeValue("white", "gray.800")
 
   return (
     <Box
@@ -68,66 +42,19 @@ export function Blog() {
       </Heading>
 
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} my="10">
-        {data.blog.posts.map(post => {
+        {data.blog.posts.map((post, index) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <Flex
-              flexDir="column"
-              justify="space-between"
-              p="5"
-              as="article"
-              key={v4()}
-              itemScope
-              itemType="http://schema.org/Article"
-              boxShadow="lg"
-              bg={cardBgColor}
-              rounded="lg"
-            >
-              <Box>
-                <Box as="header">
-                  <Box as="time" dateTime={post.frontmatter.date}>
-                    {post.frontmatter.date}
-                  </Box>
-
-                  <Heading as="h3" size="lg" noOfLines={2}>
-                    <span itemProp="headline">{title}</span>
-                  </Heading>
-
-                  <Wrap my="3">
-                    {post.frontmatter.tags.split(",").map(tag => (
-                      <WrapItem key={v4()}>
-                        <Tag colorScheme={sample(colors)} variant="subtle">
-                          {tag.trim()}
-                        </Tag>
-                      </WrapItem>
-                    ))}
-                  </Wrap>
-                </Box>
-                <Box as="section" my="5">
-                  <Text
-                    fontSize="sm"
-                    noOfLines={3}
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </Box>
-              </Box>
-              <Flex flexDirection="row-reverse" mt="5">
-                <Button
-                  as={Link}
-                  to={post.fields.slug}
-                  itemProp="url"
-                  colorScheme="blue"
-                  variant="ghost"
-                  rightIcon={<FaLink />}
-                >
-                  Read post
-                </Button>
-              </Flex>
-            </Flex>
+            <BlogCard
+              key={index}
+              date={post.frontmatter.date}
+              title={title}
+              tags={post.frontmatter.tags}
+              description={post.frontmatter.description}
+              excerpt={post.excerpt}
+              slug={post.fields.slug}
+            />
           )
         })}
       </SimpleGrid>

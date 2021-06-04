@@ -1,6 +1,6 @@
 import { Box, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react"
 import React from "react"
-import { v4 as uuid } from "uuid"
+
 import { Card } from "../../components"
 import { ServiceProps } from "../../types"
 
@@ -16,8 +16,8 @@ export const Service = (props: ServiceProps) => {
       </Heading>
 
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} my="10">
-        {items.map(item => (
-          <Card {...item} key={uuid()} />
+        {items.map((item, index) => (
+          <Card {...item} key={index} />
         ))}
       </SimpleGrid>
     </Box>
