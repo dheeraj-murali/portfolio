@@ -1,32 +1,39 @@
 import { Box, Heading, useColorModeValue } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { v4 as uuid } from "uuid"
 import { PortfolioCard } from "../../components/PortfolioCard"
 import { PortfolioProps } from "../../types"
 
 export const Portfolio = (props: PortfolioProps) => {
   const { items, title } = props
-  const images = useStaticQuery(graphql`{
-  background: file(relativePath: {eq: "images/work.png"}) {
-    childImageSharp {
-      gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-    }
-  }
-  screenshots: allFile(
-    filter: {extension: {regex: "/(png)/"}, relativePath: {regex: "/(portfolio)/"}}
-  ) {
-    edges {
-      node {
-        name
+  const images = useStaticQuery(graphql`
+    {
+      background: file(relativePath: { eq: "images/work.png" }) {
         childImageSharp {
-          gatsbyImageData(quality: 80, placeholder: BLURRED, layout: FULL_WIDTH)
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+        }
+      }
+      screenshots: allFile(
+        filter: {
+          extension: { regex: "/(png)/" }
+          relativePath: { regex: "/(portfolio)/" }
+        }
+      ) {
+        edges {
+          node {
+            name
+            childImageSharp {
+              gatsbyImageData(
+                quality: 80
+                placeholder: BLURRED
+                layout: FULL_WIDTH
+              )
+            }
+          }
         }
       }
     }
-  }
-}
-`)
+  `)
 
   const titleColor = useColorModeValue("gray.600", "gray.500")
   const bgColor = useColorModeValue("gray.50", "gray.900")
@@ -44,11 +51,11 @@ export const Portfolio = (props: PortfolioProps) => {
       </Heading>
 
       <Box sx={{ columnCount: [1, 2, 2], columnGap: "5" }} mt="10">
-        {items.map(item => (
+        {items.map((item, index) => (
           <PortfolioCard
             {...item}
             edges={images.screenshots.edges}
-            key={uuid()}
+            key={index}
           />
         ))}
       </Box>

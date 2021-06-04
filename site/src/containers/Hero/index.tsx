@@ -4,7 +4,6 @@ import {
   Heading,
   ScaleFade,
   Text,
-  useColorMode,
   useColorModeValue,
   useToken,
 } from "@chakra-ui/react"

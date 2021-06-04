@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   Link,
-  SimpleGrid,
   Spacer,
   Text,
   useColorModeValue,
@@ -15,7 +14,6 @@ import {
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { FaExternalLinkAlt } from "react-icons/fa"
-import { v4 } from "uuid"
 import { PortfolioCardProps } from "../../types"
 import { getImage, getTechIcons } from "../../utils"
 
@@ -52,8 +50,8 @@ export const PortfolioCard = (props: PortfolioCardProps) => {
           <Text color={textColor}>{body}</Text>
 
           <Wrap spacing="5" align="center" w="full">
-            {tech.map(item => (
-              <WrapItem key={v4()}>{getTechIcons(item)}</WrapItem>
+            {tech.map((item, index) => (
+              <WrapItem key={index}>{getTechIcons(item)}</WrapItem>
             ))}
           </Wrap>
 
