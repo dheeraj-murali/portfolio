@@ -1,5 +1,5 @@
 import { About } from "components/About";
-import { Blog } from "components/Blog";
+// import { Blog } from "components/Blog";
 import { Layout } from "components/common/Layout";
 import { Contact } from "components/Contact";
 import { Hero } from "components/Hero";
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <Hero />
-        <Blog />
+        {/* <Blog /> */}
         <Portfolio />
         <About />
         <Contact />
