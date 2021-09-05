@@ -1,32 +1,32 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
+import data from "Data/data.json";
+import { Link } from "components/common/Link";
+import { v4 } from "uuid";
+
+const { social } = data;
+
+const getService = (service: string) => {
+  switch (service) {
+    case "GitHub":
+      return <SiGithub />;
+    case "LinkedIn":
+      return <SiLinkedin />;
+    case "Twitter":
+      return <SiTwitter />;
+
+    default:
+      return null;
+  }
+};
 
 export function Social() {
   return (
     <div className="inline-flex space-x-5">
-      <a
-        className="link"
-        target="_blank"
-        href="https://github.com/dheeraj-murali"
-        rel="noreferrer"
-      >
-        <FaGithub />
-      </a>
-      <a
-        className="link"
-        target="_blank"
-        href="https://www.linkedin.com/in/dheeraj-murali/"
-        rel="noreferrer"
-      >
-        <FaLinkedin />
-      </a>
-      <a
-        className="link"
-        target="_blank"
-        href="https://twitter.com/_mdrj"
-        rel="noreferrer"
-      >
-        <FaTwitter />
-      </a>
+      {social.map((item) => (
+        <Link key={v4()} to={item.link} external>
+          {getService(item.service)}
+        </Link>
+      ))}
     </div>
   );
 }

@@ -1,12 +1,15 @@
 import { Link } from "components/common/Link";
+import { TechStack } from "components/common/TechStack";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 
-export function PortfolioCard() {
+export function PortfolioCard(props: PortfolioCardProps) {
+  const { body, image, link, tech, title } = props;
+
   return (
     <article className="flex flex-col space-y-3 m-5">
       <Image
-        src="/icon.png"
+        src={image}
         alt=""
         width="50"
         height="50"
@@ -14,23 +17,23 @@ export function PortfolioCard() {
         className="rounded overflow-hidden"
       />
 
-      <h3>Product title</h3>
+      <h3>{title}</h3>
 
-      <p className="text-sm">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime,
-        similique explicabo? Voluptas minima, natus facilis necessitatibus atque
-        perspiciatis totam suscipit officia id aliquam tempora modi nisi,
-        repudiandae distinctio culpa ipsum.
-      </p>
+      <p className="text-sm line-clamp-3">{body}</p>
 
-      <ul className="inline-flex flex-wrap space-x-3 my-5">
-        <li>tool</li>
-        <li>tool</li>
-        <li>tool</li>
-        <li>tool</li>
-      </ul>
+      <TechStack
+        aws={tech.includes("aws")}
+        bootstrap={tech.includes("bootstrap")}
+        gatsby={tech.includes("gatsby")}
+        graphql={tech.includes("graphql")}
+        netlify={tech.includes("netlify")}
+        next={tech.includes("next")}
+        react={tech.includes("react")}
+        tailwind={tech.includes("tailwind")}
+        typescript={tech.includes("typescript")}
+      />
 
-      <Link to="#" external className="justify-end">
+      <Link to={link} external className="justify-end">
         <span>Visit Website</span>
         <FaArrowRight />
       </Link>

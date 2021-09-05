@@ -2,19 +2,24 @@ import { TechStack } from "components/common/TechStack";
 import { HeroImage } from "components/Hero/HeroImage";
 import { useEffect, useRef } from "react";
 import { annotate } from "rough-notation";
+import data from "Data/data.json";
+
+const { hero } = data;
 
 export function Hero() {
   const highlightRef = useRef<HTMLSpanElement>(null);
+  const highlighted = useRef<boolean>(false);
 
   useEffect(() => {
     setTimeout(() => {
-      if (highlightRef.current) {
+      if (!highlighted.current && highlightRef.current) {
         const annotation = annotate(highlightRef.current, {
           type: "highlight",
           color: "#fab95b80",
         });
 
         annotation.show();
+        highlighted.current = true;
       }
     }, 2000);
   }, []);
@@ -28,11 +33,9 @@ export function Hero() {
         <h2 className="font-cursive text-5xl tracking-wider mb-2">
           Hey, I&lsquo;m <span ref={highlightRef}>dheeraj</span>
         </h2>
-        <h2 className="text-primary-400">A digital product developer.</h2>
+        <h2 className="text-primary-400">{hero.subtitle}</h2>
 
-        <p>
-          {`I love designing and developing fast and easy to use web applications.`}
-        </p>
+        <p>{hero.body}</p>
 
         <TechStack
           react
@@ -43,6 +46,7 @@ export function Hero() {
           aws
           netlify
           bootstrap
+          graphql
         />
       </div>
 

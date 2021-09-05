@@ -6,14 +6,16 @@ import { Hero } from "components/Hero";
 import { Portfolio } from "components/Portfolio";
 import type { NextPage } from "next";
 import Head from "next/head";
+import data from "Data/data.json";
+const { seo } = data;
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>@_mdrj</title>
-        <meta name="description" content="@_mdrj portfolio website" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <link rel="icon" href={seo.image} />
       </Head>
       <Layout>
         <Hero />

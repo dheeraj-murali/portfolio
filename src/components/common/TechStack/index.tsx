@@ -7,11 +7,21 @@ import {
   SiAmazonaws,
   SiNetlify,
   SiBootstrap,
+  SiGraphql,
 } from "react-icons/si";
 
 export function TechStack(props: TechStackProps) {
-  const { aws, bootstrap, gatsby, netlify, next, react, tailwind, typescript } =
-    props;
+  const {
+    aws,
+    bootstrap,
+    gatsby,
+    netlify,
+    next,
+    react,
+    tailwind,
+    typescript,
+    graphql,
+  } = props;
 
   return (
     <ul className="inline-flex items-center space-x-2 my-5">
@@ -35,9 +45,14 @@ export function TechStack(props: TechStackProps) {
           <SiTypescript className="fill-current text-blue-800" />
         </li>
       )}
+      {graphql && (
+        <li>
+          <SiGraphql className="fill-current text-pink-800" />
+        </li>
+      )}
       {next && (
         <li>
-          <SiNextDotJs className="fill-current text-primary-500" />
+          <SiNextDotJs />
         </li>
       )}
       {gatsby && (

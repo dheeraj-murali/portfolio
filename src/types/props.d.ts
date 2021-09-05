@@ -38,4 +38,13 @@ interface TechStackProps {
   aws?: boolean;
   netlify?: boolean;
   bootstrap?: boolean;
+  graphql?: boolean;
+}
+
+interface PortfolioCardProps {
+  title: sting;
+  body: sting;
+  image: sting;
+  link: sting;
+  tech: sting[];
 }

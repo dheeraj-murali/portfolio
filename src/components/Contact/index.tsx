@@ -2,12 +2,15 @@ import { Button } from "components/common/Button";
 import { TextInput } from "components/Contact/TextInput";
 import { FaPaperPlane } from "react-icons/fa";
 import { TextAreaInput } from "./TextArea";
+import data from "Data/data.json";
+
+const { contact } = data;
 
 export function Contact() {
   return (
     <section id="contact" className="section">
       <div>
-        <h2>{`Got some idea? Let's have a chat`}</h2>
+        <h2>{contact.title}</h2>
         <form className="max-w-md flex flex-col space-y-5">
           <TextInput
             label="Name"
