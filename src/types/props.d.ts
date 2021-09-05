@@ -9,6 +9,7 @@ interface LinkProps {
   asButton?: boolean;
   className?: string;
   children: React.ReactNode;
+  external?: boolean;
 }
 
 interface TextInputProps {

@@ -1,18 +1,16 @@
 import { Logo } from "components/common/Logo";
-import { Nav } from "components/Header/Nav";
 import { Social } from "components/Header/Social";
 import { useDarkMode } from "hooks/useDarkMode";
-import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
+import { FaLightbulb } from "react-icons/fa";
 
 export function Header() {
   const { theme, updateTheme } = useDarkMode();
 
   return (
     <>
-      <header className="inline-flex justify-between items-center w-full p-3 px-5 lg:px-10 dark:bg-primary-800">
+      <header className="inline-flex justify-between items-center section section-dark">
         <Logo />
 
-        <Nav />
         <Social />
         <div className="">
           <button
@@ -20,7 +18,11 @@ export function Header() {
               updateTheme(theme === "dark" ? "light" : "dark");
             }}
           >
-            {theme === "dark" ? <FaLightbulb /> : <FaRegLightbulb />}
+            <FaLightbulb
+              className={`fill-current animate-pulse ${
+                theme === "dark" ? "text-secondary-400" : "text-secondary-500"
+              }`}
+            />
           </button>
         </div>
       </header>

@@ -24,14 +24,13 @@ export function Hero() {
       className="section grid grid-cols-1 md:grid-cols-2 gap-3 dark:bg-primary-600"
     >
       <div className="h-full flex flex-col justify-center">
-        <h2 className="font-cursive text-8xl tracking-wider">
-          Hey, I&lsquo;m a <span ref={highlightRef}>digital</span> product
-          developer.
+        <h2 className="font-cursive text-5xl tracking-wider mb-2">
+          Hey, I&lsquo;m <span ref={highlightRef}>dheeraj</span>
         </h2>
+        <h2 className="text-primary-400">A digital product developer.</h2>
 
         <p>
-          {`I’m Dheeraj a Web designer and Front-end developer, who loves
-            crafting fast and easy to use web applications.`}
+          {`I love designing and developing fast and easy to use web applications.`}
         </p>
       </div>
 

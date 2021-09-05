@@ -7,8 +7,8 @@ export function HeroImage() {
       <Image
         src={heroBg}
         alt="A glass window background through outside world is visible"
-        width="700"
-        height="600"
+        width="500"
+        height="400"
         placeholder="blur"
       />
     </div>

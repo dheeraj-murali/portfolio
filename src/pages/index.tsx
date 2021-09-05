@@ -12,6 +12,8 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>@_mdrj</title>
+        <meta name="description" content="@_mdrj portfolio website" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
         <Hero />

@@ -3,9 +3,6 @@ module.exports = {
   purge: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      cursive: ["Caveat", "cursive"],
-    },
     extend: {
       colors: {
         primary: {
