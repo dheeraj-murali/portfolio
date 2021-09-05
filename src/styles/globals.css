@@ -41,6 +41,6 @@ h3 {
   @apply font-medium text-xl max-w-prose tracking-wide mb-5;
 }
 
-p {
+/* p {
   @apply text-primary-400 dark:text-primary-200 max-w-prose;
-}
+} */

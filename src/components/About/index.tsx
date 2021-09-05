@@ -1,5 +1,5 @@
 import { AboutCard } from "components/About/AboutCard";
-import data from "Data/data.json";
+import data from "data/data.json";
 
 const { about } = data;
 

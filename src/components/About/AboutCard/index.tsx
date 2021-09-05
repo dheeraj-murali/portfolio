@@ -1,5 +1,5 @@
 import { Link } from "components/common/Link";
-import data from "Data/data.json";
+import data from "data/data.json";
 import { MdWork } from "react-icons/md";
 
 const { work } = data;

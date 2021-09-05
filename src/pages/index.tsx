@@ -1,15 +1,20 @@
 import { About } from "components/About";
-// import { Blog } from "components/Blog";
+import { Blog } from "components/Blog";
 import { Layout } from "components/common/Layout";
 import { Contact } from "components/Contact";
 import { Hero } from "components/Hero";
 import { Portfolio } from "components/Portfolio";
-import type { NextPage } from "next";
+import data from "data/data.json";
+import { getAllPosts } from "lib/getPosts";
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import data from "Data/data.json";
 const { seo } = data;
 
-const Home: NextPage = () => {
+export default function Home(
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) {
+  const { posts } = props;
+
   return (
     <>
       <Head>
@@ -19,13 +24,19 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <Hero />
-        {/* <Blog /> */}
+        <Blog posts={posts} />
         <Portfolio />
         <About />
         <Contact />
       </Layout>
     </>
   );
-};
+}
 
-export default Home;
+export const getStaticProps: GetStaticProps<StaticBlogProps> = () => {
+  return {
+    props: {
+      posts: getAllPosts(),
+    },
+  };
+};

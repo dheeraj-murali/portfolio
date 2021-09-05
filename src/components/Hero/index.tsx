@@ -2,7 +2,7 @@ import { TechStack } from "components/common/TechStack";
 import { HeroImage } from "components/Hero/HeroImage";
 import { useEffect, useRef } from "react";
 import { annotate } from "rough-notation";
-import data from "Data/data.json";
+import data from "data/data.json";
 
 const { hero } = data;
 

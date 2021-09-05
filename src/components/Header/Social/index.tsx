@@ -1,5 +1,5 @@
 import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
-import data from "Data/data.json";
+import data from "data/data.json";
 import { Link } from "components/common/Link";
 import { v4 } from "uuid";
 

@@ -48,3 +48,18 @@ interface PortfolioCardProps {
   link: sting;
   tech: sting[];
 }
+
+interface StaticBlogProps {
+  posts: BlogPostPreview[];
+}
+
+interface BlogProps {
+  posts: BlogPostPreview[];
+}
+
+interface ArticleItemProps {
+  permalink: string;
+  title: string;
+  excerpt: string;
+  createdAt: string;
+}

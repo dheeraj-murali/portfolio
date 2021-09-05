@@ -1,7 +1,9 @@
+import { Link } from "../Link";
+
 export function Logo() {
   return (
-    <h1 className="font-cursive font-bold text-secondary-500 text-xl">
+    <Link to="/" className="max-w-min font-bold text-secondary-500 text-xl">
       @_mdrj
-    </h1>
+    </Link>
   );
 }

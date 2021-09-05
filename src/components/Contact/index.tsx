@@ -2,7 +2,7 @@ import { Button } from "components/common/Button";
 import { TextInput } from "components/Contact/TextInput";
 import { FaPaperPlane } from "react-icons/fa";
 import { TextAreaInput } from "./TextArea";
-import data from "Data/data.json";
+import data from "data/data.json";
 
 const { contact } = data;
 

@@ -7,7 +7,7 @@ export function PortfolioCard(props: PortfolioCardProps) {
   const { body, image, link, tech, title } = props;
 
   return (
-    <article className="flex flex-col space-y-3 m-5">
+    <article className="flex flex-col space-y-3 my-5">
       <Image
         src={image}
         alt=""
