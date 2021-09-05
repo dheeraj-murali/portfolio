@@ -28,3 +28,14 @@ interface ButtonProps {
   onClick: () => void;
   children: React.ReactNode;
 }
+
+interface TechStackProps {
+  react?: boolean;
+  tailwind?: boolean;
+  typescript?: boolean;
+  next?: boolean;
+  gatsby?: boolean;
+  aws?: boolean;
+  netlify?: boolean;
+  bootstrap?: boolean;
+}

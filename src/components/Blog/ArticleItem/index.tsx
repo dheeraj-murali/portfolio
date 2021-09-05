@@ -4,7 +4,7 @@ import { FaLink } from "react-icons/fa";
 
 export function ArticleItem() {
   return (
-    <article className="flex flex-col space-y-5 m-5">
+    <article className="flex flex-col space-y-5 lg:m-5">
       <time
         dateTime=""
         className="text-sm font-medium text-primary-600 dark:text-primary-300"

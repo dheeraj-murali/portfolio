@@ -1,3 +1,4 @@
+import { TechStack } from "components/common/TechStack";
 import { HeroImage } from "components/Hero/HeroImage";
 import { useEffect, useRef } from "react";
 import { annotate } from "rough-notation";
@@ -32,6 +33,17 @@ export function Hero() {
         <p>
           {`I love designing and developing fast and easy to use web applications.`}
         </p>
+
+        <TechStack
+          react
+          tailwind
+          typescript
+          next
+          gatsby
+          aws
+          netlify
+          bootstrap
+        />
       </div>
 
       <HeroImage />
