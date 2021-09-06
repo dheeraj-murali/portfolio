@@ -63,12 +63,11 @@ export function Contact() {
         <form
           name={formName}
           data-netlify="true"
-          data-netlify-recaptcha="true"
           className="max-w-md flex flex-col space-y-5"
           onSubmit={handleSubmit}
           method="POST"
         >
-          <input type="hidden" name={formName} value={formName} />
+          <input type="hidden" name="form-name" value={formName} />
           <TextInput
             label="Name"
             name="name"
