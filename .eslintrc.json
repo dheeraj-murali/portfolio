@@ -1,0 +1,6 @@
+{
+  "extends": ["google", "prettier", "next/core-web-vitals"],
+  "rules": {
+    "require-jsdoc": "off"
+  }
+}
