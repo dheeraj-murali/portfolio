@@ -22,6 +22,9 @@ interface TextInputProps {
   disabled?: boolean;
   spellCheck?: boolean;
   legend?: string;
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  error?: string;
 }
 
 interface ButtonProps {

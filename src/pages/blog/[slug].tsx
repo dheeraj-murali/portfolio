@@ -7,7 +7,6 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { join } from "path";
-import React from "react";
 import { FaBackward } from "react-icons/fa";
 
 export default function BlogPage({

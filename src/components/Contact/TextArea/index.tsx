@@ -8,6 +8,9 @@ export function TextAreaInput(props: TextInputProps) {
     required,
     legend,
     spellCheck,
+    value,
+    onChange,
+    error,
   } = props;
 
   return (
@@ -16,7 +19,9 @@ export function TextAreaInput(props: TextInputProps) {
         {label}
       </label>
       <textarea
-        className="input"
+        className={`input ${error ? "border-2 border-red-500" : ""}`}
+        value={value}
+        onChange={onChange}
         spellCheck={spellCheck}
         autoComplete={autoComplete || "off"}
         required={required}
@@ -25,6 +30,7 @@ export function TextAreaInput(props: TextInputProps) {
         placeholder={placeholder}
         rows={5}
       />
+      <p className="text-red-500 text-xs">{error}</p>
       {legend && <legend>{legend}</legend>}
     </fieldset>
   );
