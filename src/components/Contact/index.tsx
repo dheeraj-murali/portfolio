@@ -9,6 +9,7 @@ import { encode } from "./encodeForm";
 import { toast } from "react-toastify";
 
 const { contact } = data;
+const formName = "contact-from";
 
 export function Contact() {
   const { handleSubmit, handleChange, values, errors, touched } = useFormik({
@@ -24,14 +25,14 @@ export function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "portfolio-contact",
+          "form-name": formName,
           ...values,
         }),
       })
         .then(() => {
           actions.setSubmitting(false);
           toast("Your message send successfully!!", {
-            toastId: "contact-form",
+            toastId: formName,
             autoClose: 3000,
             position: "bottom-left",
             theme:
@@ -44,7 +45,7 @@ export function Contact() {
           actions.resetForm();
           actions.setSubmitting(false);
           toast("Oops! something went wrong.", {
-            toastId: "contact-form",
+            toastId: formName,
             autoClose: 3000,
             position: "bottom-left",
             theme:
@@ -60,14 +61,14 @@ export function Contact() {
       <div>
         <h2>{contact.title}</h2>
         <form
-          name="portfolio-contact"
+          name={formName}
           data-netlify="true"
           data-netlify-recaptcha="true"
           className="max-w-md flex flex-col space-y-5"
           onSubmit={handleSubmit}
           method="POST"
         >
-          <input type="hidden" name="form-name" value="portfolio-contact" />
+          <input type="hidden" name={formName} value={formName} />
           <TextInput
             label="Name"
             name="name"

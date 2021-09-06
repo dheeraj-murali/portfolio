@@ -15,8 +15,9 @@ export function Hero() {
     setTimeout(() => {
       if (!highlighted.current && highlightRef.current) {
         const annotation = annotate(highlightRef.current, {
-          type: "highlight",
-          color: "#fab95b80",
+          type: "underline",
+          color: "#ff614e",
+          strokeWidth: 3,
         });
 
         annotation.show();
