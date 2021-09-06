@@ -6,7 +6,7 @@ export function HeroImage() {
     <div className="relative  p-5">
       <Image
         src={heroBg}
-        alt="A glass window background through outside world is visible"
+        alt="The protagonist working on his computer"
         width="500"
         height="400"
         placeholder="blur"

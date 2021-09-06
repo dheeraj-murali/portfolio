@@ -1,4 +1,5 @@
 import { Layout } from "components/common/Layout";
+import { Link } from "components/common/Link";
 import fs from "fs";
 import matter from "gray-matter";
 import { getAllPosts } from "lib/getPosts";
@@ -6,15 +7,27 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { join } from "path";
+import React from "react";
+import { FaBackward } from "react-icons/fa";
 
 export default function BlogPage({
   source,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
+      <Link to="/" label="go back" className="my-10 justify-start">
+        <FaBackward />
+        <span>Back</span>
+      </Link>
+
       <article className="mx-auto prose prose-lg dark:prose-dark">
         <MDXRemote {...source} />
       </article>
+
+      <Link to="/" label="go back" className="my-10 justify-start">
+        <FaBackward />
+        <span>Back</span>
+      </Link>
     </Layout>
   );
 }

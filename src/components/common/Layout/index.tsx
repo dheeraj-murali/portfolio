@@ -5,10 +5,10 @@ export function Layout(props: LayoutProps) {
   const { children } = props;
 
   return (
-    <div className="mx-auto dark:bg-primary-600">
+    <div className="dark:bg-primary-600">
       <Header />
 
-      <main>{children}</main>
+      <main className="container mx-auto px-5 lg:px-10">{children}</main>
 
       <Footer />
     </div>

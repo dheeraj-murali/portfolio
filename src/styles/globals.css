@@ -17,11 +17,7 @@
   }
 
   .section {
-    @apply w-full py-10 px-5 lg:px-10;
-  }
-
-  .section-dark {
-    @apply bg-primary-50 dark:bg-primary-600;
+    @apply w-full py-10;
   }
 
   .input {

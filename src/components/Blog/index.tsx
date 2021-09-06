@@ -4,7 +4,7 @@ export function Blog(props: BlogProps) {
   const { posts } = props;
 
   return (
-    <section id="blog" className="section section-dark">
+    <section id="blog" className="section ">
       <h2>{`Read about some things I'm interested in`}</h2>
       <article className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {posts.map((post) => (

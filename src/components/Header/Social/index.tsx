@@ -23,7 +23,12 @@ export function Social() {
   return (
     <div className="inline-flex space-x-5">
       {social.map((item) => (
-        <Link key={v4()} to={item.link} external>
+        <Link
+          key={v4()}
+          to={item.link}
+          external
+          label="link to external source"
+        >
           {getService(item.service)}
         </Link>
       ))}

@@ -14,7 +14,7 @@ export function AboutCard() {
           <p>{work.role}</p>
           <span className="inline-flex">
             @
-            <Link to={work.link} external>
+            <Link to={work.link} external label="company website link">
               {work.at}
             </Link>
           </span>

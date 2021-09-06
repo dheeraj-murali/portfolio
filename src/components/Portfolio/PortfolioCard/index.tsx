@@ -33,7 +33,7 @@ export function PortfolioCard(props: PortfolioCardProps) {
         typescript={tech.includes("typescript")}
       />
 
-      <Link to={link} external className="justify-end">
+      <Link to={link} external className="justify-end" label="visit website">
         <span>Visit Website</span>
         <FaArrowRight />
       </Link>

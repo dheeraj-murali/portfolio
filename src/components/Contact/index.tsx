@@ -41,7 +41,7 @@ export function Contact() {
             spellCheck
             required
           />
-          <Button onClick={() => {}} type="submit">
+          <Button onClick={() => {}} type="submit" label="submit from">
             <span>Send Message</span>
             <FaPaperPlane />
           </Button>

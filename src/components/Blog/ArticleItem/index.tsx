@@ -20,7 +20,7 @@ export function ArticleItem(props: ArticleItemProps) {
 
       <p>{excerpt}</p>
 
-      <Link to={permalink} className="justify-start">
+      <Link to={permalink} className="justify-start" label="read full article">
         <span>Read More</span>
         <FaLink />
       </Link>

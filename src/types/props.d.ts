@@ -10,6 +10,7 @@ interface LinkProps {
   className?: string;
   children: React.ReactNode;
   external?: boolean;
+  label: string;
 }
 
 interface TextInputProps {
@@ -27,6 +28,8 @@ interface ButtonProps {
   type: "button" | "submit" | "reset";
   onClick: () => void;
   children: React.ReactNode;
+  label: string;
+  transparent?: boolean;
 }
 
 interface TechStackProps {

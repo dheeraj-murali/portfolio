@@ -1,3 +1,4 @@
+import { Button } from "components/common/Button";
 import { Logo } from "components/common/Logo";
 import { Social } from "components/Header/Social";
 import { useDarkMode } from "hooks/useDarkMode";
@@ -8,12 +9,15 @@ export function Header() {
 
   return (
     <>
-      <header className="inline-flex justify-between items-center section section-dark">
+      <header className="container mx-auto p-5 lg:p-10 flex justify-between items-center">
         <Logo />
 
         <Social />
         <div className="">
-          <button
+          <Button
+            transparent
+            type="button"
+            label="toggle dark/light mode"
             onClick={() => {
               updateTheme(theme === "dark" ? "light" : "dark");
             }}
@@ -23,7 +27,7 @@ export function Header() {
                 theme === "dark" ? "text-secondary-400" : "text-secondary-500"
               }`}
             />
-          </button>
+          </Button>
         </div>
       </header>
     </>
