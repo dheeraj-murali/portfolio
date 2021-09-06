@@ -68,7 +68,7 @@ export function VisxChart(props: DragIIProps) {
   return width < 10 ? null : (
     <div className="DragII" style={{ touchAction: "none" }}>
       <svg width={width} height={height}>
-        <LinearGradient id="stroke" from="#ff614e" to="#ffdc64" />
+        <LinearGradient id="stroke" from="#ff614e60" to="#ffdc6460" />
 
         <rect fill="transparent" width={width} height={height} rx={14} />
 
@@ -77,7 +77,7 @@ export function VisxChart(props: DragIIProps) {
             key={`line-${i}`}
             fill="transparent"
             stroke="url(#stroke)"
-            strokeWidth={3}
+            strokeWidth={25}
             data={line}
             curve={curveBasis}
             x={(d) => d.x}
@@ -100,7 +100,7 @@ export function VisxChart(props: DragIIProps) {
           {isDragging && (
             <g>
               <rect
-                fill="white"
+                fill="transparent"
                 width={8}
                 height={8}
                 x={x + dx - 4}
@@ -112,7 +112,6 @@ export function VisxChart(props: DragIIProps) {
                 cy={y}
                 r={4}
                 fill="transparent"
-                stroke="white"
                 pointerEvents="none"
               />
             </g>

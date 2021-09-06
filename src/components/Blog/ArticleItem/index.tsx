@@ -6,10 +6,10 @@ export function ArticleItem(props: ArticleItemProps) {
   const { createdAt, permalink, excerpt, title } = props;
 
   return (
-    <article className="flex flex-col space-y-5">
+    <article className="flex flex-col space-y-3">
       <time
         dateTime=""
-        className="text-sm font-medium text-primary-600 dark:text-primary-300"
+        className="text-xs font-medium text-primary-600 dark:text-primary-300"
       >
         {format(new Date(createdAt), "dd/MM/yyyy")}
       </time>
@@ -18,7 +18,7 @@ export function ArticleItem(props: ArticleItemProps) {
 
       <hr />
 
-      <p>{excerpt}</p>
+      <p className="text-sm">{excerpt}</p>
 
       <Link to={permalink} className="justify-start" label="read full article">
         <span>View full article</span>
