@@ -4,7 +4,7 @@ export function Logo() {
   return (
     <Link
       to="/"
-      className="max-w-min font-bold text-secondary-600 text-xl"
+      className="max-w-min font-bold text-xl"
       label="go to home page"
     >
       @_mdrj

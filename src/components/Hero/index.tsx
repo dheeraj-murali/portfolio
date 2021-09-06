@@ -1,8 +1,9 @@
 import { TechStack } from "components/common/TechStack";
-import { HeroImage } from "components/Hero/HeroImage";
-import { useEffect, useRef } from "react";
+import { VisxChart } from "components/common/visx";
+import React, { useEffect, useRef } from "react";
 import { annotate } from "rough-notation";
 import data from "data/data.json";
+import { ParentSize } from "@visx/responsive";
 
 const { hero } = data;
 
@@ -25,12 +26,9 @@ export function Hero() {
   }, []);
 
   return (
-    <section
-      id="hero"
-      className="section grid grid-cols-1 md:grid-cols-2 gap-3 dark:bg-primary-600"
-    >
-      <div className="h-full flex flex-col justify-center">
-        <h2 className="font-cursive text-5xl tracking-wider mb-2">
+    <section id="hero" className="relative section dark:bg-primary-600 h-96">
+      <div className="h-full flex flex-col justify-center flex-grow">
+        <h2 className="text-5xl tracking-wider mb-2">
           Hey, I&lsquo;m <span ref={highlightRef}>dheeraj</span>
         </h2>
         <h2 className="text-primary-400">{hero.subtitle}</h2>
@@ -50,7 +48,11 @@ export function Hero() {
         />
       </div>
 
-      <HeroImage />
+      <div className="absolute top-0 w-full h-full">
+        <ParentSize>
+          {({ width, height }) => <VisxChart height={height} width={width} />}
+        </ParentSize>
+      </div>
     </section>
   );
 }
