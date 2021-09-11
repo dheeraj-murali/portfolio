@@ -34,7 +34,7 @@ h2 {
 }
 
 h3 {
-  @apply font-bold text-xl max-w-prose tracking-wide mb-5;
+  @apply font-bold text-xl max-w-prose mb-5;
 }
 
 p {

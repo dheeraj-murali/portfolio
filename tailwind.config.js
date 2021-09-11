@@ -62,8 +62,10 @@ module.exports = {
               "margin-top": "0",
             },
             code: {
-              color: "white",
-              "background-color": theme("colors.primary.800"),
+              color: theme("colors.primary.800"),
+              "background-color": theme("colors.primary.200"),
+              padding: "0 0.5rem 0 0.5rem",
+              "border-radius": "0.25rem",
               "&:before, &:after": {
                 display: "none",
               },
@@ -123,7 +125,6 @@ module.exports = {
               color: "white",
               "margin-top": "0",
             },
-
             p: {
               color: "white",
               "margin-top": "0",
@@ -133,6 +134,7 @@ module.exports = {
               "margin-top": "0",
               "margin-bottom": "0",
               "box-shadow": "0px 2px 4px -2px rgba(255, 255, 255, 30%)",
+              "border-radius": "0.25rem",
             },
             "ul > li": {
               "&::before": {

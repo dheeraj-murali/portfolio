@@ -68,4 +68,5 @@ interface ArticleItemProps {
   title: string;
   excerpt: string;
   createdAt: string;
+  tags: string;
 }
