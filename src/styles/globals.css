@@ -21,7 +21,7 @@
   }
 
   .input {
-    @apply p-2 rounded w-full text-primary-800 bg-primary-200 placeholder-primary-500;
+    @apply p-2 rounded w-full text-primary-800 bg-primary-100;
   }
 }
 

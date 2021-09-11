@@ -1,8 +1,10 @@
-import React, { useCallback, useState } from "react";
-import { LinePath } from "@visx/shape";
-import { useDrag } from "@visx/drag";
 import { curveBasis } from "@visx/curve";
+import { useDrag } from "@visx/drag";
 import { LinearGradient } from "@visx/gradient";
+import { LinePath } from "@visx/shape";
+import React, { useCallback, useState } from "react";
+import { AiOutlineHighlight } from "react-icons/ai";
+import { Button } from "../Button";
 
 type Line = { x: number; y: number }[];
 type Lines = Line[];
@@ -15,6 +17,8 @@ type DragIIProps = {
 
 export function VisxChart(props: DragIIProps) {
   const { width, height, data = [] } = props;
+
+  const [cleared, setCleared] = useState(false);
 
   const [lines, setLines] = useState<Lines>(data);
   const onDragStart = useCallback(
@@ -44,11 +48,6 @@ export function VisxChart(props: DragIIProps) {
     [setLines]
   );
 
-  const onDragEnd = useCallback(() => {
-    console.log({ lines });
-    setLines([]);
-  }, []);
-
   const {
     x = 0,
     y = 0,
@@ -61,16 +60,39 @@ export function VisxChart(props: DragIIProps) {
   } = useDrag({
     onDragStart,
     onDragMove,
-    onDragEnd,
     resetOnStart: true,
   });
 
   return width < 10 ? null : (
-    <div className="DragII" style={{ touchAction: "none" }}>
+    <div
+      className="relative rounded-lg overflow-hidden"
+      style={{ touchAction: "none" }}
+    >
+      <div className="absolute bottom-3 right-1">
+        <Button
+          onClick={() => {
+            setCleared(true);
+            setLines([]);
+          }}
+          label="Clean slate"
+          type="button"
+          transparent
+        >
+          <AiOutlineHighlight />
+          <span>Clear Slate</span>
+        </Button>
+      </div>
+
+      {cleared && lines.length <= 0 && (
+        <p className="absolute bottom-0 right-1 text-xs animate-pulse hidden lg:block">
+          Click and drag to draw more
+        </p>
+      )}
+
       <svg width={width} height={height}>
         <LinearGradient id="stroke" from="#ff614e60" to="#ffdc6460" />
 
-        <rect fill="transparent" width={width} height={height} rx={14} />
+        <rect fill="transparent" width={width} height={height} />
 
         {lines.map((line, i) => (
           <LinePath
@@ -121,8 +143,9 @@ export function VisxChart(props: DragIIProps) {
             fill="transparent"
             width={width}
             height={height}
-            onMouseEnter={dragStart}
-            onMouseLeave={isDragging ? dragEnd : undefined}
+            onMouseEnter={cleared ? undefined : dragStart}
+            onMouseDown={isDragging ? dragEnd : dragStart}
+            onMouseUp={isDragging ? dragEnd : undefined}
             onMouseMove={isDragging ? dragMove : undefined}
             onTouchStart={dragStart}
             onTouchEnd={isDragging ? dragEnd : undefined}

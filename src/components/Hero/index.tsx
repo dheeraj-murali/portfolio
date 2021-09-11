@@ -27,7 +27,10 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative section dark:bg-primary-600 h-96">
+    <section
+      id="hero"
+      className="relative section dark:bg-primary-600 h-[30rem]"
+    >
       <div className="h-full flex flex-col justify-center flex-grow">
         <h2 className="text-5xl tracking-wider mb-2">
           Hey, I&lsquo;m <span ref={highlightRef}>dheeraj</span>
