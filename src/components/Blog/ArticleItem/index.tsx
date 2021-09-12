@@ -16,8 +16,6 @@ export function ArticleItem(props: ArticleItemProps) {
 
       <h3>{title}</h3>
 
-      <hr />
-
       <p className="text-sm">{excerpt}</p>
 
       <ul className="inline-flex items-center space-x-3">

@@ -17,7 +17,7 @@
   }
 
   .section {
-    @apply w-full py-10;
+    @apply w-full py-10 border-b;
   }
 
   .input {
