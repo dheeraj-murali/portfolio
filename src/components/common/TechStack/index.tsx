@@ -17,7 +17,6 @@ import {
 
 export function TechStack(props: TechStackProps) {
   const {
-    animate,
     aws,
     bootstrap,
     gatsby,
@@ -38,7 +37,6 @@ export function TechStack(props: TechStackProps) {
       {javaScript && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[50ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -50,7 +48,6 @@ export function TechStack(props: TechStackProps) {
       {css && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[100ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -62,7 +59,6 @@ export function TechStack(props: TechStackProps) {
       {react && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[150ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -74,7 +70,6 @@ export function TechStack(props: TechStackProps) {
       {tailwind && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[200ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -86,7 +81,6 @@ export function TechStack(props: TechStackProps) {
       {chakra && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[250ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -98,7 +92,6 @@ export function TechStack(props: TechStackProps) {
       {bootstrap && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[300ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -110,7 +103,6 @@ export function TechStack(props: TechStackProps) {
       {typescript && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[350ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -122,7 +114,6 @@ export function TechStack(props: TechStackProps) {
       {graphql && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[400ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -134,7 +125,6 @@ export function TechStack(props: TechStackProps) {
       {vis && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[450ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -146,7 +136,6 @@ export function TechStack(props: TechStackProps) {
       {next && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[500ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -158,7 +147,6 @@ export function TechStack(props: TechStackProps) {
       {gatsby && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[550ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -170,7 +158,6 @@ export function TechStack(props: TechStackProps) {
       {aws && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[600ms]"
           enterFrom="opacity-0 -translate-y-6"
@@ -182,7 +169,6 @@ export function TechStack(props: TechStackProps) {
       {netlify && (
         <Transition
           as="li"
-          appear={animate}
           show={true}
           enter="transition-all duration-500 ease-in transform-gpu delay-[650ms]"
           enterFrom="opacity-0 -translate-y-6"

@@ -36,7 +36,6 @@ interface ButtonProps {
 }
 
 interface TechStackProps {
-  animate?: boolean;
   react?: boolean;
   tailwind?: boolean;
   typescript?: boolean;
