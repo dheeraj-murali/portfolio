@@ -19,11 +19,18 @@
     {
       "service": "Twitter",
       "link": "https://twitter.com/_mdrj"
+    },
+    {
+      "service": "Dev",
+      "link": "https://dev.to/dheerajmurali"
     }
   ],
   "hero": {
     "subtitle": "A digital product developer.",
     "body": "I love designing and developing fast and easy to use web applications."
+  },
+  "blog": {
+    "title": "Read about things I'm interested in"
   },
   "portfolio": {
     "title": "These are some of my work",
@@ -34,7 +41,7 @@
         "image": "/portfolio/camelcase.png",
         "link": "https://camelcase.in",
         "color": "gray",
-        "tech": ["react", "typescript", "gatsby", "graphql"]
+        "tech": ["react", "typescript", "gatsby", "graphql", "chakra"]
       },
       {
         "title": "Riceandricecalicut.com",
@@ -42,7 +49,7 @@
         "image": "/portfolio/rice-and-rice.png",
         "link": "https://riceandricecalicut.com",
         "color": "orange",
-        "tech": ["bootstrap"]
+        "tech": ["bootstrap", "javaScript", "css"]
       },
       {
         "title": "Zealacademy.info",

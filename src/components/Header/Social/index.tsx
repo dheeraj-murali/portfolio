@@ -1,4 +1,4 @@
-import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
+import { SiDevDotTo, SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 import data from "data/data.json";
 import { Link } from "components/common/Link";
 import { v4 } from "uuid";
@@ -13,6 +13,8 @@ const getService = (service: string) => {
       return <SiLinkedin />;
     case "Twitter":
       return <SiTwitter />;
+    case "Dev":
+      return <SiDevDotTo className="text-xl" />;
 
     default:
       return null;

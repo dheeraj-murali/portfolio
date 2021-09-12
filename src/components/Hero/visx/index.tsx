@@ -4,7 +4,7 @@ import { LinearGradient } from "@visx/gradient";
 import { LinePath } from "@visx/shape";
 import React, { useCallback, useState } from "react";
 import { AiOutlineHighlight } from "react-icons/ai";
-import { Button } from "../Button";
+import { Button } from "../../common/Button";
 
 type Line = { x: number; y: number }[];
 type Lines = Line[];
@@ -79,7 +79,7 @@ export function VisxChart(props: DragIIProps) {
           transparent
         >
           <AiOutlineHighlight />
-          <span>Clear Slate</span>
+          <span>Clean Slate</span>
         </Button>
       </div>
 

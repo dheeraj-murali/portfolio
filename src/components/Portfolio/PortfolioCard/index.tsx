@@ -7,7 +7,7 @@ export function PortfolioCard(props: PortfolioCardProps) {
   const { body, image, link, tech, title } = props;
 
   return (
-    <article className="flex flex-col space-y-3 my-5">
+    <article className="card">
       <Image
         src={image}
         alt=""
@@ -31,6 +31,9 @@ export function PortfolioCard(props: PortfolioCardProps) {
         react={tech.includes("react")}
         tailwind={tech.includes("tailwind")}
         typescript={tech.includes("typescript")}
+        javaScript={tech.includes("javaScript")}
+        css={tech.includes("css")}
+        chakra={tech.includes("chakra")}
       />
 
       <Link to={link} external className="justify-end" label="visit website">

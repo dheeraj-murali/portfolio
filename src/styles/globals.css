@@ -13,11 +13,11 @@
   }
 
   .card {
-    @apply flex flex-col justify-between items-start space-y-5 bg-primary-50 border border-primary-200 dark:border-primary-800 rounded overflow-hidden shadow max-w-sm dark:bg-primary-900;
+    @apply flex flex-col justify-between items-start space-y-5 p-5 bg-primary-100 rounded shadow dark:bg-primary-700;
   }
 
   .section {
-    @apply w-full py-10 border-b;
+    @apply w-full py-28;
   }
 
   .input {
@@ -34,9 +34,9 @@ h2 {
 }
 
 h3 {
-  @apply font-bold text-xl max-w-prose mb-5;
+  @apply text-lg max-w-prose mb-5;
 }
 
 p {
-  @apply text-primary-500 dark:text-primary-200 max-w-prose tracking-tight;
+  @apply text-primary-400 max-w-prose;
 }

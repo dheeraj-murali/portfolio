@@ -36,6 +36,7 @@ interface ButtonProps {
 }
 
 interface TechStackProps {
+  animate?: boolean;
   react?: boolean;
   tailwind?: boolean;
   typescript?: boolean;
@@ -45,6 +46,10 @@ interface TechStackProps {
   netlify?: boolean;
   bootstrap?: boolean;
   graphql?: boolean;
+  javaScript?: boolean;
+  css?: boolean;
+  chakra?: boolean;
+  vis?: boolean;
 }
 
 interface PortfolioCardProps {

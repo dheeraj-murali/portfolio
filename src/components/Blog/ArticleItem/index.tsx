@@ -7,10 +7,7 @@ export function ArticleItem(props: ArticleItemProps) {
 
   return (
     <article className="flex flex-col space-y-3">
-      <time
-        dateTime=""
-        className="text-xs font-medium text-primary-600 dark:text-primary-300"
-      >
+      <time dateTime="" className="text-xs font-medium text-primary-400">
         {format(new Date(createdAt), "dd/MM/yyyy")}
       </time>
 

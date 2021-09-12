@@ -1,12 +1,15 @@
 import { ArticleItem } from "components/Blog/ArticleItem";
 import { compareDesc } from "date-fns";
+import data from "data/data.json";
+
+const { blog } = data;
 
 export function Blog(props: BlogProps) {
   const { posts } = props;
 
   return (
     <section id="blog" className="section ">
-      <h2>{`Read about some things I'm interested in`}</h2>
+      <h2>{blog.title}</h2>
       <article className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {posts
           .sort((firstEl, secondEl) =>
