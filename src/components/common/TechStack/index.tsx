@@ -36,6 +36,7 @@ export function TechStack(props: TechStackProps) {
     <Transition
       as="ul"
       className="inline-flex items-center space-x-2 my-5"
+      appear
       show
     >
       {javaScript && (
