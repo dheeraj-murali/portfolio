@@ -16,29 +16,29 @@ To get plotly running in react you need to use a react wrapper called [react-plo
 ```
 npm install react-plotly.js plotly.js
 ```
+
 A point to note here, as of the time of writing this blog, ploty.js is a client-side rendering library and doesn't yet support server side rendering.
 
 The most basic usage goes like...
 
 ```js
-import React from 'react';
-import Plot from 'react-plotly.js';
+import React from "react";
+import Plot from "react-plotly.js";
 
 export function PlotlyChart() {
-
-    return (
-      <Plot
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: 'scatter',
-            marker: {color: 'red'},
-          },
-        ]}
-        layout={{width: 320, height: 240, title: 'A Fancy Plot'}}
-      />
-    );
+  return (
+    <Plot
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ width: 320, height: 240, title: "A Fancy Plot" }}
+    />
+  );
 }
 ```
 
@@ -52,22 +52,28 @@ Or else, if you are feeling a bit hacky you can create a custom bundle tailor ma
 
 For this tutorial let's go with _minified plotly.js basic_ partial bundle which packages around 999 kB.
 
-install using 
+install using
+
 ```
 npm i plotly.js-basic-dist-min
-``` 
+```
 
 Using this version require a bit of a work than before.
 
-*1.* import the minified package that we just added
+_1._ import the minified package that we just added
+
 ```js
 import Plotly from "plotly.js-basic-dist-min";
 ```
-*2.* Import react-plotly factory function 
+
+_2._ Import react-plotly factory function
+
 ```js
 import createPlotlyComponent from "react-plotly.js/factory";
 ```
-*3.* Create the `Plot` component form the `Plotly` import using the factory function
+
+_3._ Create the `Plot` component form the `Plotly` import using the factory function
+
 ```js
 const Plot = createPlotlyComponent(Plotly);
 ```
@@ -77,27 +83,26 @@ Well there you go, you can now use your Plotly chart as the `Polt` component.
 Oh, and it’s now safe to remove the Plotly.js dependency from your package.json file. We are not using it anymore.
 
 ```js
-import React from 'react';
+import React from "react";
 import Plotly from "plotly.js-basic-dist-min";
 import createPlotlyComponent from "react-plotly.js/factory";
 
 const Plot = createPlotlyComponent(Plotly);
 
 export function PlotlyChart() {
- 
-    return (
-      <Plot
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: 'scatter',
-            marker: {color: 'red'},
-          },
-        ]}
-        layout={{width: 320, height: 240, title: 'A Fancy Plot'}}
-      />
-    );
+  return (
+    <Plot
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ width: 320, height: 240, title: "A Fancy Plot" }}
+    />
+  );
 }
 ```
 
@@ -135,38 +140,38 @@ We are importing plotly.js declarations that came with `@types/react-plotly.js` 
 
 To make the chart responsive _when the window is resized_, define height and width either by using `styles` prop or by using `className` and of cause you can use `width: 100%; height: 100%`.
 
-You also need to set `useResizeHandler` prop to true, while setting `layout.autosize` to true and leaving `layout.height` and `layout.width` undefined. 
+You also need to set `useResizeHandler` prop to true, while setting `layout.autosize` to true and leaving `layout.height` and `layout.width` undefined.
 
 ```js
-import React from 'react';
+import React from "react";
 import Plotly from "plotly.js-basic-dist-min";
 import createPlotlyComponent from "react-plotly.js/factory";
 
 const Plot = createPlotlyComponent(Plotly);
 
 export function PlotlyChart() {
- 
-    return (
-      <Plot
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: 'scatter',
-            marker: {color: 'red'},
-          },
-        ]}
-        layout={{autosize: true, title: 'A Fancy Plot'}}
-        useResizeHandler
-        className="w-full h-full" // I am using tailwind.css here, scss or just css would work fine as well
-      />
-    );
+  return (
+    <Plot
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ autosize: true, title: "A Fancy Plot" }}
+      useResizeHandler
+      className="w-full h-full" // I am using tailwind.css here, scss or just css would work fine as well
+    />
+  );
 }
 ```
 
 ### The Problem
 
-Now, the key thing to note here is 
+Now, the key thing to note here is
+
 > To make the chart responsive **when the window is resized**
 
 What if your window size doesn't change? what if you have some element, let's say a sidebar that pops in and out which changes the width of you component?
@@ -178,56 +183,56 @@ Plotly's resize function depends on window resizing, it will only trigger when i
 Trigger the resize function manually!
 
 ```js
-Plotly.Plots.resize()
-``` 
+Plotly.Plots.resize();
+```
 
 Ya I know, it doesn't sounds like much, But I had to searched far and wide to finally find a solution to get this working. So here you go. The basics goes like this.
 
-* use an effect to trigger the layout resize function
-* Find a trigger in your app to run the effect. This depends on your use case.
+- use an effect to trigger the layout resize function
+- Find a trigger in your app to run the effect. This depends on your use case.
 
 In my case, I triggered the effect every time the sidebar came in and out.
 
 ```js
-  useEffect(() => {
-    Plotly.Plots.resize();
-  }, [showSideBar]);
+useEffect(() => {
+  Plotly.Plots.resize();
+}, [showSideBar]);
 ```
+
 Don't want all your charts to resize? Yep, I got that covered as well..
 
 Add a prop `divId` to your `Plot` component and use this as an argument to the `resize` function.
 
-the final code would look something like 
+the final code would look something like
 
 ```js
-import React from 'react';
+import React from "react";
 import Plotly from "plotly.js-basic-dist-min";
 import createPlotlyComponent from "react-plotly.js/factory";
 
 const Plot = createPlotlyComponent(Plotly);
 
-export function PlotlyChart({sideBarOpen}) {
-
-useEffect(() => {
- Plotly.Plots.resize("plotlyChart");
+export function PlotlyChart({ sideBarOpen }) {
+  useEffect(() => {
+    Plotly.Plots.resize("plotlyChart");
   }, [sideBarOpen]);
 
-    return (
-      <Plot
-        divId="plotlyChart"
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: 'scatter',
-            marker: {color: 'red'},
-          },
-        ]}
-        layout={{autosize: true, title: 'A Fancy Plot'}}
-        useResizeHandler
-        className="w-full h-full" // I am using tailwind.css here, scss or just css would work fine as well
-      />
-    );
+  return (
+    <Plot
+      divId="plotlyChart"
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ autosize: true, title: "A Fancy Plot" }}
+      useResizeHandler
+      className="w-full h-full" // I am using tailwind.css here, scss or just css would work fine as well
+    />
+  );
 }
 ```
 

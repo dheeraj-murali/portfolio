@@ -7,7 +7,7 @@ export function Layout(props: LayoutProps) {
   const { children } = props;
 
   return (
-    <div className="dark:bg-primary-600">
+    <>
       <Header />
 
       <main className="container mx-auto px-5 lg:px-10">{children}</main>
@@ -15,6 +15,6 @@ export function Layout(props: LayoutProps) {
       <Footer />
 
       <ToastContainer />
-    </div>
+    </>
   );
 }
