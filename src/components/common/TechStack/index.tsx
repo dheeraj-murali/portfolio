@@ -1,4 +1,3 @@
-import { Transition } from "@headlessui/react";
 import { CgBolt } from "react-icons/cg";
 import { FcAreaChart } from "react-icons/fc";
 import {
@@ -33,142 +32,72 @@ export function TechStack(props: TechStackProps) {
   } = props;
 
   return (
-    <Transition
-      as="ul"
-      className="inline-flex items-center space-x-2 my-5"
-      appear
-      show
-    >
+    <ul className="inline-flex items-center space-x-2 my-5">
       {javaScript && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[50ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiJavascript className="fill-current text-yellow-500" />
-        </Transition.Child>
+        </li>
       )}
       {css && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[100ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiCss3 className="fill-current text-blue-600" />
-        </Transition.Child>
+        </li>
       )}
       {react && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[150ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiReact className="fill-current text-blue-500" />
-        </Transition.Child>
+        </li>
       )}
       {tailwind && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[200ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiTailwindcss className="fill-current text-green-600" />
-        </Transition.Child>
+        </li>
       )}
       {chakra && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[250ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <CgBolt className="bg-green-400 p-0.5 text-white rounded-full" />
-        </Transition.Child>
+        </li>
       )}
       {bootstrap && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[300ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiBootstrap className="fill-current text-purple-700" />
-        </Transition.Child>
+        </li>
       )}
       {typescript && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[350ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiTypescript className="fill-current text-blue-800" />
-        </Transition.Child>
+        </li>
       )}
       {graphql && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[400ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiGraphql className="fill-current text-pink-800" />
-        </Transition.Child>
+        </li>
       )}
       {vis && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[450ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <FcAreaChart />
-        </Transition.Child>
+        </li>
       )}
       {next && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[500ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiNextDotJs />
-        </Transition.Child>
+        </li>
       )}
       {gatsby && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[550ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiGatsby className="fill-current text-pink-800" />
-        </Transition.Child>
+        </li>
       )}
       {aws && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[600ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiAmazonaws className="fill-current text-yellow-600" />
-        </Transition.Child>
+        </li>
       )}
       {netlify && (
-        <Transition.Child
-          as="li"
-          enter="transition-all duration-500 ease-in transform-gpu delay-[650ms]"
-          enterFrom="opacity-0 -translate-y-6"
-          enterTo="opacity-100 translate-y-0"
-        >
+        <li>
           <SiNetlify className="fill-current text-green-600" />
-        </Transition.Child>
+        </li>
       )}
-    </Transition>
+    </ul>
   );
 }
