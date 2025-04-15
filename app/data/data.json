@@ -1,0 +1,95 @@
+{
+  "seo": {
+    "title": "dheeraj murali",
+    "description": "Web designer and front-end developer",
+    "siteUrl": "dheerajmurali.com",
+    "image": "/icon.png",
+    "twitterUsername": "_mdrj",
+    "keywords": "web development, web application, freelancer, freelance, kochi, kerala"
+  },
+  "social": [
+    {
+      "service": "GitHub",
+      "link": "https://github.com/dheeraj-murali"
+    },
+    {
+      "service": "LinkedIn",
+      "link": "https://www.linkedin.com/in/dheeraj-murali/"
+    },
+    {
+      "service": "Twitter",
+      "link": "https://twitter.com/_mdrj"
+    },
+    {
+      "service": "Dev",
+      "link": "https://dev.to/dheerajmurali"
+    }
+  ],
+  "hero": {
+    "subtitle": "A digital product developer.",
+    "body": "I love designing and developing fast and easy to use web applications."
+  },
+  "blog": {
+    "title": "Read about things I'm interested in"
+  },
+  "portfolio": {
+    "title": "These are some of my work",
+    "items": [
+      {
+        "title": "Camelcase.in",
+        "body": "Camelcase is a team of developers who will help you build applications using advanced frameworks with minimal footprint. Ready to build using React, Angular, Ionic, Spring, Django, MongoDB or whatever you prefer.",
+        "image": "/portfolio/camelcase.png",
+        "link": "https://camelcase.in",
+        "color": "gray",
+        "tech": ["react", "typescript", "gatsby", "graphql", "chakra"]
+      },
+      {
+        "title": "Riceandricecalicut.com",
+        "body": "Rice & Rice Calicut is acknowledged for providing high-quality rice making use of superior grade rice as inputs. With expert done selection of types of rices, they work with a team of deft professionals who manage the entire task proficiently and lay special emphasis on product packaging so as to ensure no damage till it reaches the end-user with affordable pricing.",
+        "image": "/portfolio/rice-and-rice.png",
+        "link": "https://riceandrice.netlify.app",
+        "color": "orange",
+        "tech": ["bootstrap", "javaScript", "css"]
+      },
+      {
+        "title": "Zealacademy.info",
+        "body": "Zeal Academy is one of the emerging preeminent institution for pharmacy graduates who are aiming to build a healthcare career abroad. They are committed in nurturing dreams of becoming a part of healthcare foreign jobs with comprehensive education services. They are creating new, radical and certifying opportunities that helps students recognize the accurate path of accomplishment that helps as the springboard for their future career.",
+        "image": "/portfolio/zeal-academy.png",
+        "link": "https://zealacademy.info",
+        "color": "green",
+        "tech": ["react", "typescript", "tailwind"]
+      },
+      {
+        "title": "Mission KAS",
+        "body": "Zeal Academy provides smart and focused training to the aspirants to succeed in the KAS examination.",
+        "image": "/portfolio/mission-kas.png",
+        "link": "https://missionkas.com",
+        "color": "green",
+        "tech": ["react", "typescript", "tailwind"]
+      },
+      {
+        "title": "Cochincarrental.com",
+        "body": "A sister concern of Series tours, Cochin car rental is one of the leading Kerala Tour Operators - engaged in the promotion of Kerala Tourism. They focus on providing customers with the best car rental and tour package they can enjoy inside of Kerala. With a fleet of trained drivers, highly maintained vehicles and exceptional customer service, they have become one of the best taxi services in Kerala.",
+        "image": "/portfolio/cochin-car-rental.png",
+        "link": "https://cochincarrental.com",
+        "color": "red",
+        "tech": ["react", "typescript", "gatsby", "graphql", "tailwind"]
+      }
+    ]
+  },
+
+  "about": {
+    "title": "Hey, I'm a Front-end developer who loves crafting fast and easy to use web applications.",
+    "body": "Passionate about design, web development and open source. A big believer in minimalism and elegant design. I've been working as a Front end developer for 6+ years, designing and developing data driven user interfaces for Healthcare, eCommerce, Product Quality analytics, FX domains and more..."
+  },
+  "work": {
+    "role": "Senior engineer",
+    "at": "UST",
+    "link": "https://www.ust.com"
+  },
+  "contact": {
+    "title": "Got some idea? Let's have a chat.",
+    "mail": "410dheeraj@gmail.com",
+    "formName": "contact-from"
+  }
+}
