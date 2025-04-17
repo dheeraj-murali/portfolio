@@ -14,6 +14,7 @@ export const Header = () => {
       <Social className="justify-self-center" />
 
       <Button
+        aria-label="dark mode toggle"
         className="justify-self-end"
         variant="ghost"
         size="icon"
