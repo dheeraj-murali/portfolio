@@ -13,7 +13,7 @@ import { TypescriptIcon } from "./icons/Typescript";
 
 export const TechStack = () => {
   return (
-    <div className="flex flex-row gap-4 mt-4">
+    <div className="flex flex-row gap-2 mt-4">
       <JavascriptIcon className="size-4 fill-[#F7DF1E] delay-0 animate-landing transition-transform" />
       <TypescriptIcon className="size-4 fill-[#3178C6] delay-100 animate-landing transition-transform" />
       <CssIcon className="size-4 fill-[#663399] delay-200 animate-landing transition-transform" />
