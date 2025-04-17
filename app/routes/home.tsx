@@ -1,3 +1,4 @@
+import { About } from "~/components/about";
 import { Header } from "~/components/header";
 import { Hero } from "~/components/hero";
 import { Portfolio } from "~/components/portfolio/portfolio";
@@ -12,10 +13,11 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <>
+    <main className="flex flex-col gap-40 px-4 my-20">
       <Header />
       <Hero />
       <Portfolio />
-    </>
+      <About />
+    </main>
   );
 }

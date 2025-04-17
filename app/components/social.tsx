@@ -15,21 +15,23 @@ const getIcons = (service: string) => {
   switch (service) {
     case "github":
       return (
-        <GithubIcon className="size-4 fill-[#181717] dark:fill-[#ffffff] hover:fill-primary" />
+        <GithubIcon className="size-4 fill-[#181717] dark:fill-[#ffffff] hover:fill-primary dark:hover:fill-primary" />
       );
 
     case "linkedIn":
       return (
-        <LinkedInIcon className="size-6 fill-[#0077B5] hover:fill-primary" />
+        <LinkedInIcon className="size-6 fill-[#0077B5] hover:fill-primary dark:hover:fill-primary" />
       );
 
     case "x":
       return (
-        <XIcon className="size-4 fill-[#000000] dark:fill-[#ffffff] hover:fill-primary" />
+        <XIcon className="size-4 fill-[#000000] dark:fill-[#ffffff] hover:fill-primary dark:hover:fill-primary" />
       );
 
     case "bluesky":
-      return <BlueSky className="size-4 fill-[#0285FF] hover:fill-primary" />;
+      return (
+        <BlueSky className="size-4 fill-[#0285FF] hover:fill-primary dark:hover:fill-primary" />
+      );
 
     default:
       return null;
@@ -46,7 +48,6 @@ export function Social({ className }: SocialProps) {
           target="_blank"
           rel="noreferrer"
           aria-label={item.service}
-          className="hover:text-amber-500"
         >
           {getIcons(item.service)}
         </a>
