@@ -1,5 +1,6 @@
-import { Header } from "~/components/Header";
-import { Hero } from "~/components/Hero";
+import { Header } from "~/components/header";
+import { Hero } from "~/components/hero";
+import { Portfolio } from "~/components/portfolio";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <Header />
       <Hero />
+      <Portfolio />
     </>
   );
 }

@@ -10,7 +10,7 @@ export const Logo = ({ className }: LogoProps) => {
     <Link
       to="/"
       className={cn(
-        "max-w-min font-bold text-xl hover:text-amber-500",
+        "max-w-min font-bold text-xl hover:text-primary",
         className
       )}
     >
