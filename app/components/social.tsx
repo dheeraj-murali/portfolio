@@ -1,4 +1,4 @@
-import data from "~/data/data.json";
+import data from "~/data/social.json";
 import { getIcons } from "~/lib/icons";
 import { cn } from "~/utils/style";
 

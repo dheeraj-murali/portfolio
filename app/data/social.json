@@ -1,0 +1,20 @@
+{
+  "social": [
+    {
+      "service": "github",
+      "link": "https://github.com/dheeraj-murali"
+    },
+    {
+      "service": "linkedIn",
+      "link": "https://www.linkedin.com/in/dheeraj-murali/"
+    },
+    {
+      "service": "x",
+      "link": "https://twitter.com/_mdrj"
+    },
+    {
+      "service": "bluesky",
+      "link": "https://dev.to/dheerajmurali"
+    }
+  ]
+}
