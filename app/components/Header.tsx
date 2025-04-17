@@ -8,7 +8,7 @@ export const Header = () => {
   const { theme, updateTheme } = useDarkMode();
 
   return (
-    <header className="grid grid-cols-3 my-10">
+    <header className="grid grid-cols-3 items-center my-10 px-4">
       <Logo className="justify-self-start" />
 
       <Social className="justify-self-center" />
