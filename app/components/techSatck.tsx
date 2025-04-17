@@ -1,11 +1,11 @@
 import { AwsIcon } from "./icons/Aws";
 import { CssIcon } from "./icons/Css";
 import { GraphqlIcon } from "./icons/Graphql";
-import { JavascriptIcon } from "./icons/JavaScript";
+import { JavascriptIcon } from "./icons/Javascript";
 import { NetlifyIcon } from "./icons/Netlify";
 import { NextjsIcon } from "./icons/Nextjs";
 import { ReactIcon } from "./icons/React";
-import { ReactQueryIcon } from "./icons/ReactQuery";
+import { ReactQueryIcon } from "./icons/Reactquery";
 import { ReactRouterIcon } from "./icons/Reactrouter";
 import { ShadcnIcon } from "./icons/Shadcn";
 import { TailwindIcon } from "./icons/Tailwind";

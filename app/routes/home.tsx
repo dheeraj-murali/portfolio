@@ -1,6 +1,6 @@
 import { Header } from "~/components/Header";
-import type { Route } from "./+types/home";
 import { Hero } from "~/components/Hero";
+import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [

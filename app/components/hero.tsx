@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { annotate } from "rough-notation";
-import { TechStack } from "./techStatck/TechStack";
+import { TechStack } from "./techSatck";
 
 export const Hero = () => {
   const highlightRef = useRef<HTMLSpanElement>(null);
