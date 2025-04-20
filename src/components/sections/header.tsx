@@ -1,9 +1,9 @@
 import { Lightbulb } from "lucide-react";
 
+import { Logo } from "@/components/logo";
+import { Social } from "@/components/social";
+import { Button } from "@/components/ui/button";
 import { useDarkMode } from "@/hooks/useDarkMode";
-import { Logo } from "./logo";
-import { Social } from "./social";
-import { Button } from "./ui/button";
 
 export const Header = () => {
   const { theme, updateTheme } = useDarkMode();
