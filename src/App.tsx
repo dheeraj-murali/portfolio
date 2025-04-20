@@ -1,4 +1,5 @@
 import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
 import { Portfolio } from "@/components/sections/portfolio";
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <Portfolio />
       <About />
+      <Contact />
     </main>
   );
 }
