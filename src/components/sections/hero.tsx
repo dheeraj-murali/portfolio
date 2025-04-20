@@ -6,7 +6,7 @@ import { TechStack } from "@/components/techStack";
 
 const config: RoughAnnotationConfig = {
   type: "underline",
-  color: "#ff614e80",
+  color: "var(--primary)",
   strokeWidth: 5,
 };
 
