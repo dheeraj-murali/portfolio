@@ -1,7 +1,7 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { cn } from "~/utils/style";
-import { TechStack } from "../techSatck";
-import { buttonVariants } from "../ui/button";
+import { TechStack } from "./techSatck";
+import { buttonVariants } from "./ui/button";
 import {
   Card,
   CardHeader,
@@ -9,7 +9,7 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
-} from "../ui/card";
+} from "./ui/card";
 
 type PortfolioCardProps = {
   title: string;

@@ -1,7 +1,8 @@
 import { About } from "~/components/about";
+import { Contact } from "~/components/contact";
 import { Header } from "~/components/header";
 import { Hero } from "~/components/hero";
-import { Portfolio } from "~/components/portfolio/portfolio";
+import { Portfolio } from "~/components/portfolio";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Portfolio />
       <About />
+      <Contact />
     </main>
   );
 }
