@@ -30,7 +30,11 @@ export const PortfolioCard = ({
   <Card key={title} className="w-full h-full">
     <CardHeader>
       <CardTitle className="flex items-end gap-2">
-        <img src={image} alt={title} className="size-10 rounded object-fill" />
+        <img
+          src={image}
+          alt={title}
+          className="size-10 rounded object-fill border"
+        />
         <h3 className="text-lg font-bold">{title}</h3>
       </CardTitle>
     </CardHeader>
