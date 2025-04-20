@@ -1,15 +1,10 @@
-import { useState } from "react";
-import { Button } from "./components/ui/button";
+import { Header } from "./components/header";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Button variant="default" onClick={() => setCount(count + 1)}>
-        {count}
-      </Button>
-    </>
+    <main className="container mx-auto my-10 gap-20">
+      <Header />
+    </main>
   );
 }
 
