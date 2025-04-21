@@ -1,0 +1,269 @@
+---
+title: File Upload in react with FilePond
+createdAt: "2020-08-07"
+excerpt: "FilePond is javascript library that that can upload almost anything you through at it. It is one of the best and all rounded file uploading solutions out there IMO.
+
+In this tutorial, we'll create a simple file upload component and configure it, with react, hooks and typescript."
+tags: 'react, filePond, fileUpload'
+---
+
+![Some colorful files on an office shelf](./file.jpg)
+
+[FilePond](https://pqina.nl/filepond/) is javascript library that that can upload almost anything you through at it. It is one of the best and all rounded file uploading solutions out there IMO.
+
+In this tutorial, we'll create a simple file upload component and configure it, with **react**, **hooks** and **typescript**.
+
+## Getting the dependencies
+
+Let's start by adding filepond and it's react implementation to our project dependency.
+
+```
+npm install react-filepond filepond --save
+```
+
+FilePond comes with a lot of extensions that you can use to add extra functionalities like file size validation, image preview etc.. But For now this is just enough to get us started.
+
+## Creating your react component
+
+Let's create a component, which will have a prop as a callback once the upload is complete, and on for the list of [accepted file types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+
+```javascript
+1  import React from 'react';
+2
+3  interface FileUploaderProps {
+4    onUploadComplete: () => void;
+5    fileTypes: string[];
+5  }
+6
+7  export const FileUploader = (props: FileUploaderProps) => {
+8
+9   return (
+10   <div className={styles.wrapper}>
+11   // filePond will go here ..
+12   </div>
+13  )
+14 }
+15
+```
+
+## Introducing filepond
+
+Now lets bring file pond into the mix.
+
+First we import FilePond along with File type def from react-filepond.
+
+```js
+2  import { FilePond, File } from 'react-filepond';
+```
+
+now we need a state to store the file once it's uploaded.
+
+This state we will pass to the `file` prop of the filePond component and the `setFiles` dispatch will be passed to `onupdatefiles` prop.
+
+```js
+8  export const FileUploader = (props: FileUploaderProps) => {
+9  const [files, setFiles] = useState<File[]>([]);
+```
+
+Add `FilePond` to our wrapper with some basic props.
+
+```js
+11   return (
+12     <div className={styles.wrapper}>
+13      <FilePond
+14        files={files}
+15        onupdatefiles={setFiles}
+16        allowMultiple
+17        server="/api" // your file upload api
+18        name="files"
+19      />
+20    </div>
+21   )
+```
+
+lets also add the css to get the awesome file upload styles going.
+
+```js
+1  import React, { useState } from 'react';
+2  import { FilePond, File } from 'react-filepond';
+3
+4  import 'filepond/dist/filepond.min.css';
+```
+
+Well we are almost done. Let's add few more tweaks.
+
+## Adding drag and drop
+
+Pass `dropOnPage` to add drag and drop files, additionally you can add `dropValidation` flag to validate files on drop.
+
+```js
+11   return (
+12     <div className={styles.wrapper}>
+13      <FilePond
+14        files={files}
+15        onupdatefiles={setFiles}
+16        allowMultiple={false}
+17        dropOnPage
+18        server="/api" // your file upload api
+19        name="files"
+20        dropOnPage
+21        dropValidation
+22      />
+23    </div>
+24   )
+```
+
+## Adding pluggings
+
+File pond supports a ton of plugging, you can find a full list over [here](https://pqina.nl/filepond/docs/patterns/frameworks/react/).
+
+For now, let's add file type validation plugin.
+
+First we install the plugin.
+
+```
+npm install filepond-plugin-file-validate-size
+```
+
+Then, import `registerPlugin` from `react-filepond`.
+
+```js
+2  import { FilePond, File, registerPlugin } from 'react-filepond';
+```
+
+now import `filepond-plugin-file-validate-size` and register the plugin with filePond
+
+```js
+1  import React, { useState } from 'react';
+2  import { FilePond, File, registerPlugin } from 'react-filepond';
+3
+4  import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
+5
+6  registerPlugin(FilePondPluginFileValidateType);
+7
+8  import 'filepond/dist/filepond.min.css';
+```
+
+FilePond component should now take in a props called `acceptedFileTypes` which takes in array of MIME types. you can get a list of common MIME types [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+
+Since we are getting the `fileTypes` as a prop, lets pass it here.
+
+```js
+11   return (
+12     <div className={styles.wrapper}>
+13      <FilePond
+14        files={files}
+15        onupdatefiles={setFiles}
+16        allowMultiple={false}
+17        dropOnPage
+18        server="/api" // your file upload api
+19        name="files"
+20        dropOnPage
+21        dropValidation
+22        acceptedFileTypes={props.fileTypes}
+23      />
+24    </div>
+25   )
+```
+
+You can even go a bit deeper and configure the `server` prop to add more control over how the files are handled.
+
+## Configuring server
+
+The server prop takes in a the API url as a string or an configuration object.
+
+Let's add some basic configurations.
+
+```js
+11   return (
+12     <div className={styles.wrapper}>
+13      <FilePond
+14        files={files}
+15        onupdatefiles={setFiles}
+16        allowMultiple={false}
+17        dropOnPage
+18        server={{
+19          process: {
+20            url: "/api/url",
+21            headers: {
+22              Authorization: `Bearer eyJH18ui0...`,
+23            },
+24            ondata: (formData) => {
+25              formData.append('extraField', value);
+26              return formData;
+27            },
+28            onload: () => {
+29              props.onUploadComplete();
+30            },
+31          }
+32        }}
+33        name="files"
+34        dropOnPage
+35        dropValidation
+36        acceptedFileTypes={props.fileTypes}
+37      />
+38    </div>
+39   )
+```
+
+`ondata` callback let's us add extra fields to the post request's formData.
+
+`onload` is called once the file upload is completed and server responds OK. Now this is where we call our `onUploadComplete` prop which we are passing on to our component.
+
+Find more on server configurations, [here](https://pqina.nl/filepond/docs/patterns/api/server/).
+
+That’s it!!
+
+---
+
+## Finally the component
+
+```js
+1  import React, { useState } from 'react';
+2  import { FilePond, File, registerPlugin } from 'react-filepond';
+3
+4  import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
+5
+6  registerPlugin(FilePondPluginFileValidateType);
+7
+8  import 'filepond/dist/filepond.min.css';
+9
+10  export const FileUploader = (props: FileUploaderProps) => {
+11  const [files, setFiles] = useState<File[]>([]);
+12
+13   return (
+14     <div className={styles.wrapper}>
+15      <FilePond
+16        files={files}
+17        onupdatefiles={setFiles}
+18        allowMultiple={false}
+19        dropOnPage
+20        server={{
+21          process: {
+22            url: "/api/url",
+23            headers: {
+24              Authorization: `Bearer eyJH18ui0...`,
+25            },
+26            ondata: (formData) => {
+27              formData.append('extraField', value);
+28              return formData;
+29            },
+30            onload: () => {
+31              props.onUploadComplete();
+32            },
+33          }
+34        }}
+35        name="files"
+36        dropOnPage
+37        dropValidation
+38        acceptedFileTypes={props.fileTypes}
+39      />
+40    </div>
+41   )
+42 }
+43
+```
+
+Well, that's pretty much it for this tutorial, but the features and configuration for filePond dosen't end there, check out their [documentation](https://pqina.nl/filepond/docs/patterns/frameworks/react/) for more.
+
+_Happy coding ;)_

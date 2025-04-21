@@ -1,0 +1,205 @@
+---
+title: Setting up your Mac for web development
+createdAt: "2020-08-06"
+excerpt: "I’m just putting this here so that I can follow it as a checklist when setting up mine and it might help you guys too. I’m a web developer, focusing on javascript and node."
+tags: "setup, mac, vscode"
+---
+
+![An iMac at a very hippie and artsy office space](/blog/mac.jpg)
+
+I’m just putting this here so that I can follow it as a checklist when setting up mine and it might help you guys too. I’m a web developer, focusing on javascript and node.
+
+---
+
+## Getting Started
+
+Once you are done booting up and going through the [usual set up](https://support.apple.com/en-in/guide/macbook-pro/apd831707cb3/mac), make sure your mac is running the latest macOS version and you have [Xcode downloaded from app store](https://apps.apple.com/us/app/xcode/id497799835).
+
+# Tools
+
+### Homebrew
+
+Homebrew is a package manager for mac, which helps you install your apps via comand line.
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+once installed, give it an update.
+
+```
+brew update
+```
+
+### Node.js
+
+[Download node.js](https://nodejs.org/en/) form their website or install it through **nvm**. It’s better not to use homebrew for just this one. So you can easily switch between node versions.
+
+Download nvm
+
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+```
+
+Ensure that nvm was installed correctly with `nvm --version`, which should return the version of nvm installed.
+
+Install the latest LTS version with
+
+```
+nvm install --lts
+```
+
+### Git
+
+You should probably get git when you install Xcode, or you could simply run git from the Terminal the very first time.
+
+```
+git --version
+```
+
+If it is not already installed, it will prompt you to install it. You can also get a macOS installer from the [git website](https://git-scm.com).
+
+or with Homebrew
+
+```
+brew install git
+```
+
+Additionally, you can download the GUI for GitHub from [here](https://desktop.github.com). If thats your thing.
+
+### Window management tool
+
+MacOS never had a built in window management solution as good has windows does, but you can get away with it with 3rd party apps like Rectangle, download from their [website](https://rectangleapp.com) or with brew.
+
+```
+brew cask rectangle
+```
+
+---
+
+# Applications
+
+### Visual Studio code
+
+It is my got to text editor for all things web, it got plenty of features, and you can always find an extension for almost anything.
+
+Download it from [here](https://code.visualstudio.com) or
+
+```
+brew cask install visual-studio-code
+```
+
+### Browsers
+
+You’ve got [Safari](https://www.apple.com/in/safari/) pre installed, and since its web development, you’d probably need to check you website in different browsers. So, lets get the rest of them...
+
+- Chrome — https://www.google.com/chrome/
+- Firefox — https://www.mozilla.org/en-US/firefox/new/
+- Opera — https://www.opera.com/hi
+
+with brew;
+
+```
+brew cask install google-chrome firefox opera
+```
+
+### Yarn
+
+An alternative to npm.
+
+```
+brew install yarn
+```
+
+### Spotify
+
+Well, what is life without some music.
+
+```
+brew cask install spotify
+```
+
+### ImageOptim
+
+ImageOptim helps you optimise an compress images for your website, download it form [here](https://imageoptim.com/mac), or
+
+```
+brew cask install imageoptim
+```
+
+### For messaging and communications
+
+Microsoft Teams for work and WhatsApp for friends and family.
+
+```
+brew cask install microsoft-teams whatsapp
+```
+
+---
+
+# Settings and configurations
+
+### General
+
+- Try dark mode
+
+### Dock
+
+- Enable automatically hide and show doc.
+- Enable Show indicators for open applications
+- Disable show resent application in doc (it gets really messed up soon)
+
+### Users & Groups
+
+- Add “Rectangle” to Login items
+
+### Security and Privacy
+
+- Enable Require password immediately after sleep
+- Turn on FireVault for ssd encryption
+- Turn on Firewall
+
+### Keyboard
+
+- Disable “Correct spelling automatically”
+- Disable “Capitalize words automatically”
+- Disable “Add period with double-space”
+
+### Display
+
+- Make sure Night Shift is off
+
+### Sharing
+
+- Change computer name
+- Make sure all file sharing is disabled
+
+---
+
+# Setting up the apps
+
+### VSCode
+
+Install the extensions and themes
+
+- [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Commit Message Editor](https://marketplace.visualstudio.com/items?itemName=adam-bender.commit-message-editor)
+- [CSS-in-JS](https://marketplace.visualstudio.com/items?itemName=paulmolluzzo.convert-css-in-js)
+- [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
+
+lastly,
+
+To add code . command to open VSCode from mac Terminal. Press CMD + SHIFT + P and click "Install code command in PATH".
+
+---
+
+Thats pretty much it for now, hope it helped your process.
+Let me know what are your go to apps and tools..
