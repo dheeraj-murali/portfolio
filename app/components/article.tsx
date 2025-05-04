@@ -11,7 +11,7 @@ export const Article = ({ children, className }: ArticleProps) => {
   return (
     <article
       className={cn(
-        "mx-auto prose-lg prose-img:rounded prose-pre:bg-accent prose-pre:text-accent-foreground prose-a:text-primary dark:prose-invert dark:prose-pre:bg-accent",
+        "mx-auto prose-lg prose-img:rounded prose-pre:bg-pre prose-a:text-primary prose-pre:text-pre-foreground",
         className
       )}
     >
