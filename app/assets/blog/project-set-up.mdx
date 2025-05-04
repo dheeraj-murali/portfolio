@@ -1,0 +1,384 @@
+
+export const title = "Enforcing code quality in your react project"
+export const date = "2021-03-05"
+export const description = "Keeping a quality and consistent code base is hard if you are working in a team. Even if not we often tend to not follow guideline that are not enforced."
+export const slug = "project-set-up"
+
+
+[![React code](/blog/code.jpg)](https://unsplash.com/@flowforfrank?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
+Keeping a quality and consistent code base is hard if you are working in a team. Even if not in a team, we often tend to not follow guideline that are not enforced. Having a set up to check and and automagically update our code is always better than living with a mess.
+
+This guide aims to setup our react project with tools like
+
+- **typescript** for type safety
+- **ESLint** for code quality
+- **prettier** for formatting
+- **husky** as pre commit hook to make sure we done our job before we commit the code
+
+---
+
+# Setting up Typescript
+
+TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. It provide a way to describe the shape of an object, providing better documentation, and allowing to validate that our code is working correctly.
+
+## create-react-app
+
+Create React App is an officially supported way to create single-page React applications. It also comes with a template with typescript setup.
+
+```
+npx create-react-app my-app --template typescript
+
+# or
+
+yarn create react-app my-app --template typescript
+```
+
+We can now go ahead a rename any **.js** files to **.ts** or **.tsx**
+
+when we start our react project, CRA will create a `tsconfig.json` file for we **every time**. This may not be desireable if we want to modify the `tsconfig.json` for our project. For that we need to create another `config.json` and extend the `tsconfig.json`.
+
+### Adding custom path to tsconfig
+
+create a config file `tsconfig.paths.json` (or any named json file you like). add paths to our project
+like below.
+
+```
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "containers/*": ["containers/*"],
+      "pages/*": ["pages/*"],
+      "router/*": ["router/*"],
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"]
+    }
+  }
+}
+```
+
+---
+
+## nextJS
+
+Just like CRA next js come with built in support for typescript. To create a typescript project run
+
+```
+npx create-next-app --typescript
+
+# or
+
+yarn create next-app --typescript
+```
+
+To get started, create an empty `tsconfig.json` file in the root of your project:
+
+```
+touch tsconfig.json
+```
+
+Next.js will automatically configure this file with default values. Providing your own `tsconfig.json` with custom compiler options is also supported.
+
+Then, run next (normally npm run dev or yarn dev) and Next.js will guide you
+
+```
+npm run dev
+
+# You'll see instructions like these:
+#
+# Please install typescript, @types/react, and @types/node by running:
+#
+#         yarn add --dev typescript @types/react @types/node
+#
+# ...
+```
+
+After the installation is complete, We can now go ahead a rename any **.js** files to **.ts** or **.tsx**
+
+### Adding custom path to tsconfig
+
+Unlike CRA it's safe to add your custom configurations directly to your `tsconfig` file here.
+
+```
+{
+  "compilerOptions": {
+      ...
+      ...
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "containers/*": ["containers/*"],
+      "pages/*": ["pages/*"],
+      "router/*": ["router/*"],
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"]
+    }
+  }
+}
+```
+
+# Setting up ESLint
+
+ESLint statically analyzes your code to quickly find problems. fixes are syntax-aware so you won't experience errors introduced by traditional find-and-replace algorithms and you can also customize ESLint to work exactly the way you need it for your project.
+
+To install ESLint run
+
+```
+npm install eslint --save-dev
+
+# or
+
+yarn add eslint --dev
+```
+
+to configure ESLint run
+
+```
+npx eslint --init
+
+# or
+
+yarn run eslint --init
+```
+
+You can follow the instructions to set up eslint as per your likings.
+We are going to go with google's predefined set up for now. follow the arrow `>`
+
+```
+? How would you like to use ESLint? …
+  To check syntax only
+  To check syntax and find problems
+❯ To check syntax, find problems, and enforce code style
+
+----
+
+? What type of modules does your project use? …
+❯ JavaScript modules (import/export)
+  CommonJS (require/exports)
+  None of these
+
+----
+
+? Which framework does your project use? …
+❯ React
+  Vue.js
+  None of these
+
+----
+
+? Does your project use TypeScript? › No / > Yes
+
+----
+
+? Where does your code run? …  (Press <space> to select, <a> to toggle all, <i> to invert selection)
+> Browser
+ Node
+
+----
+
+? How would you like to define a style for your project? …
+❯ Use a popular style guide
+  Answer questions about your style
+  Inspect your JavaScript file(s)
+
+----
+
+? Which style guide do you want to follow? …
+  Airbnb: https://github.com/airbnb/javascript
+  Standard: https://github.com/standard/standard
+❯ Google: https://github.com/google/eslint-config-google
+  XO: https://github.com/xojs/eslint-config-xo
+
+----
+
+? What format do you want your config file to be in? …
+  JavaScript
+  YAML
+❯ JSON
+
+---
+
+Checking peerDependencies of eslint-config-google@latest
+The config that you've selected requires the following dependencies:
+
+eslint-plugin-react@latest @typescript-eslint/eslint-plugin@latest eslint-config-google@latest eslint@>=5.16.0 @typescript-eslint/parser@latest
+? Would you like to install them now with npm? › No / > Yes
+
+
+```
+
+This will create a new file called `.eslintrc.json` at the root of your project. ESLint will now look for the `eslintrc` file and enforce the rules specified with in that file.
+
+[Here](https://eslint.org/docs/rules/) is the list of all the rules, just in case you want to customize it to your liking.
+
+You can install ESLint plugin for your IDE to get ESLint working in real time. [Here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) is the link to the extension for VSCode
+
+You might need to append this into your `eslintrc` file to avoid a bug which prevents ESLint from detecting the version of react.
+
+```
+settings: {
+    react: {
+      version: "latest",
+    },
+  },
+```
+
+You can also create `.eslintignore` file to tell ESLint to ignore certain files.
+
+# Setting up Prettier
+
+Prettier is a code formatter that formats your code to your liking for consistency.
+
+```
+npm install --save-dev --save-exact prettier
+
+# or
+
+yarn add --dev --exact prettier
+```
+
+To avoid formation conflicts between **Prettier** and **ESlint** we need to install `eslint-config-prettier` and add prettier to the `extends` array of the `eslintrc` file.
+
+```
+npm install --save-dev eslint-config-prettier
+
+# or
+
+yarn add --dev eslint-config-prettier
+```
+
+in your `eslintrc` file, modify the `extends` array to
+
+```
+extends: ["plugin:react/recommended", "google", "prettier"],
+```
+
+To customize prettier rules to your liking create a `.prettierrc` file at the root of you project and add in the rules you need.
+
+```
+{
+  "endOfLine": "lf",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
+```
+
+You can find full config options [Here](https://prettier.io/docs/en/options.html).
+
+You can also create `.prettierignore` file to tell Prettier to ignore certain files.
+
+You might need to install Prettier plugin for your IDE to get Prettier working in real time. [Here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) is the link to the extension for VSCode.
+
+And add the bellow script to your package.json file so we can easily run them when ever we need.
+
+```
+"format": "prettier --write ."
+
+```
+
+# Automating Formatting and Linting in VSCode
+
+You can automate the Prettier formatting and ask eslint to fix all the fixable issue by updating the setting in VSCode.
+
+create a `.vscode` folder at root of your directory.
+create a `settings.json` inside this folder.
+paste the code bellow to make Prettier and ESLint run every time you copy-paste or save a file.
+
+```
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  }
+}
+```
+
+Doing this would let VSCode set these as default settings for yor projects, so that all your team mates can follow the same set of rules.
+
+# Setting up Husky
+
+Husky is a pre commit hooks that helps improves your commits.
+
+We are going to set up husky to to check for 4 things
+
+1. Check **Prettier** formatting to make sure there are no errors or warnings.
+2. Check **ESLint** to make sure there are no errors or warnings.
+3. Check **Typescript** compiling to make sure there are no errors or warnings.
+4. Try and build the project and make sure there are no errors.
+
+To install husky
+
+```
+npx husky-init && npm install       # npm
+
+# or
+npx husky-init && yarn              # Yarn 1
+
+# or
+
+yarn dlx husky-init --yarn2 && yarn # Yarn 2
+```
+
+This will do 2 things
+
+1. add `"prepare": "husky install"` script to our `package.json` file
+2. create `.husky` folder with `.gitignore` and `pre-commit` file
+
+Now, we are going to add 4 new scripts to oru `package.json` file to check certain things;
+
+1. `"check-types": "tsc --pretty --noEmit"` to check typescript type safety.
+2. `"check-format": "prettier --check ."` to check formatting with prettier.
+3. `"check-lint": "eslint . --ext ts --ext tsx --ext js"` to check for lint errors or warnings.
+4. `"test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",` to test all the above before committing
+
+Now, inside the `.husky` folder which husky created earlier, we are going to modify the `pre-commit` file to check all the commands in sequence and see if any on them has failed. and we'll prevent the commit is any of them has failed.
+
+place the bellow into the `pre-commit` file inside `.husky` folder
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Checking for formatting, lints, typesafety and building your project before committing'
+
+# Check Prettier standards
+npm run check-format ||
+(
+    echo 'Prettier Check Failed: Run npm run format and try committing again.';
+    false;
+)
+
+# Check ESLint Standards
+npm run check-lint ||
+(
+        echo 'ESLint Check Failed: Make the changes listed above and try to commit again.'
+        false;
+)
+
+# Check tsconfig standards
+npm run check-types ||
+(
+    echo 'Fix all the typescript issues listed above and try to commit again.'
+    false;
+)
+
+# If everything passes...
+echo 'All checks passed attempting to build project'
+
+npm run build ||
+(
+    echo 'build failed: Check the errors above to see why.'
+    false;
+)
+
+# If everything passes...
+echo 'All checks clear. committing the code now.'
+```
+
+Now you can go ahead and push quality code all the time!!
