@@ -11,11 +11,11 @@ export const Article = ({ children, className }: ArticleProps) => {
   return (
     <article
       className={cn(
-        "prose prose-a:text-primary dark:prose-invert dark:prose-code:bg-accent dark:prose-pre:bg-accent",
+        "mx-auto prose-lg prose-img:rounded prose-pre:bg-accent prose-pre:text-accent-foreground prose-a:text-primary dark:prose-invert dark:prose-pre:bg-accent",
         className
       )}
     >
-      <MDXProvider components={{}}>{children}</MDXProvider>
+      <MDXProvider>{children}</MDXProvider>
     </article>
   );
 };
