@@ -27,7 +27,7 @@ export const PortfolioCard = ({
   tech,
   link,
 }: PortfolioCardProps) => (
-  <Card key={title} className="w-full h-full">
+  <Card key={title} className="w-full h-full bg-accent shadow-none border-none">
     <CardHeader>
       <CardTitle className="flex items-end gap-2">
         <img

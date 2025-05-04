@@ -13,7 +13,7 @@ type BlogCardProps = Post;
 
 export const BlogCard = ({ date, description, slug, title }: BlogCardProps) => {
   return (
-    <Card key={slug} className="border-none shadow-none">
+    <Card key={slug} className="border-none shadow-none bg-accent">
       <CardHeader>
         <time className="text-xs text-muted-foreground">
           {new Date(date).toDateString()}
