@@ -25,8 +25,8 @@ type Mod = {
 };
 
 export const getAllPosts = (): Post[] =>
-  Object.values(postModules as unknown as Mod[]).map((mod) => ({
-    slug: mod.slug,
+  Object.entries(postModules as Record<string, Mod>).map(([path, mod]) => ({
+    slug: path.replace("../assets/blog/", "").replace(".mdx", ""),
     title: mod.title,
     date: mod.date,
     description: mod.description,
