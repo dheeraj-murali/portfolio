@@ -1,5 +1,7 @@
 import { Link } from "react-router";
+
 import { cn } from "~/lib/utils";
+import { buttonVariants } from "~/components/ui/button";
 
 type LogoProps = {
   className?: string;
@@ -10,7 +12,8 @@ export const Logo = ({ className }: LogoProps) => {
     <Link
       to={"/"}
       className={cn(
-        "max-w-min font-bold text-xl hover:text-primary",
+        buttonVariants({ variant: "link" }),
+        "font-bold text-base",
         className
       )}
     >

@@ -4,6 +4,7 @@ import { GithubIcon } from "~/components/icons/github";
 import { LinkedInIcon } from "~/components/icons/linkedIn";
 import { XIcon } from "~/components/icons/x";
 import { cn } from "~/lib/utils";
+import { buttonVariants } from "~/components/ui/button";
 
 const social = data.social;
 
@@ -48,6 +49,7 @@ export function Social({ className }: SocialProps) {
           target="_blank"
           rel="noreferrer"
           aria-label={item.service}
+          className={cn(buttonVariants({ variant: "link" }))}
         >
           {getIcons(item.service)}
         </a>

@@ -23,9 +23,9 @@ export const About = () => {
         <p className="text-sm mb-2 text-muted-foreground">
           Currently working as,
         </p>
-        <div className="flex items-end gap-2">
+        <div className="w-fit flex items-center gap-2">
           <BriefcaseBusinessIcon className="size-4 animate-caret-blink" />
-          <span className="text-muted-foreground -mb-1">
+          <span className="text-muted-foreground">
             Software engineering lead
           </span>
           <a
@@ -33,10 +33,7 @@ export const About = () => {
             target="_blank"
             rel="noreferrer"
             aria-label="UST"
-            className={cn(
-              buttonVariants({ variant: "link" }),
-              "p-0 h-fit -mb-0.5"
-            )}
+            className={cn(buttonVariants({ variant: "link" }), "px-2")}
           >
             @UST
           </a>

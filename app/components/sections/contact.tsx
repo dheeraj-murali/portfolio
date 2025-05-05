@@ -152,7 +152,7 @@ export const Contact = () => {
             )}
           />
 
-          <Button onClick={() => {}} type="submit">
+          <Button type="submit">
             <span>Send Message</span>
             <Send className="size-4" />
           </Button>

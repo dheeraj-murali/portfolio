@@ -21,7 +21,7 @@ export const Header = () => {
         size="icon"
         onClick={() => updateTheme(theme === "dark" ? "light" : "dark")}
       >
-        <Lightbulb className="size-4 animate-pulse dark:text-primary" />
+        <Lightbulb className="size-4 animate-pulse" />
       </Button>
     </header>
   );

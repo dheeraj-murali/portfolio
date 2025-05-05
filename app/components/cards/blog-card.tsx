@@ -1,6 +1,6 @@
 import { Link2Icon } from "lucide-react";
 
-import type { Post } from "~/lib/utils";
+import { cn, type Post } from "~/lib/utils";
 import {
   Card,
   CardHeader,
@@ -8,12 +8,16 @@ import {
   CardDescription,
   CardContent,
 } from "~/components/ui/card";
+import { buttonVariants } from "~/components/ui/button";
 
 type BlogCardProps = Post;
 
 export const BlogCard = ({ date, description, slug, title }: BlogCardProps) => {
   return (
-    <Card key={slug} className="border-none shadow-none bg-accent">
+    <Card
+      key={slug}
+      className="border-none shadow-none flex flex-col justify-between"
+    >
       <CardHeader>
         <time className="text-xs text-muted-foreground">
           {new Date(date).toDateString()}
@@ -23,10 +27,10 @@ export const BlogCard = ({ date, description, slug, title }: BlogCardProps) => {
           {description}
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex justify-end">
         <a
           href={`blog/${slug}`}
-          className="flex items-center gap-2 text-primary hover:underline"
+          className={cn(buttonVariants({ variant: "link" }))}
         >
           <Link2Icon className="size-4" />
           <span>View full article</span>
