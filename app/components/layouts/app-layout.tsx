@@ -1,5 +1,6 @@
 import { Footer } from "~/components/sections/footer";
 import { Header } from "~/components/sections/header";
+import { Toaster } from "~/components/ui/sonner";
 
 export const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,6 +8,7 @@ export const AppLayout = ({ children }: { children: React.ReactNode }) => {
       <Header />
       {children}
       <Footer />
+      <Toaster />
     </main>
   );
 };
