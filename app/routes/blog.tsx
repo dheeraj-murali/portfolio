@@ -1,20 +1,26 @@
+import startCase from "lodash.startcase";
 import { useParams } from "react-router";
+
 import { Article } from "~/components/article";
 import { getPostBySlug } from "~/lib/utils";
 import type { Route } from "./+types/home";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ params }: Route.MetaArgs) {
+  const { slug } = params;
+
   return [
-    { title: "New React Router App" },
+    { title: `Dheeraj Murali | ${startCase(slug)}` },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
 
-export default function Blog() {
+const Blog = () => {
   const { slug } = useParams();
   const post = getPostBySlug(slug!);
 
   if (!post?.component) return null;
 
   return <Article>{post?.component()}</Article>;
-}
+};
+
+export default Blog;

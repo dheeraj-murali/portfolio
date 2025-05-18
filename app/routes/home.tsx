@@ -1,19 +1,18 @@
-import { AppLayout } from "~/layouts/layout";
-import type { Route } from "./+types/home";
-import { Hero } from "~/components/sections/hero";
-import { Blog } from "~/components/sections/blog";
-import { Portfolio } from "~/components/sections/portfolio";
 import { About } from "~/components/sections/about";
+import { Blog } from "~/components/sections/blog";
 import { Contact } from "~/components/sections/contact";
+import { Hero } from "~/components/sections/hero";
+import { Portfolio } from "~/components/sections/portfolio";
+import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
+    { title: "Dheeraj Murali" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Hero />
@@ -23,4 +22,6 @@ export default function Home() {
       <Contact />
     </>
   );
-}
+};
+
+export default Home;
