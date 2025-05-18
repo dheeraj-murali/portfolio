@@ -31,6 +31,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` (function () {
+                try {
+                  const theme = localStorage.getItem("theme");
+                  if(!theme) {
+                    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+                    if (darkQuery.matches) {
+                      document.documentElement.classList.add("dark");
+                    } else {
+                      document.documentElement.classList.remove("dark");
+                    }
+                  } else if (theme === "dark") {
+                    document.documentElement.classList.add("dark");
+                  } else {
+                    document.documentElement.classList.remove("dark");
+                  }
+                } catch (_) {}
+              })();`,
+          }}
+        />
       </head>
       <body>
         {children}
