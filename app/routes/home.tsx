@@ -1,4 +1,4 @@
-import { AppLayout } from "~/components/layouts/app-layout";
+import { AppLayout } from "~/layouts/layout";
 import type { Route } from "./+types/home";
 import { Hero } from "~/components/sections/hero";
 import { Blog } from "~/components/sections/blog";
@@ -15,12 +15,12 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <AppLayout>
+    <>
       <Hero />
       <Blog />
       <Portfolio />
       <About />
       <Contact />
-    </AppLayout>
+    </>
   );
 }

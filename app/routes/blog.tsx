@@ -1,13 +1,7 @@
-import { AppLayout } from "~/components/layouts/app-layout";
-import type { Route } from "./+types/home";
-import { Hero } from "~/components/sections/hero";
-import { Blog } from "~/components/sections/blog";
-import { Portfolio } from "~/components/sections/portfolio";
-import { About } from "~/components/sections/about";
-import { Contact } from "~/components/sections/contact";
-import { BlogLayout } from "~/components/layouts/blog-layout";
 import { useParams } from "react-router";
+import { Article } from "~/components/article";
 import { getPostBySlug } from "~/lib/utils";
+import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,11 +10,11 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export default function Blog() {
   const { slug } = useParams();
   const post = getPostBySlug(slug!);
 
   if (!post?.component) return null;
 
-  return <BlogLayout>{post?.component()}</BlogLayout>;
+  return <Article>{post?.component()}</Article>;
 }
