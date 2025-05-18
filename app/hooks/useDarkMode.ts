@@ -4,11 +4,12 @@ export function useDarkMode() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    const localStorageTheme = localStorage.getItem("theme");
+    const isDarkPreferred = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (localStorageTheme === "dark" || isDarkPreferred) {
       setTheme("dark");
       document.documentElement.classList.add("dark");
     } else {
