@@ -13,7 +13,7 @@ export const Logo = ({ className }: LogoProps) => {
       to={"/"}
       className={cn(
         buttonVariants({ variant: "link" }),
-        "font-bold text-base",
+        "font-bold",
         className
       )}
     >

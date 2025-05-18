@@ -9,14 +9,13 @@ export const Header = () => {
   const { theme, updateTheme } = useDarkMode();
 
   return (
-    <header className="grid grid-cols-3 items-center">
-      <Logo className="justify-self-start" />
+    <header className="flex flex-row items-center  justify-between w-full">
+      <Logo />
 
-      <Social className="justify-self-center" />
+      <Social />
 
       <Button
         aria-label="dark mode toggle"
-        className="justify-self-end"
         variant="ghost"
         size="icon"
         onClick={() => updateTheme(theme === "dark" ? "light" : "dark")}

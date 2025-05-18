@@ -1,6 +1,10 @@
 import { MDXProvider } from "@mdx-js/react";
+import { ArrowBigLeft } from "lucide-react";
+import { useNavigate } from "react-router";
 
 import { cn } from "~/lib/utils";
+import { Button } from "./ui/button";
+import { Navigation } from "./navigation";
 
 type ArticleProps = {
   children: React.ReactNode;
@@ -9,13 +13,23 @@ type ArticleProps = {
 
 export const Article = ({ children, className }: ArticleProps) => {
   return (
-    <article
-      className={cn(
-        "mx-auto prose-lg prose-img:rounded prose-pre:bg-pre prose-a:text-primary prose-pre:text-pre-foreground",
-        className
-      )}
-    >
-      <MDXProvider>{children}</MDXProvider>
-    </article>
+    <div>
+      <Navigation />
+      <article
+        className={cn(
+          "mx-auto grid gap-2",
+          "prose md:prose-lg",
+          "prose-img:rounded-md prose-img:shadow-md",
+          "prose-a:text-primary",
+          "prose-pre:bg-pre prose-pre:text-pre-foreground",
+          "prose-code:rounded-md prose-code:bg-pre  prose-code:text-pre-foreground prose-code:px-4 prose-code:py-1 prose-code:text-sm",
+          "text-foreground prose-strong:text-foreground prose-headings:text-foreground",
+          className
+        )}
+      >
+        <MDXProvider>{children}</MDXProvider>
+      </article>
+      <Navigation />
+    </div>
   );
 };
