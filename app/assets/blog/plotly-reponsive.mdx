@@ -1,0 +1,242 @@
+
+export const title = "Building a responsive chart in React with Plotly.js"
+export const date = "2021-09-11"
+export const description = " Plotly.js is one of the best open source choice you can find. Built on top of D3 Plotly is a high level charting library which has over 40 types of charts including ones in 3D."
+
+
+![Colorful chart in black background](/blog/chart.jpg)
+
+If you are building a web application that involves a lot of charts, [Plotly.js](https://plotly.com/javascript/) is one of the best open source choice you can find. Built on top of D3 Plotly is a high level charting library which has over 40 types of charts including ones in 3D.
+
+To get plotly running in react you need to use a react wrapper called [react-plotly.js](https://github.com/plotly/react-plotly.js). This library comes with a dependency of needing plotly.js, despite it's huge bundle size; 6Mb unminified, and minifies to just over 2Mb(_There are ways to bring down the bundle size, but more on that later_) I still believe it is still one of the easiest high-level declarative charting library that you can use with react today.
+
+## Installing and using react-plotly
+
+```
+npm install react-plotly.js plotly.js
+```
+
+A point to note here, as of the time of writing this blog, ploty.js is a client-side rendering library and doesn't yet support server side rendering.
+
+The most basic usage goes like...
+
+```js
+import React from "react";
+import Plot from "react-plotly.js";
+
+export function PlotlyChart() {
+  return (
+    <Plot
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ width: 320, height: 240, title: "A Fancy Plot" }}
+    />
+  );
+}
+```
+
+## Bringing the bundle size down
+
+As I mentioned Plotly support over 40 types of charts, you may not need all of them, or ever half of them in your project. Having a 2MB dependency hanging around in you project is not always the best idea.
+
+Plotly provides couple of ways to get around this issues. One of them is Partial bundles, a subset of all the plotly charts which comes in a smaller bundle size. You can find complete details on these over [here](https://github.com/plotly/plotly.js/blob/master/dist/README.md)
+
+Or else, if you are feeling a bit hacky you can create a custom bundle tailor made for your project with only the charts you need. More on that [here](https://github.com/plotly/plotly.js/blob/master/CUSTOM_BUNDLE.md)
+
+For this tutorial let's go with _minified plotly.js basic_ partial bundle which packages around 999 kB.
+
+install using
+
+```
+npm i plotly.js-basic-dist-min
+```
+
+Using this version require a bit of a work than before.
+
+_1._ import the minified package that we just added
+
+```js
+import Plotly from "plotly.js-basic-dist-min";
+```
+
+_2._ Import react-plotly factory function
+
+```js
+import createPlotlyComponent from "react-plotly.js/factory";
+```
+
+_3._ Create the `Plot` component form the `Plotly` import using the factory function
+
+```js
+const Plot = createPlotlyComponent(Plotly);
+```
+
+Well there you go, you can now use your Plotly chart as the `Polt` component.
+
+Oh, and it’s now safe to remove the Plotly.js dependency from your package.json file. We are not using it anymore.
+
+```js
+import React from "react";
+import Plotly from "plotly.js-basic-dist-min";
+import createPlotlyComponent from "react-plotly.js/factory";
+
+const Plot = createPlotlyComponent(Plotly);
+
+export function PlotlyChart() {
+  return (
+    <Plot
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ width: 320, height: 240, title: "A Fancy Plot" }}
+    />
+  );
+}
+```
+
+## Adding typescript support
+
+react-plotly.js does not come with native typescript support, but you can get the declaration provided by `@types/react-plotly.js`
+
+```js
+npm install -d @types/react-plotly.js
+```
+
+One big problem here is, if you are using the partial bundles, you may not get a type declaration for that specific bundle at all. But there is workaround for that.
+
+Add type roots to you `tsconfig` file.
+
+```json
+"typeRoots": [
+    "src/types/customTypings", // this path may vary depending on you project set up.
+    "node_modules/@types"
+  ]
+```
+
+create a `plotly.js-cartesian-dist-min.d.ts` file in your custom typings folder and add the below code.
+
+```js
+declare module "plotly.js-cartesian-dist-min" {
+  import * as Plotly from "plotly.js";
+  export default Plotly;
+}
+```
+
+We are importing plotly.js declarations that came with `@types/react-plotly.js` and exporting it as declarations for `plotly.js-cartesian-dist-min`. This will provides all the types required for the `Plot` component and our partial bundle.
+
+## Making the chart responsive
+
+To make the chart responsive _when the window is resized_, define height and width either by using `styles` prop or by using `className` and of cause you can use `width: 100%; height: 100%`.
+
+You also need to set `useResizeHandler` prop to true, while setting `layout.autosize` to true and leaving `layout.height` and `layout.width` undefined.
+
+```js
+import React from "react";
+import Plotly from "plotly.js-basic-dist-min";
+import createPlotlyComponent from "react-plotly.js/factory";
+
+const Plot = createPlotlyComponent(Plotly);
+
+export function PlotlyChart() {
+  return (
+    <Plot
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ autosize: true, title: "A Fancy Plot" }}
+      useResizeHandler
+      className="w-full h-full" // I am using tailwind.css here, scss or just css would work fine as well
+    />
+  );
+}
+```
+
+### The Problem
+
+Now, the key thing to note here is
+
+> To make the chart responsive **when the window is resized**
+
+What if your window size doesn't change? what if you have some element, let's say a sidebar that pops in and out which changes the width of you component?
+
+Plotly's resize function depends on window resizing, it will only trigger when it detects a change in window size.
+
+### The Solution
+
+Trigger the resize function manually!
+
+```js
+Plotly.Plots.resize();
+```
+
+Ya I know, it doesn't sounds like much, But I had to searched far and wide to finally find a solution to get this working. So here you go. The basics goes like this.
+
+- use an effect to trigger the layout resize function
+- Find a trigger in your app to run the effect. This depends on your use case.
+
+In my case, I triggered the effect every time the sidebar came in and out.
+
+```js
+useEffect(() => {
+  Plotly.Plots.resize();
+}, [showSideBar]);
+```
+
+Don't want all your charts to resize? Yep, I got that covered as well..
+
+Add a prop `divId` to your `Plot` component and use this as an argument to the `resize` function.
+
+the final code would look something like
+
+```js
+import React from "react";
+import Plotly from "plotly.js-basic-dist-min";
+import createPlotlyComponent from "react-plotly.js/factory";
+
+const Plot = createPlotlyComponent(Plotly);
+
+export function PlotlyChart({ sideBarOpen }) {
+  useEffect(() => {
+    Plotly.Plots.resize("plotlyChart");
+  }, [sideBarOpen]);
+
+  return (
+    <Plot
+      divId="plotlyChart"
+      data={[
+        {
+          x: [1, 2, 3],
+          y: [2, 6, 3],
+          type: "scatter",
+          marker: { color: "red" },
+        },
+      ]}
+      layout={{ autosize: true, title: "A Fancy Plot" }}
+      useResizeHandler
+      className="w-full h-full" // I am using tailwind.css here, scss or just css would work fine as well
+    />
+  );
+}
+```
+
+## Bonus Tip
+
+Because the way how react-plotly works, the chart type is actually defined by the `data.type` prop of the `Plot` component.
+
+let's say you want to change our line chart example to a bar chat(assuming that the layout stays the same, in most cases you won't be needing to change it), the only thing that changes here is the `data` prop. you can extract it out to keep only a single chart component for your entire project. Neat, eh?!
