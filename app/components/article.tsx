@@ -1,9 +1,6 @@
 import { MDXProvider } from "@mdx-js/react";
-import { ArrowBigLeft } from "lucide-react";
-import { useNavigate } from "react-router";
 
 import { cn } from "~/lib/utils";
-import { Button } from "./ui/button";
 import { Navigation } from "./navigation";
 
 type ArticleProps = {
@@ -19,7 +16,7 @@ export const Article = ({ children, className }: ArticleProps) => {
         className={cn(
           "mx-auto grid gap-2",
           "prose md:prose-lg",
-          "prose-img:rounded-md prose-img:shadow-md",
+          "prose-img:rounded-md prose-img:shadow-md prose-img:aspect-3/2 prose-img:object-cover",
           "prose-a:text-primary",
           "prose-pre:bg-pre prose-pre:text-pre-foreground",
           "prose-code:rounded-md prose-code:bg-pre  prose-code:text-pre-foreground prose-code:px-4 prose-code:py-1 prose-code:text-sm",
