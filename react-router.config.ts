@@ -1,6 +1,7 @@
 import type { Config } from "@react-router/dev/config";
 
 export default {
+  ssr: false,
   async prerender() {
     const blogs = import.meta.glob("/app/assets/blog/**/*.mdx");
 
