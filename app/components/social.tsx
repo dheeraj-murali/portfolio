@@ -5,6 +5,7 @@ import { LinkedInIcon } from "~/components/icons/linkedIn";
 import { XIcon } from "~/components/icons/x";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "~/components/ui/button";
+import { DevIcon } from "./icons/dev";
 
 const social = data.social;
 
@@ -29,9 +30,9 @@ const getIcons = (service: string) => {
         <XIcon className="size-4 fill-[#000000] dark:fill-[#ffffff] hover:fill-primary dark:hover:fill-primary" />
       );
 
-    case "bluesky":
+    case "dev":
       return (
-        <BlueSky className="size-4 fill-[#0285FF] hover:fill-primary dark:hover:fill-primary" />
+        <DevIcon className="size-6 fill-[#0A0A0A] dark:fill-[#ffffff] hover:fill-primary dark:hover:fill-primary" />
       );
 
     default:
@@ -49,7 +50,7 @@ export function Social({ className }: SocialProps) {
           target="_blank"
           rel="noreferrer"
           aria-label={item.service}
-          className={cn(buttonVariants({ variant: "link" }))}
+          className={cn(buttonVariants({ variant: "link", size: "icon" }))}
         >
           {getIcons(item.service)}
         </a>
