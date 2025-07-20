@@ -1,11 +1,10 @@
 import data from "~/assets/data.json";
-import { BlueSky } from "~/components/icons/bluesky";
+import { DevIcon } from "~/components/icons/dev";
 import { GithubIcon } from "~/components/icons/github";
 import { LinkedInIcon } from "~/components/icons/linkedIn";
 import { XIcon } from "~/components/icons/x";
-import { cn } from "~/lib/utils";
 import { buttonVariants } from "~/components/ui/button";
-import { DevIcon } from "./icons/dev";
+import { cn } from "~/lib/utils";
 
 const social = data.social;
 

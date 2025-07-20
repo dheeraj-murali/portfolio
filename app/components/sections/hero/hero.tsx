@@ -4,7 +4,7 @@ import type { RoughAnnotationConfig } from "rough-notation/lib/model";
 import { ParentSize } from "@visx/responsive";
 
 import { TechStack } from "~/components/techStack";
-import { Canvas } from "../canvas";
+import { Canvas } from "./hero-canvas";
 
 const config: RoughAnnotationConfig = {
   type: "underline",

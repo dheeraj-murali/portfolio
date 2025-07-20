@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import { Footer } from "~/components/sections/footer";
-import { Header } from "~/components/sections/header";
+import { Header } from "~/components/sections/header/header";
 import { Toaster } from "~/components/ui/sonner";
 
 const AppLayout = () => {

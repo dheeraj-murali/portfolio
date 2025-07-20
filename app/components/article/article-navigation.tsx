@@ -1,7 +1,7 @@
 import { ArrowBigLeft } from "lucide-react";
 import { useNavigate } from "react-router";
 
-import { Button } from "./ui/button";
+import { Button } from "~/components/ui/button";
 
 export const Navigation = () => {
   const navigate = useNavigate();

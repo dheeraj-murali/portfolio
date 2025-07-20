@@ -1,7 +1,7 @@
 import { MDXProvider } from "@mdx-js/react";
 
 import { cn } from "~/lib/utils";
-import { Navigation } from "./navigation";
+import { Navigation } from "./article-navigation";
 
 type ArticleProps = {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
-import { BlogCard } from "~/components/cards/blog-card";
 import { getAllPosts } from "~/lib/utils";
+import { BlogCard } from "./blog-card";
 
 export const Blog = () => {
   const posts = getAllPosts();

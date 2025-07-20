@@ -1,7 +1,7 @@
 import { Lightbulb } from "lucide-react";
 
-import { Logo } from "~/components/logo";
-import { Social } from "~/components/social";
+import { Logo } from "~/components/sections/header/header-logo";
+import { Social } from "~/components/sections/header/header-social";
 import { Button } from "~/components/ui/button";
 
 export const Header = () => {

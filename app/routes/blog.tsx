@@ -1,7 +1,7 @@
 import startCase from "lodash.startcase";
 import { useParams } from "react-router";
 
-import { Article } from "~/components/article";
+import { Article } from "~/components/article/article";
 import { getPostBySlug } from "~/lib/utils";
 import type { Route } from "./+types/home";
 

@@ -1,5 +1,5 @@
 import data from "~/assets/data.json";
-import { PortfolioCard } from "~/components/cards/portfolio-card";
+import { PortfolioCard } from "~/components/sections/portfolio/portfolio-card";
 
 const portfolio = data.portfolio;
 

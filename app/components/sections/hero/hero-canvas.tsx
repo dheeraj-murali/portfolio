@@ -6,7 +6,7 @@ import { LinePath } from "@visx/shape";
 import { EraserIcon } from "lucide-react";
 import { useCallback, useState } from "react";
 
-import { Button } from "./ui/button";
+import { Button } from "~/components/ui/button";
 
 type Line = { x: number; y: number }[];
 type Lines = Line[];
