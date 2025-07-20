@@ -17,7 +17,7 @@ type DragIIProps = {
   data?: Lines;
 };
 
-export function Canvas(props: DragIIProps) {
+export function Slate(props: DragIIProps) {
   const { width, height, data = [] } = props;
 
   const [cleared, setCleared] = useState(false);
@@ -70,7 +70,7 @@ export function Canvas(props: DragIIProps) {
       className="relative rounded-lg overflow-hidden"
       style={{ touchAction: "none" }}
     >
-      <div className="absolute bottom-4 right-2 flex flex-col items-end gap-2">
+      <div className="absolute z-30 bottom-4 right-2 flex flex-col items-end gap-2">
         <Button
           onClick={() => {
             setCleared(true);
@@ -89,8 +89,8 @@ export function Canvas(props: DragIIProps) {
         )}
       </div>
 
-      <svg width={width} height={height}>
-        <LinearGradient id="stroke" from="#ff614e60" to="#ffdc6460" />
+      <svg width={width} height={height} style={{ opacity: 0.4 }}>
+        <LinearGradient id="stroke" from="#8E7AB5" to="#FFE5E5" />
 
         <rect fill="transparent" width={width} height={height} />
 

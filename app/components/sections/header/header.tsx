@@ -18,7 +18,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="flex flex-row items-center  justify-between w-full">
+    <header className="flex flex-row items-center justify-between w-full py-12">
       <Logo />
 
       <Social />

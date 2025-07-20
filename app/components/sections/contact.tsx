@@ -71,7 +71,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex flex-col gap-8">
+    <section id="contact" className="flex flex-col gap-8 py-24">
       <h2 className="text-xl font-bold">Got some idea? Let's have a chat.</h2>
       <Form {...form}>
         <form
