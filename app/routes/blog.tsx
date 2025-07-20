@@ -1,9 +1,9 @@
 import startCase from "lodash.startcase";
 import { useParams } from "react-router";
+import type { Route } from "./+types/home";
 
 import { Article } from "~/components/article/article";
 import { getPostBySlug } from "~/lib/utils";
-import type { Route } from "./+types/home";
 
 export function meta({ params }: Route.MetaArgs) {
   const { slug } = params;

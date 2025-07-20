@@ -1,8 +1,9 @@
+import type { Route } from "./+types/home";
+
 import { About } from "~/components/sections/about";
 import { Contact } from "~/components/sections/contact";
 import { Hero } from "~/components/sections/hero/hero";
 import { Portfolio } from "~/components/sections/portfolio/portfolio";
-import type { Route } from "./+types/home";
 import { Blog } from "~/components/sections/blog/blog";
 
 export function meta({}: Route.MetaArgs) {
