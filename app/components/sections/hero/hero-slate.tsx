@@ -70,7 +70,7 @@ export function Slate(props: DragIIProps) {
       className="relative rounded-lg overflow-hidden"
       style={{ touchAction: "none" }}
     >
-      <div className="absolute bottom-4 right-2 flex flex-col items-end gap-2">
+      <div className="absolute z-30 bottom-4 right-2 flex flex-col items-end gap-2">
         <Button
           onClick={() => {
             setCleared(true);
@@ -89,14 +89,8 @@ export function Slate(props: DragIIProps) {
         )}
       </div>
 
-      <svg width={width} height={height}>
-        <LinearGradient
-          id="stroke"
-          from="#C599B6"
-          to="#FFE5E5"
-          fillOpacity={0.1}
-          toOpacity={0.2}
-        />
+      <svg width={width} height={height} style={{ opacity: 0.4 }}>
+        <LinearGradient id="stroke" from="#8E7AB5" to="#FFE5E5" />
 
         <rect fill="transparent" width={width} height={height} />
 
