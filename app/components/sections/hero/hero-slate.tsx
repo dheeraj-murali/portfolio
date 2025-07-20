@@ -17,7 +17,7 @@ type DragIIProps = {
   data?: Lines;
 };
 
-export function Canvas(props: DragIIProps) {
+export function Slate(props: DragIIProps) {
   const { width, height, data = [] } = props;
 
   const [cleared, setCleared] = useState(false);
@@ -90,7 +90,13 @@ export function Canvas(props: DragIIProps) {
       </div>
 
       <svg width={width} height={height}>
-        <LinearGradient id="stroke" from="#ff614e60" to="#ffdc6460" />
+        <LinearGradient
+          id="stroke"
+          from="#C599B6"
+          to="#FFE5E5"
+          fillOpacity={0.1}
+          toOpacity={0.2}
+        />
 
         <rect fill="transparent" width={width} height={height} />
 
