@@ -6,7 +6,7 @@ import { Toaster } from "~/components/ui/sonner";
 const AppLayout = () => {
   return (
     <>
-      <main className="container mx-auto my-20 px-4 flex flex-col gap-40">
+      <main className="container mx-auto my-20 px-4 flex flex-col gap-20">
         <Header />
 
         <Outlet />
