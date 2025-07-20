@@ -5,7 +5,7 @@ import { cn } from "~/lib/utils";
 
 export const About = () => {
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-8 py-24">
       <h2 className="text-xl font-bold">
         Hey, I'm a Front-end developer who loves crafting fast and easy to use
         web applications.

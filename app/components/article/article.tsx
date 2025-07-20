@@ -14,7 +14,7 @@ export const Article = ({ children, className }: ArticleProps) => {
       <Navigation />
       <article
         className={cn(
-          "mx-auto grid gap-2",
+          "mx-auto grid gap-2 py-24",
           "prose md:prose-lg",
           "prose-img:rounded-md prose-img:shadow-md prose-img:aspect-3/2 prose-img:object-cover",
           "prose-a:text-primary",

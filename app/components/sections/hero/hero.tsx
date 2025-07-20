@@ -28,7 +28,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative h-[70vh]">
+    <section id="hero" className="relative h-[60vh] py-24">
       <div className="h-full flex flex-col justify-center">
         <h1 className="font-black text-5xl tracking-wider mb-2">
           Hey, I&lsquo;m <span ref={highlightRef}>Dheeraj.</span>
