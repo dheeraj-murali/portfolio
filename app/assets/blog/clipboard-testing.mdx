@@ -1,0 +1,291 @@
+export const title = "Testing Clipboard API with Vitest and React Testing Library"
+export const date = "2024-06-12"
+export const description = "Learn how to properly test clipboard functionality in React applications using Vitest and React Testing Library, including mocking navigator.clipboard and handling secure context requirements."
+
+![Code editor with clipboard testing](/blog/mouse.jpg)
+
+The Clipboard API is a powerful web feature that allows developers to interact with the user's clipboard programmatically. However, testing clipboard functionality can be tricky due to security restrictions and browser limitations. In this post, we'll explore how to effectively test clipboard operations using Vitest and React Testing Library.
+
+## Understanding the Clipboard API
+
+The modern [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) provides methods like `navigator.clipboard.writeText()` and `navigator.clipboard.readText()` for clipboard operations. However, there's a catch:
+
+> **The Clipboard API is only available in secure contexts (HTTPS) and requires user interaction in most browsers.**
+
+This security restriction makes testing challenging since test environments typically don't have access to the actual clipboard.
+
+## Setting Up the Test Environment
+
+First, let's create a simple React component that uses the clipboard:
+
+```jsx
+// ClipboardButton.jsx
+import React, { useState } from 'react';
+
+export function ClipboardButton({ text }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy text:', error);
+    }
+  };
+
+  return (
+    <button onClick={handleCopy}>
+      {copied ? 'Copied!' : 'Copy to Clipboard'}
+    </button>
+  );
+}
+```
+
+## The Testing Challenge
+
+When you try to test this component without proper setup, you'll likely encounter errors like:
+
+```
+TypeError: Cannot read properties of undefined (reading 'writeText')
+```
+
+This happens because `navigator.clipboard` is undefined in the test environment.
+
+## Solution: Mocking the Clipboard API
+
+Here's how to properly mock the Clipboard API for testing:
+
+### Method 1: Global Setup (Recommended)
+
+Create a test setup file to mock the clipboard globally:
+
+```js
+// test-setup.js
+import { vi } from 'vitest';
+
+// Mock the clipboard API
+Object.defineProperty(navigator, 'clipboard', {
+  value: {
+    writeText: vi.fn(),
+    readText: vi.fn(),
+  },
+  configurable: true,
+});
+```
+
+Add this to your Vitest configuration:
+
+```js
+// vite.config.js
+export default defineConfig({
+  test: {
+    setupFiles: ['./test-setup.js'],
+    environment: 'jsdom',
+  },
+});
+```
+
+### Method 2: Per-Test Mocking
+
+Alternatively, you can mock the clipboard in individual test files:
+
+```js
+// ClipboardButton.test.jsx
+import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { ClipboardButton } from './ClipboardButton';
+
+// Mock clipboard before each test
+beforeEach(() => {
+  Object.defineProperty(navigator, 'clipboard', {
+    value: {
+      writeText: vi.fn(),
+    },
+    configurable: true,
+  });
+});
+```
+
+## Writing Comprehensive Tests
+
+Now let's write thorough tests for our clipboard functionality:
+
+```js
+// ClipboardButton.test.jsx
+import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { ClipboardButton } from './ClipboardButton';
+
+describe('ClipboardButton', () => {
+  const testText = 'Hello, World!';
+
+  beforeEach(() => {
+    // Fresh mock for each test
+    Object.defineProperty(navigator, 'clipboard', {
+      value: {
+        writeText: vi.fn(),
+      },
+      configurable: true,
+    });
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should render copy button with initial text', () => {
+    render(<ClipboardButton text={testText} />);
+    
+    expect(screen.getByRole('button')).toHaveTextContent('Copy to Clipboard');
+  });
+
+  it('should call clipboard.writeText when button is clicked', async () => {
+    const writeTextSpy = vi.spyOn(navigator.clipboard, 'writeText')
+      .mockResolvedValue();
+
+    render(<ClipboardButton text={testText} />);
+    
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(writeTextSpy).toHaveBeenCalledWith(testText);
+    expect(writeTextSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should show "Copied!" message after successful copy', async () => {
+    vi.spyOn(navigator.clipboard, 'writeText').mockResolvedValue();
+
+    render(<ClipboardButton text={testText} />);
+    
+    fireEvent.click(screen.getByRole('button'));
+
+    await waitFor(() => {
+      expect(screen.getByRole('button')).toHaveTextContent('Copied!');
+    });
+  });
+
+  it('should reset to original text after 2 seconds', async () => {
+    vi.spyOn(navigator.clipboard, 'writeText').mockResolvedValue();
+    vi.useFakeTimers();
+
+    render(<ClipboardButton text={testText} />);
+    
+    fireEvent.click(screen.getByRole('button'));
+
+    await waitFor(() => {
+      expect(screen.getByRole('button')).toHaveTextContent('Copied!');
+    });
+
+    // Fast forward 2 seconds
+    vi.advanceTimersByTime(2000);
+
+    await waitFor(() => {
+      expect(screen.getByRole('button')).toHaveTextContent('Copy to Clipboard');
+    });
+
+    vi.useRealTimers();
+  });
+
+  it('should handle clipboard write errors gracefully', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(navigator.clipboard, 'writeText')
+      .mockRejectedValue(new Error('Clipboard access denied'));
+
+    render(<ClipboardButton text={testText} />);
+    
+    fireEvent.click(screen.getByRole('button'));
+
+    await waitFor(() => {
+      expect(consoleSpy).toHaveBeenCalledWith(
+        'Failed to copy text:', 
+        expect.any(Error)
+      );
+    });
+
+    // Button should remain in original state
+    expect(screen.getByRole('button')).toHaveTextContent('Copy to Clipboard');
+
+    consoleSpy.mockRestore();
+  });
+});
+```
+
+## Advanced Testing Scenarios
+
+### Testing Clipboard Read Operations
+
+If your component also reads from the clipboard:
+
+```js
+it('should read from clipboard', async () => {
+  const mockText = 'Clipboard content';
+  vi.spyOn(navigator.clipboard, 'readText')
+    .mockResolvedValue(mockText);
+
+  render(<ClipboardReader />);
+  
+  fireEvent.click(screen.getByText('Paste'));
+
+  await waitFor(() => {
+    expect(screen.getByDisplayValue(mockText)).toBeInTheDocument();
+  });
+
+  expect(navigator.clipboard.readText).toHaveBeenCalledTimes(1);
+});
+```
+
+### Testing Permission Handling
+
+For more realistic testing, you might want to mock clipboard permissions:
+
+```js
+beforeEach(() => {
+  Object.defineProperty(navigator, 'clipboard', {
+    value: {
+      writeText: vi.fn(),
+      readText: vi.fn(),
+    },
+    configurable: true,
+  });
+
+  Object.defineProperty(navigator, 'permissions', {
+    value: {
+      query: vi.fn(),
+    },
+    configurable: true,
+  });
+});
+
+it('should handle clipboard permissions', async () => {
+  vi.spyOn(navigator.permissions, 'query')
+    .mockResolvedValue({ state: 'granted' });
+
+  // Your test logic here
+});
+```
+
+## Best Practices
+
+1. **Use Global Setup**: Mock the clipboard API globally to avoid repetition
+2. **Test Error Cases**: Always test what happens when clipboard operations fail
+3. **Mock Timers**: Use `vi.useFakeTimers()` when testing time-dependent behavior
+4. **Clean Up**: Clear mocks between tests to avoid test interference
+5. **Test User Experience**: Focus on testing the user-visible behavior, not just the API calls
+
+## Common Pitfalls
+
+- **Forgetting to mock**: Always ensure `navigator.clipboard` is available in tests
+- **Not testing errors**: Clipboard operations can fail, so test error scenarios
+- **Race conditions**: Use `waitFor` when testing asynchronous clipboard operations
+- **Timer issues**: Remember to clean up timers and use fake timers for predictable tests
+
+## Conclusion
+
+Testing clipboard functionality doesn't have to be complicated. By properly mocking the Clipboard API and following testing best practices, you can ensure your clipboard features work reliably across different browsers and scenarios.
+
+The key is understanding that the clipboard is a browser API that needs to be mocked in test environments, and then writing comprehensive tests that cover both success and failure cases.
+
+Remember to test the user experience, not just the technical implementation. Your users care about whether the copy button works and provides feedback, not about the specific API calls being made.
+
+Happy testing! 🧪📋
