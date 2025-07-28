@@ -4,6 +4,8 @@ import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
 export const About = () => {
+  const experience = new Date().getFullYear() - 2016;
+
   return (
     <section className="flex flex-col gap-8 py-24">
       <h2 className="text-xl font-bold">
@@ -14,9 +16,9 @@ export const About = () => {
       <p className="text-muted-foreground max-w-xl">
         Passionate about design, web development and open source. A big believer
         in minimalism and elegant design. I've been working as a Front end
-        developer for {new Date().getFullYear() - 2016}+ years, designing and
-        developing data driven user interfaces for Healthcare, eCommerce,
-        Product Quality analytics, FX domains, Asset management and more...
+        developer for {experience}+ years, designing and developing data driven
+        user interfaces for Healthcare, eCommerce, Product Quality analytics, FX
+        domains, Asset management and more...
       </p>
 
       <aside>
