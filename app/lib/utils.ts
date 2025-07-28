@@ -41,4 +41,4 @@ export const getAllPosts = (): Post[] => {
 };
 
 export const getPostBySlug = (slug: string): Post | undefined =>
-  getAllPosts().find((p) => p.slug === slug);
+  getAllPosts().find((p) => p.slug.toLowerCase() === slug.toLowerCase());
