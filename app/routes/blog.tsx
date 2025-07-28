@@ -23,7 +23,7 @@ const Blog = () => {
       <div className="h-[70vh] flex flex-col items-center justify-center border-dashed rounded-lg border-4 text-muted-foreground text-3xl">
         <span>Unable to load post</span>{" "}
         <Link className={buttonVariants({ variant: "link" })} to="/">
-          Navigate home
+          Return to homepage
         </Link>
       </div>
     );
