@@ -24,21 +24,14 @@ type Mod = {
   default: () => JSX.Element;
 };
 
-export const getAllPosts = (): Post[] => {
-  const posts = Object.entries(postModules as Record<string, Mod>).map(
-    ([path, mod]) => ({
-      slug: path.replace("../assets/blog/", "").replace(".mdx", ""),
-      title: mod.title,
-      date: mod.date,
-      description: mod.description,
-      component: mod.default,
-    })
-  );
-
-  console.log({ posts, postModules });
-
-  return posts;
-};
+export const getAllPosts = (): Post[] =>
+  Object.entries(postModules as Record<string, Mod>).map(([path, mod]) => ({
+    slug: path.replace("../assets/blog/", "").replace(".mdx", ""),
+    title: mod.title,
+    date: mod.date,
+    description: mod.description,
+    component: mod.default,
+  }));
 
 export const getPostBySlug = (slug: string): Post | undefined =>
-  getAllPosts().find((p) => p.slug === slug);
+  getAllPosts().find((p) => p.slug.toLowerCase() === slug.toLowerCase());
