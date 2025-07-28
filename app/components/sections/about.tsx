@@ -4,8 +4,7 @@ import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
 export const About = () => {
-  const experience =
-    typeof window !== "undefined" ? new Date().getFullYear() - 2016 : 0;
+  const experience = new Date().getFullYear() - 2016;
 
   return (
     <section className="flex flex-col gap-8 py-24">
