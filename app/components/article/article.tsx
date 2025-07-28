@@ -16,6 +16,7 @@ export const Article = ({ children, className }: ArticleProps) => {
         className={cn(
           "mx-auto grid gap-2 py-24",
           "prose md:prose-lg",
+          "prose-h1:text-center",
           "prose-img:rounded-md prose-img:shadow-md prose-img:aspect-3/2 prose-img:object-cover",
           "prose-a:text-primary",
           "prose-pre:bg-pre prose-pre:text-pre-foreground",

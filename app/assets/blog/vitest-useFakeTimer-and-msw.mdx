@@ -2,6 +2,8 @@ export const title = "Solving the MSW v2 and Fake Timers Conflict in Vitest and 
 export const date = "2024-12-18"
 export const description = "Learn how to resolve the known compatibility issue between MSW v2 and fake timers in Vitest and Jest, including different approaches to skip mocking queueMicrotask for seamless API testing."
 
+# Solving the MSW v2 and Fake Timers Conflict in Vitest and Jest
+
 ![Testing setup with timers and network mocking](/blog/dev.jpg)
 
 Mock Service Worker (MSW) v2 is an excellent tool for mocking API requests in tests, while fake timers help us control time-dependent behavior. However, there's a known compatibility issue when using both together that can cause tests to hang or fail unexpectedly. In this post, we'll explore this problem and how to solve it in both Vitest and Jest.
