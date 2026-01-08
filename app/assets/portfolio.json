@@ -1,0 +1,136 @@
+[
+  {
+    "title": "Bigger Picture portal",
+    "year": "2025",
+    "client": "Bigger Picture",
+    "description": [
+      "A customer portal for Bigger Picture, a company that provides event photography services. The portal allows customers to view and download their event photos, as well as order prints and other products. Built using React and TypeScript, the application features a user-friendly interface, secure payment processing, and integration with backend services for seamless data management."
+    ],
+    "image": "/portfolio/BP.png",
+    "link": "https://biggerpicture.photography",
+    "tech": ["rt", "ts", "aws", "tw", "rtr", "rtq", "scn"]
+  },
+  {
+    "title": "Bigger Picture dashboard",
+    "year": "2025",
+    "client": "Bigger Picture",
+    "description": [
+      "A dashboard for Bigger Picture, a company that provides event photography services. The dashboard allows photographers to view and manage their event photos, as well as access analytics and reports on their photography business. Built using React and TypeScript, the application features a user-friendly interface, real-time data updates, and integration with backend services for seamless data management."
+    ],
+    "image": "/portfolio/BP.png",
+    "link": "https://app.biggerpicture.photography",
+    "tech": ["rt", "ts", "aws", "tw", "rtr", "rtq", "scn"]
+  },
+  {
+    "title": "Dailyblueprint dashboard",
+    "year": "2022",
+    "client": "Aspire - Restoration Hardware",
+    "description": [
+      "An internal tool for Restoration Hardware to manage their daily attendance and employee scheduling. Built using React and TypeScript, the application features a user-friendly interface, real-time data updates, and integration with backend services for seamless data management. Employees can easily clock in and out, view their schedules, and request time off, while managers can monitor attendance, approve requests, and generate reports."
+    ],
+    "image": "/portfolio/RH.png",
+    "link": "https://cochincarrental.com",
+    "tech": ["rt", "ts", "gql", "tw", "njs"]
+  },
+  {
+    "title": "Cochin car rental",
+    "year": "2021",
+    "client": "Cochin car rental",
+    "description": [
+      "A sister concern of Series tours, Cochin car rental is one of the leading Kerala Tour Operators - engaged in the promotion of Kerala Tourism. They focus on providing customers with the best car rental and tour package they can enjoy inside of Kerala. With a fleet of trained drivers, highly maintained vehicles and exceptional customer service, they have become one of the best taxi services in Kerala."
+    ],
+    "image": "/portfolio/cochin-car-rental.png",
+    "link": "https://cochincarrental.com",
+    "tech": ["rt", "ts", "gtpy", "gql", "tw"]
+  },
+  {
+    "title": "Deaglo Dashboard",
+    "year": "2021",
+    "client": "Aspire - Deaglo",
+    "description": [
+      "Deaglo tool enabled users to clearly predict the foreign exchange risks associated with investing in different locations and demonstrate the mitigation strategies in place. Developed using React and TypeScript, the dashboard features interactive charts, real-time data updates, and customizable reports to provide users with a comprehensive view of their foreign exchange exposure. Integrated with backend services to fetch market data and user-specific information, ensuring accurate and up-to-date insights for effective risk management."
+    ],
+    "image": "/portfolio/deaglo.png",
+    "link": "https://www.deaglo.com/",
+    "tech": ["rt", "ts", "tw", "plt", "aws"]
+  },
+  {
+    "title": "Zeal academy dashboard",
+    "year": "2020",
+    "client": "Zeal Academy",
+    "description": [
+      "Zeal Academy is one of the emerging preeminent institution for pharmacy graduates who are aiming to build a healthcare career abroad. They are committed in nurturing dreams of becoming a part of healthcare foreign jobs with comprehensive education services. They are creating new, radical and certifying opportunities that helps students recognize the accurate path of accomplishment that helps as the springboard for their future career."
+    ],
+    "image": "/portfolio/zeal-academy.png",
+    "link": "https://zealacademy.info",
+    "tech": ["rt", "ts", "tw", "chrt", "aws"]
+  },
+  {
+    "title": "Mission KAS dashboard",
+    "year": "2020",
+    "client": "Mission KAS",
+    "description": [
+      "Zeal Academy provides smart and focused training to the aspirants to succeed in the KAS examination. "
+    ],
+    "image": "/portfolio/mission-kas.png",
+    "link": "https://missionkas.com",
+    "tech": ["rt", "ts", "tw", "chrt", "aws", "njs"]
+  },
+  {
+    "title": "Ambassador Portal",
+    "year": "2019",
+    "client": "Aspire - Anthology",
+    "description": [
+      "An internal web application for Anthology to manage their university ambassador program. The portal allows ambassadors to sign up for events, track their activities, and access resources provided by Anthology. Built using React and TypeScript, the application features a user-friendly interface, real-time data updates, and integration with backend services for seamless data management."
+    ],
+    "image": "/portfolio/anthology.png",
+    "link": "https://www.anthology.com/",
+    "tech": ["rt", "ts", "css", "btsrp", "chrt"]
+  },
+  {
+    "title": "Camelcase Tech lab",
+    "year": "2019",
+    "client": "Camelcase",
+    "description": [
+      "Camelcase is a team of developers who will help you build applications using advanced frameworks with minimal footprint. Ready to build using React, Angular, Ionic, Spring, Django, MongoDB or whatever you prefer."
+    ],
+    "image": "/portfolio/camelcase.png",
+    "link": "https://camelcase.in",
+    "tech": ["rt", "ts", "gtpy", "gql", "tw"]
+  },
+  {
+    "title": "GE healthcare invoice module",
+    "year": "2018",
+    "client": "TCS - GE healthcare",
+    "description": [
+      "Part of a team developing a modern Orders and Invoices module for gehealthcare.com to replace a legacy system, focusing on major improvements in usability, performance, and maintainability. Developed modular React components, integrated data using GraphQL. The result was a faster, more intuitive experience for enterprise users and a scalable frontend foundation for future enhancements."
+    ],
+    "image": "/portfolio/GE.png",
+    "link": "https://gehealthcare.com",
+    "tech": ["rt", "ts", "gql", "css"]
+  },
+  {
+    "title": "Nuvolo and EnCompass ROI Calculator",
+    "year": "2017",
+    "client": "TCS - GE healthcare",
+    "description": [
+      "A feature rich internal web application for GE healthcare to help sales teams demonstrate the ROI of Nuvolo and EnCompass products to prospective clients. Developed using React and TypeScript wrapped in Electron js to create a desktop application, the application features dynamic forms, real-time calculations, and data visualization to provide an interactive user experience. Integrated with backend services to fetch pricing and product data, ensuring accurate and up-to-date information for ROI calculations."
+    ],
+    "image": "/portfolio/GE.png",
+    "link": "https://gehealthcare.com",
+    "tech": ["rt", "ts", "css", "elt", "chrt"]
+  },
+  {
+    "title": "Rice and rice Dashboard",
+    "year": "2017",
+    "client": "Rice and Rice",
+    "description": [
+      "The Rice and Rice Dashboard initiative was undertaken to modernize core business operations for one of the largest and oldest rice trading companies in the Malabar region. The existing on-premise system had become outdated, difficult to use, and restrictive, limiting visibility into sales, invoicing, and trade data. This created inefficiencies in daily operations and made it challenging for leadership to track performance accurately.",
+      "A new, web-based dashboard was designed and developed as a greenfield product, enabling secure access from anywhere and full support for mobile devices. The platform consolidated client management, employee records, trade tracking, invoicing, and sales workflows into a single, easy-to-use system. As a result, the organization significantly improved operational efficiency, accelerated invoice generation and sharing, and gained clearer insight into ongoing sales activities.",
+      "The Improved data transparency also helped uncover previously unknown missing sales and outstanding debts, directly contributing to better financial control, increased sales effectiveness, and stronger decision-making at the management level."
+    ],
+    "image": "/portfolio/rice-and-rice.png",
+    "link": "https://riceandrice.netlify.app",
+    "tech": ["rt", "ts", "tw", "chrt", "ntfy", "aws"]
+  }
+]
