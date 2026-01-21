@@ -17,13 +17,13 @@ import {
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 
-const formName = "contact-from";
+const formName = "contact-form";
 
 const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  email: z.string().email(),
+  name: z.string().min(2, 'Just need a name that is at least 2 characters').max(50, 'Your name seems a bit long—please keep it under 50 characters'),
+  email: z.email('Please enter a valid email address'),
   phone: z.string().optional(),
-  message: z.string().min(10).max(500),
+  message: z.string().min(10, 'Please share a bit more—at least 10 characters').max(500, 'Okay, that\'s a lot—let\'s keep it under 500 characters'),
 });
 
 export type FormValues = z.infer<typeof formSchema>;
@@ -75,13 +75,13 @@ export const Contact = () => {
       <h2 className="text-xl font-bold">Got some idea? Let's have a chat.</h2>
       <Form {...form}>
         <form
-          name="contact-from"
+          name="contact-form"
           data-netlify="true"
           className="max-w-md flex flex-col space-y-5"
           onSubmit={form.handleSubmit(onSubmit)}
           method="POST"
         >
-          <input type="hidden" name="form-name" value={"contact-from"} />
+          <input type="hidden" name="form-name" value={"contact-form"} />
 
           <FormField
             control={form.control}
