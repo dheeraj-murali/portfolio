@@ -51,7 +51,7 @@ export const PortfolioCard = ({
         <img src={image} alt={title} className="size-12 rounded object-fill" />
         <h3 className="text-lg font-bold capitalize">{title}</h3>
       </CardTitle>
-      {tags.length > 0 && (
+      {/* {tags.length > 0 && (
         <div className="flex flex-row flex-wrap gap-2 mt-2">
           {tags.map((tag) => (
             <Badge
@@ -63,7 +63,7 @@ export const PortfolioCard = ({
             </Badge>
           ))}
         </div>
-      )}
+      )} */}
     </CardHeader>
     <CardContent>
       <CardDescription className="line-clamp-3">
@@ -91,7 +91,7 @@ export const PortfolioCard = ({
                 <DialogDescription>{client}</DialogDescription>
               </div>
             </div>
-            {tags.length > 0 && (
+            {/* {tags.length > 0 && (
               <div className="flex flex-row flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
                   <Badge
@@ -103,7 +103,7 @@ export const PortfolioCard = ({
                   </Badge>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
           <ScrollArea className="h-full max-h-[calc(100vh-24rem)] flex flex-col gap-4">
             {description.map((desc, index) => (
