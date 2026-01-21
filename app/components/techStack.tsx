@@ -16,6 +16,9 @@ import { PlotlyIcon } from "./icons/plotly";
 import { ElectronIcon } from "./icons/electron";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { ChartIcon } from "./icons/chartjs";
+import { ReduxIcon } from "./icons/redux";
+import { SwrIcon } from "./icons/swr";
+import { cn } from "~/lib/utils";
 
 type TechStackProps = {
   stack?: string[];
@@ -30,7 +33,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "js") && (
         <Tooltip>
           <TooltipTrigger>
-            <JavascriptIcon className="size-4 fill-[#F7DF1E] delay-0 animate-landing transition-transform" />
+            <JavascriptIcon
+              className={cn(
+                "size-4 fill-[#F7DF1E] delay-0 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>JavaScript</TooltipContent>
         </Tooltip>
@@ -38,7 +45,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "ts") && (
         <Tooltip>
           <TooltipTrigger>
-            <TypescriptIcon className="size-4 fill-[#3178C6] delay-100 animate-landing transition-transform" />
+            <TypescriptIcon
+              className={cn(
+                "size-4 fill-[#3178C6] delay-100 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>TypeScript</TooltipContent>
         </Tooltip>
@@ -46,7 +57,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "css") && (
         <Tooltip>
           <TooltipTrigger>
-            <CssIcon className="size-4 fill-[#663399] delay-200 animate-landing transition-transform" />
+            <CssIcon
+              className={cn(
+                "size-4 fill-[#663399] delay-200 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>CSS</TooltipContent>
         </Tooltip>
@@ -54,7 +69,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "btsrp") && (
         <Tooltip>
           <TooltipTrigger>
-            <BootstrapIcon className="size-4 fill-[#7952B3] delay-300 animate-landing transition-transform" />
+            <BootstrapIcon
+              className={cn(
+                "size-4 fill-[#7952B3] delay-300 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Bootstrap</TooltipContent>
         </Tooltip>
@@ -62,7 +81,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "tw") && (
         <Tooltip>
           <TooltipTrigger>
-            <TailwindIcon className="size-4 fill-[#06B6D4] delay-400 animate-landing transition-transform" />
+            <TailwindIcon
+              className={cn(
+                "size-4 fill-[#06B6D4] delay-400 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Tailwind CSS</TooltipContent>
         </Tooltip>
@@ -70,7 +93,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "rt") && (
         <Tooltip>
           <TooltipTrigger>
-            <ReactIcon className="size-4 fill-[#61DAFB] delay-500 animate-landing transition-transform" />
+            <ReactIcon
+              className={cn(
+                "size-4 fill-[#61DAFB] delay-500 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>React</TooltipContent>
         </Tooltip>
@@ -78,7 +105,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "scn") && (
         <Tooltip>
           <TooltipTrigger>
-            <ShadcnIcon className="size-4 fill-[#000000] dark:fill-[#ffffff] delay-600 animate-landing transition-transform" />
+            <ShadcnIcon
+              className={cn(
+                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-600 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Shadcn</TooltipContent>
         </Tooltip>
@@ -86,7 +117,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "rtr") && (
         <Tooltip>
           <TooltipTrigger>
-            <ReactRouterIcon className="size-4 fill-[#CA4245] delay-700 animate-landing transition-transform" />
+            <ReactRouterIcon
+              className={cn(
+                "size-4 fill-[#CA4245] delay-700 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>React Router</TooltipContent>
         </Tooltip>
@@ -94,15 +129,47 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "rtq") && (
         <Tooltip>
           <TooltipTrigger>
-            <ReactQueryIcon className="size-4 fill-[#FF4154] delay-800 animate-landing transition-transform" />
+            <ReactQueryIcon
+              className={cn(
+                "size-4 fill-[#FF4154] delay-800 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>React Query</TooltipContent>
+        </Tooltip>
+      )}
+      {isIncluded(stack, "swr") && (
+        <Tooltip>
+          <TooltipTrigger>
+            <SwrIcon
+              className={cn(
+                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-800 animate-landing transition-all"
+              )}
+            />
+          </TooltipTrigger>
+          <TooltipContent>SWR</TooltipContent>
+        </Tooltip>
+      )}
+      {isIncluded(stack, "rdx") && (
+        <Tooltip>
+          <TooltipTrigger>
+            <ReduxIcon
+              className={cn(
+                "size-4 fill-[#764ABC] delay-800 animate-landing transition-all"
+              )}
+            />
+          </TooltipTrigger>
+          <TooltipContent>Redux</TooltipContent>
         </Tooltip>
       )}
       {isIncluded(stack, "gql") && (
         <Tooltip>
           <TooltipTrigger>
-            <GraphqlIcon className="size-4 fill-[#E10098] delay-900 animate-landing transition-transform" />
+            <GraphqlIcon
+              className={cn(
+                "size-4 fill-[#E10098] delay-900 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>GraphQL</TooltipContent>
         </Tooltip>
@@ -110,7 +177,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "njs") && (
         <Tooltip>
           <TooltipTrigger>
-            <NextjsIcon className="size-4 fill-[#000000] dark:fill-[#ffffff] delay-1000 animate-landing transition-transform" />
+            <NextjsIcon
+              className={cn(
+                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-1000 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Next.js</TooltipContent>
         </Tooltip>
@@ -118,7 +189,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "gtpy") && (
         <Tooltip>
           <TooltipTrigger>
-            <GatsbyIcon className="size-4 fill-[#663399] delay-1100 animate-landing transition-transform" />
+            <GatsbyIcon
+              className={cn(
+                "size-4 fill-[#663399] delay-1100 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Gatsby</TooltipContent>
         </Tooltip>
@@ -126,7 +201,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "ntfy") && (
         <Tooltip>
           <TooltipTrigger>
-            <NetlifyIcon className="size-4 fill-[#00C7B7] delay-1200 animate-landing transition-transform" />
+            <NetlifyIcon
+              className={cn(
+                "size-4 fill-[#00C7B7] delay-1200 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Netlify</TooltipContent>
         </Tooltip>
@@ -134,7 +213,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "aws") && (
         <Tooltip>
           <TooltipTrigger>
-            <AwsIcon className="size-4 fill-[#232F3E] dark:fill-[#ffffff] delay-1300 animate-landing transition-transform" />
+            <AwsIcon
+              className={cn(
+                "size-4 fill-[#232F3{(E] dark:fill-[#ffffff] delay-1300 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>AWS</TooltipContent>
         </Tooltip>
@@ -142,7 +225,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "plt") && (
         <Tooltip>
           <TooltipTrigger>
-            <PlotlyIcon className="size-4 fill-[#7A76FF] delay-1400 animate-landing transition-transform" />
+            <PlotlyIcon
+              className={cn(
+                "size-4 fill-[#7A76FF] delay-1400 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Plotly</TooltipContent>
         </Tooltip>
@@ -150,7 +237,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "elt") && (
         <Tooltip>
           <TooltipTrigger>
-            <ElectronIcon className="size-4 fill-[#47848F] delay-1500 animate-landing transition-transform" />
+            <ElectronIcon
+              className={cn(
+                "size-4 fill-[#47848F] delay-1500 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Electron</TooltipContent>
         </Tooltip>
@@ -158,7 +249,11 @@ export const TechStack = ({ stack }: TechStackProps) => {
       {isIncluded(stack, "chrt") && (
         <Tooltip>
           <TooltipTrigger>
-            <ChartIcon className="size-4 fill-[#47848F] delay-1500 animate-landing transition-transform" />
+            <ChartIcon
+              className={cn(
+                "size-4 fill-[#47848F] delay-1500 animate-landing transition-all"
+              )}
+            />
           </TooltipTrigger>
           <TooltipContent>Chart.js</TooltipContent>
         </Tooltip>
