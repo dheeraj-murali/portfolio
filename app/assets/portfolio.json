@@ -4,121 +4,131 @@
     "year": "2025",
     "client": "Bigger Picture",
     "description": [
-      "A customer portal for Bigger Picture, a company that provides event photography services. The portal allows customers to view and download their event photos, as well as order prints and other products. Built using React and TypeScript, the application features a user-friendly interface, secure payment processing, and integration with backend services for seamless data management."
+      "Bigger Picture is a photography services company specializing in capturing events and providing attendees with personalized access to their photos. To support a smoother post-event experience and create a scalable digital channel, I designed and developed a customer-facing web portal that allowed users to view, download, and order prints or related products directly online. The goal was to make the entire process—from browsing to purchasing—fast, intuitive, and reliable for both casual and professional users.",
+      "Working as the sole UI/UX developer, I handled the end-to-end design and implementation of the portal. Built using React, React-Query, and TypeScript, the application offered an organized gallery-style interface, responsive performance, and secure payment handling. Integration with backend services ensured accurate fulfillment and seamless access to event-specific assets. The portal strengthened the business by reducing manual coordination, increasing conversion opportunities for orders, and providing a polished customer experience that extended the value of event photography beyond the event itself."
     ],
     "image": "/portfolio/BP.png",
     "link": "https://biggerpicture.photography",
-    "tech": ["rt", "ts", "aws", "tw", "rtr", "rtq", "scn"]
-  },
-  {
-    "title": "Bigger Picture dashboard",
-    "year": "2025",
-    "client": "Bigger Picture",
-    "description": [
-      "A dashboard for Bigger Picture, a company that provides event photography services. The dashboard allows photographers to view and manage their event photos, as well as access analytics and reports on their photography business. Built using React and TypeScript, the application features a user-friendly interface, real-time data updates, and integration with backend services for seamless data management."
-    ],
-    "image": "/portfolio/BP.png",
-    "link": "https://app.biggerpicture.photography",
-    "tech": ["rt", "ts", "aws", "tw", "rtr", "rtq", "scn"]
+    "tech": ["rt", "ts", "aws", "tw", "rtr", "rtq", "scn"],
+    "tags": ["Web-app", "From-scratch", "Solo"]
   },
   {
     "title": "Dailyblueprint dashboard",
     "year": "2022",
     "client": "Aspire - Restoration Hardware",
     "description": [
-      "An internal tool for Restoration Hardware to manage their daily attendance and employee scheduling. Built using React and TypeScript, the application features a user-friendly interface, real-time data updates, and integration with backend services for seamless data management. Employees can easily clock in and out, view their schedules, and request time off, while managers can monitor attendance, approve requests, and generate reports."
+      "The Dailyblueprint Dashboard is an internal workforce management tool used by Restoration Hardware to coordinate scheduling, attendance, and staffing across stores and distribution centers. The product required a substantial enhancement effort to improve usability, real-time responsiveness, and integration with backend services. I joined as the UI Lead, responsible for guiding the technical direction of the interface and for managing a three-person frontend team and ensuring a consistent, maintainable codebase.",
+      "The frontend team emphasised on establishing consistent patterns, improving maintainability, and coordinating development with backend and QA stakeholders. Much of the effort involved refining implementation quality, aligning UI behaviors with operational needs, and supporting smoother cross-team collaboration. The updated dashboard, built using React and TypeScript, introduced real-time updates and backend integrations that enabled employees to clock in and out, review schedules, and submit requests while giving managers better visibility into attendance, approvals, and workforce planning. The result supported more efficient day-to-day operations and reduced friction in staff coordination."
     ],
     "image": "/portfolio/RH.png",
-    "link": "https://cochincarrental.com",
-    "tech": ["rt", "ts", "gql", "tw", "njs"]
+    "link": "https://rh.com/us/en/",
+    "tech": ["rt", "ts", "gql", "tw", "njs"],
+    "tags": ["Dashboard", "Enhancement", "Team"]
   },
   {
     "title": "Cochin car rental",
     "year": "2021",
     "client": "Cochin car rental",
     "description": [
-      "A sister concern of Series tours, Cochin car rental is one of the leading Kerala Tour Operators - engaged in the promotion of Kerala Tourism. They focus on providing customers with the best car rental and tour package they can enjoy inside of Kerala. With a fleet of trained drivers, highly maintained vehicles and exceptional customer service, they have become one of the best taxi services in Kerala."
+      "Cochin Car Rental is a sister concern of Series Tours and operates as a leading travel service provider in Kerala, offering car rentals and curated tour packages for both domestic and international visitors. To strengthen their digital presence and improve customer acquisition, I designed and built a marketing landing page that highlighted their services, service quality, and positioning within the Kerala tourism market.",
+      "The landing page was crafted as a lightweight single-page experience using React and Gatsby, with a focus on clear messaging, quick access to essential information, and smooth interaction points. The site integrated Google Reviews to establish credibility and social proof, Google Analytics for tracking visitor behavior and lead performance, and a contact form to support direct inquiries and booking requests. The result was a more modern and conversion-friendly digital touchpoint that improved brand visibility and customer engagement."
     ],
     "image": "/portfolio/cochin-car-rental.png",
     "link": "https://cochincarrental.com",
-    "tech": ["rt", "ts", "gtpy", "gql", "tw"]
+    "tech": ["rt", "ts", "gtpy", "gql", "tw"],
+    "tags": ["Landing page", "From-scratch", "Solo"]
   },
   {
     "title": "Deaglo Dashboard",
     "year": "2021",
     "client": "Aspire - Deaglo",
     "description": [
-      "Deaglo tool enabled users to clearly predict the foreign exchange risks associated with investing in different locations and demonstrate the mitigation strategies in place. Developed using React and TypeScript, the dashboard features interactive charts, real-time data updates, and customizable reports to provide users with a comprehensive view of their foreign exchange exposure. Integrated with backend services to fetch market data and user-specific information, ensuring accurate and up-to-date insights for effective risk management."
+      "Deaglo’s flagship application served as the foundation for launching and scaling the company’s offering in the global investment and FX advisory space. The platform was designed to help institutional investors and fund managers understand the foreign exchange risks associated with deploying capital across different geographies and to evaluate mitigation strategies with clarity and confidence. By enabling scenario analysis, risk visualization, and strategic comparison, the product addressed a key barrier to investing in emerging markets: uncertainty around FX exposure and its potential impact on returns.",
+      "As the UI team lead within a three-person development team, I focused on delivering a clean and intuitive front-end experience that supported financial decision-making without overwhelming users. Built using React and TypeScript, the interface included interactive charts, real-time data updates, and customizable reports that allowed users to explore exposures from multiple angles. The platform integrated with backend services to pull market data from Bloomberg alongside user-specific inputs, ensuring that risk assessments were both accurate and current. The result was a comprehensive tool that strengthened investor confidence, improved communication around risk, and contributed directly to Deaglo’s ability to commercialize its offering with sophisticated clients."
     ],
     "image": "/portfolio/deaglo.png",
     "link": "https://www.deaglo.com/",
-    "tech": ["rt", "ts", "tw", "plt", "aws"]
+    "tech": ["rt", "ts", "tw", "plt", "aws", "rtq"],
+    "tags": ["Dashboard", "From-scratch", "Team"]
   },
   {
     "title": "Zeal academy dashboard",
     "year": "2020",
     "client": "Zeal Academy",
     "description": [
-      "Zeal Academy is one of the emerging preeminent institution for pharmacy graduates who are aiming to build a healthcare career abroad. They are committed in nurturing dreams of becoming a part of healthcare foreign jobs with comprehensive education services. They are creating new, radical and certifying opportunities that helps students recognize the accurate path of accomplishment that helps as the springboard for their future career."
+      "Zeal Academy serves healthcare professionals seeking international licensing and employment opportunities across Australia, New Zealand, Canada, the USA, and Ireland. To support growth and expand access to students, the organization needed to transition its largely offline, classroom-driven model into a structured digital ecosystem. I developed the dashboard and examination portal to enable this transition and provide the operational infrastructure necessary for the business to scale online.",
+      "The platform consolidated key academic and administrative processes into one system, including student and staff enrollment, question bank creation, examination management, performance tracking, class scheduling, and distribution of learning materials. By digitizing these workflows, the organization gained clearer visibility into student progress, improved the efficiency of academic delivery, and reduced manual administrative overhead. More importantly, the system allowed Zeal Academy to offer its services remotely and at a larger scale, enhancing accessibility for students and strengthening the organization’s ability to operate in a data-informed and growth-ready manner."
     ],
     "image": "/portfolio/zeal-academy.png",
     "link": "https://zealacademy.info",
-    "tech": ["rt", "ts", "tw", "chrt", "aws"]
+    "tech": ["rt", "ts", "tw", "aws", "njs", "swr"],
+    "tags": ["Dashboard", "From-scratch", "Solo"]
   },
   {
     "title": "Mission KAS dashboard",
     "year": "2020",
     "client": "Mission KAS",
     "description": [
-      "Zeal Academy provides smart and focused training to the aspirants to succeed in the KAS examination. "
+      "Mission KAS set out to provide structured and effective coaching for KAS examination aspirants, but before the organization launched, it needed a digital operational backbone that could support enrollment, academic scheduling, and administrative workflows without relying on manual processes. The dashboard was conceived as the product that would enable this vision—defining how students would join, how staff would be managed, how payments would flow, and how classes would be organized. The underlying goal was to build an operational environment that felt organized, transparent, and scalable from the start, rather than patching together tools after launch.",
+      "As the sole UI/UX developer, I focused on designing an experience that would be intuitive for non-technical administrators while preserving flexibility for growth. The dashboard formalized key workflows such as admissions, fee and salary management, and classroom scheduling, allowing Mission KAS to execute its educational model coherently from day one. Built with React, TypeScript, Zustand, and SWR, the product established not just an interface, but a digital framework for how the organization would function and evolve as its student base increased."
     ],
     "image": "/portfolio/mission-kas.png",
-    "link": "https://missionkas.com",
-    "tech": ["rt", "ts", "tw", "chrt", "aws", "njs"]
+    "tech": ["rt", "ts", "tw", "chrt", "aws", "njs"],
+    "tags": ["Dashboard", "From-scratch", "Solo"]
   },
   {
     "title": "Ambassador Portal",
     "year": "2019",
     "client": "Aspire - Anthology",
     "description": [
-      "An internal web application for Anthology to manage their university ambassador program. The portal allows ambassadors to sign up for events, track their activities, and access resources provided by Anthology. Built using React and TypeScript, the application features a user-friendly interface, real-time data updates, and integration with backend services for seamless data management."
+      "The Ambassador Portal was an internal dashboard application built for Anthology to support and manage their university ambassador program. The platform enabled ambassadors to sign up for events, track activities, and access resources through a centralized interface. Prior to this initiative, the portal relied on an older .NET-based UI, which had become difficult to maintain, visually outdated, and restrictive in terms of usability and extensibility. This created friction for ambassadors and limited the program’s ability to scale efficiently.",
+      "I worked as part of a three-person UI team contributing to a phased migration from the legacy .NET UI to a modern web-based system. The new portal was implemented using React, Redux, and TypeScript, and integrated with backend services to support real-time data updates and smoother workflows. The refreshed interface improved discoverability of key actions, reduced friction during sign-ups and reporting, and provided administrators with clearer visibility over ambassador engagement. The result was a more maintainable, scalable, and user-friendly platform for running the ambassador program across multiple universities."
     ],
     "image": "/portfolio/anthology.png",
     "link": "https://www.anthology.com/",
-    "tech": ["rt", "ts", "css", "btsrp", "chrt"]
+    "tech": ["rt", "ts", "css", "btsrp", "chrt", "rdx"],
+    "tags": ["Dashboard", "Phased Migration", "Team"]
   },
   {
     "title": "Camelcase Tech lab",
     "year": "2019",
     "client": "Camelcase",
     "description": [
-      "Camelcase is a team of developers who will help you build applications using advanced frameworks with minimal footprint. Ready to build using React, Angular, Ionic, Spring, Django, MongoDB or whatever you prefer."
+      "Camelcase is a small development agency focused on delivering applications using modern frameworks with minimal footprint and lean architectures. I worked as the sole UI/UX developer to design and build their marketing landing page, with the goal of clearly communicating the agency’s value proposition, capabilities, and technical strengths to prospective clients.",
+      "The project centered on creating a clear and lightweight presentation of what the agency offers, how it works, and the principles it operates on. The content and layout were designed to be straightforward and easy to scan, avoiding unnecessary visual complexity. The final landing page provided a clean structure for showcasing capabilities, explaining the agency’s value proposition, and directing visitors toward taking the next step in contacting the team."
     ],
     "image": "/portfolio/camelcase.png",
     "link": "https://camelcase.in",
-    "tech": ["rt", "ts", "gtpy", "gql", "tw"]
+    "tech": ["rt", "ts", "gtpy", "gql", "tw"],
+    "tags": ["Landing page", "From-scratch", "Solo"]
   },
   {
     "title": "GE healthcare invoice module",
     "year": "2018",
     "client": "TCS - GE healthcare",
     "description": [
-      "Part of a team developing a modern Orders and Invoices module for gehealthcare.com to replace a legacy system, focusing on major improvements in usability, performance, and maintainability. Developed modular React components, integrated data using GraphQL. The result was a faster, more intuitive experience for enterprise users and a scalable frontend foundation for future enhancements."
+      "The Orders and Invoices module for gehealthcare.com was a strategic phased migration initiative aimed at replacing a legacy enterprise system with a modern, scalable, and more user-friendly frontend experience. As part of a three-person UI team, I contributed to re-architecting the module to significantly improve usability, performance, and long-term maintainability while ensuring compatibility with GE Healthcare’s global platform and workflows.",
+      "My role focused on developing modular React components, integrating dynamic data via GraphQL, and ensuring the new interface could be seamlessly embedded into the existing Sitecore CMS environment. This modular approach allowed features to be rolled out incrementally, reducing business risk while supporting continuous improvement. The new interface delivered faster data access, smoother navigation, and improved clarity around order and invoice information—key for enterprise users operating within high-volume healthcare procurement and logistics processes.",
+      "Beyond immediate user experience improvements, the rewritten module established a scalable foundation for future enhancements and regional expansions, validating the phased migration approach as an effective modernization strategy for a complex enterprise ecosystem."
     ],
     "image": "/portfolio/GE.png",
     "link": "https://gehealthcare.com",
-    "tech": ["rt", "ts", "gql", "css"]
+    "tech": ["rt", "ts", "gql", "css"],
+    "tags": ["Dashboard", "Phased Migration", "Team"]
   },
   {
     "title": "Nuvolo and EnCompass ROI Calculator",
     "year": "2017",
     "client": "TCS - GE healthcare",
     "description": [
-      "A feature rich internal web application for GE healthcare to help sales teams demonstrate the ROI of Nuvolo and EnCompass products to prospective clients. Developed using React and TypeScript wrapped in Electron js to create a desktop application, the application features dynamic forms, real-time calculations, and data visualization to provide an interactive user experience. Integrated with backend services to fetch pricing and product data, ensuring accurate and up-to-date information for ROI calculations."
+      "The Nuvolo and EnCompass ROI Dashboard was a greenfield internal application built for GE Healthcare to support sales teams in communicating the financial benefits of two high-value product offerings to prospective enterprise clients. Prior to this project, ROI assessments were typically performed manually or through fragmented spreadsheets, making it difficult for sales representatives to clearly convey value, answer financial questions in real time, or adapt scenarios based on client needs.",
+      "As the UI/UX product developer, I designed and built a streamlined desktop application that allowed sales teams to input customer-specific parameters through dynamic forms and immediately generate ROI projections. Built using React and TypeScript and wrapped in Electron JS, the tool performed all calculations on-device with no backend dependencies, ensuring offline access and rapid performance. Real-time updates, scenario comparisons, and integrated visualizations enabled a more interactive and persuasive sales narrative.",
+      "This product improved sales conversations by providing transparency around cost savings, efficiency gains, and operational impact—ultimately helping GE Healthcare strengthen product positioning and accelerate sales cycles when presenting to enterprise clients."
     ],
     "image": "/portfolio/GE.png",
     "link": "https://gehealthcare.com",
-    "tech": ["rt", "ts", "css", "elt", "chrt"]
+    "tech": ["rt", "ts", "css", "elt", "chrt"],
+    "tags": ["Dashboard", "From-scratch", "Solo"]
   },
   {
     "title": "Rice and rice Dashboard",
@@ -130,7 +140,7 @@
       "The Improved data transparency also helped uncover previously unknown missing sales and outstanding debts, directly contributing to better financial control, increased sales effectiveness, and stronger decision-making at the management level."
     ],
     "image": "/portfolio/rice-and-rice.png",
-    "link": "https://riceandrice.netlify.app",
-    "tech": ["rt", "ts", "tw", "chrt", "ntfy", "aws"]
+    "tech": ["rt", "ts", "tw", "chrt", "ntfy", "aws", "swr"],
+    "tags": ["Dashboard", "From-scratch", "Solo"]
   }
 ]
