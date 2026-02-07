@@ -18,6 +18,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { ChartIcon } from "./icons/chartjs";
 import { ReduxIcon } from "./icons/redux";
 import { SwrIcon } from "./icons/swr";
+import { ClaudeIcon } from "./icons/claude";
 import { cn } from "~/lib/utils";
 
 type TechStackProps = {
@@ -256,6 +257,18 @@ export const TechStack = ({ stack }: TechStackProps) => {
             />
           </TooltipTrigger>
           <TooltipContent>Chart.js</TooltipContent>
+        </Tooltip>
+      )}
+      {isIncluded(stack, "claude") && (
+        <Tooltip>
+          <TooltipTrigger>
+            <ClaudeIcon
+              className={cn(
+                "size-4 fill-[#D97757] delay-1600 animate-landing transition-all"
+              )}
+            />
+          </TooltipTrigger>
+          <TooltipContent>Claude</TooltipContent>
         </Tooltip>
       )}
     </div>
