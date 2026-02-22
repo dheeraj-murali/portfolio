@@ -31,7 +31,7 @@ export function Slate(props: DragIIProps) {
         [{ x: currDrag?.x || 0, y: currDrag?.y || 0 }],
       ]);
     },
-    [setLines]
+    [setLines],
   );
   const onDragMove = useCallback(
     (currDrag: HandlerArgs) => {
@@ -47,7 +47,7 @@ export function Slate(props: DragIIProps) {
         return nextLines;
       });
     },
-    [setLines]
+    [setLines],
   );
 
   const {

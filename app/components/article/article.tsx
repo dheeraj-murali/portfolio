@@ -22,7 +22,7 @@ export const Article = ({ children, className }: ArticleProps) => {
           "prose-pre:bg-pre prose-pre:text-pre-foreground",
           "prose-code:rounded-md prose-code:bg-pre  prose-code:text-pre-foreground prose-code:px-4 prose-code:py-1 prose-code:text-sm",
           "text-foreground prose-strong:text-foreground prose-headings:text-foreground",
-          className
+          className,
         )}
       >
         <MDXProvider>{children}</MDXProvider>

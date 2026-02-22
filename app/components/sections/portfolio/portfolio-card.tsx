@@ -51,19 +51,15 @@ export const PortfolioCard = ({
         <img src={image} alt={title} className="size-12 rounded object-fill" />
         <h3 className="text-lg font-bold capitalize">{title}</h3>
       </CardTitle>
-      {/* {tags.length > 0 && (
+      {tags.length > 0 && (
         <div className="flex flex-row flex-wrap gap-2 mt-2">
           {tags.map((tag) => (
-            <Badge
-              variant="outline"
-              className="uppercase text-[0.64rem] bg-muted"
-              key={tag}
-            >
+            <Badge variant="outline" key={tag}>
               {tag}
             </Badge>
           ))}
         </div>
-      )} */}
+      )}
     </CardHeader>
     <CardContent>
       <CardDescription className="line-clamp-3">

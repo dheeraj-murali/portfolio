@@ -36,7 +36,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <JavascriptIcon
               className={cn(
-                "size-4 fill-[#F7DF1E] delay-0 animate-landing transition-all"
+                "size-4 fill-[#F7DF1E] delay-0 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -48,7 +48,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <TypescriptIcon
               className={cn(
-                "size-4 fill-[#3178C6] delay-100 animate-landing transition-all"
+                "size-4 fill-[#3178C6] delay-100 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -60,7 +60,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <CssIcon
               className={cn(
-                "size-4 fill-[#663399] delay-200 animate-landing transition-all"
+                "size-4 fill-[#663399] delay-200 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -72,7 +72,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <BootstrapIcon
               className={cn(
-                "size-4 fill-[#7952B3] delay-300 animate-landing transition-all"
+                "size-4 fill-[#7952B3] delay-300 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -84,7 +84,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <TailwindIcon
               className={cn(
-                "size-4 fill-[#06B6D4] delay-400 animate-landing transition-all"
+                "size-4 fill-[#06B6D4] delay-400 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -96,7 +96,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ReactIcon
               className={cn(
-                "size-4 fill-[#61DAFB] delay-500 animate-landing transition-all"
+                "size-4 fill-[#61DAFB] delay-500 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -108,7 +108,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ShadcnIcon
               className={cn(
-                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-600 animate-landing transition-all"
+                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-600 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -120,7 +120,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ReactRouterIcon
               className={cn(
-                "size-4 fill-[#CA4245] delay-700 animate-landing transition-all"
+                "size-4 fill-[#CA4245] delay-700 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -132,7 +132,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ReactQueryIcon
               className={cn(
-                "size-4 fill-[#FF4154] delay-800 animate-landing transition-all"
+                "size-4 fill-[#FF4154] delay-800 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -144,7 +144,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <SwrIcon
               className={cn(
-                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-800 animate-landing transition-all"
+                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-800 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -156,7 +156,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ReduxIcon
               className={cn(
-                "size-4 fill-[#764ABC] delay-800 animate-landing transition-all"
+                "size-4 fill-[#764ABC] delay-800 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -168,7 +168,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <GraphqlIcon
               className={cn(
-                "size-4 fill-[#E10098] delay-900 animate-landing transition-all"
+                "size-4 fill-[#E10098] delay-900 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -180,7 +180,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <NextjsIcon
               className={cn(
-                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-1000 animate-landing transition-all"
+                "size-4 fill-[#00000{(0] dark:fill-[#ffffff] delay-1000 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -192,7 +192,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <GatsbyIcon
               className={cn(
-                "size-4 fill-[#663399] delay-1100 animate-landing transition-all"
+                "size-4 fill-[#663399] delay-1100 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -204,7 +204,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <NetlifyIcon
               className={cn(
-                "size-4 fill-[#00C7B7] delay-1200 animate-landing transition-all"
+                "size-4 fill-[#00C7B7] delay-1200 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -216,7 +216,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <AwsIcon
               className={cn(
-                "size-4 fill-[#232F3{(E] dark:fill-[#ffffff] delay-1300 animate-landing transition-all"
+                "size-4 fill-[#232F3{(E] dark:fill-[#ffffff] delay-1300 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -228,7 +228,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <PlotlyIcon
               className={cn(
-                "size-4 fill-[#7A76FF] delay-1400 animate-landing transition-all"
+                "size-4 fill-[#7A76FF] delay-1400 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -240,7 +240,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ElectronIcon
               className={cn(
-                "size-4 fill-[#47848F] delay-1500 animate-landing transition-all"
+                "size-4 fill-[#47848F] delay-1500 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -252,7 +252,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ChartIcon
               className={cn(
-                "size-4 fill-[#47848F] delay-1500 animate-landing transition-all"
+                "size-4 fill-[#47848F] delay-1500 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>
@@ -264,7 +264,7 @@ export const TechStack = ({ stack }: TechStackProps) => {
           <TooltipTrigger>
             <ClaudeIcon
               className={cn(
-                "size-4 fill-[#D97757] delay-1600 animate-landing transition-all"
+                "size-4 fill-[#D97757] delay-1600 animate-landing transition-all",
               )}
             />
           </TooltipTrigger>

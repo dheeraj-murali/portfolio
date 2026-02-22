@@ -14,7 +14,7 @@ export const Logo = ({ className }: LogoProps) => {
       className={cn(
         buttonVariants({ variant: "link" }),
         "font-bold",
-        className
+        className,
       )}
     >
       @_mdrj
