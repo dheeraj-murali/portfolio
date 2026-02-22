@@ -23,7 +23,7 @@
     "image": "/portfolio/RH.png",
     "link": "https://rh.com/us/en/",
     "tech": ["rt", "ts", "gql", "tw", "njs"],
-    "tags": ["Dashboard", "Enhancement", "Team"]
+    "tags": ["Web-app", "Enhancement", "Team"]
   },
   {
     "title": "Cochin car rental",
@@ -49,7 +49,7 @@
     "image": "/portfolio/deaglo.png",
     "link": "https://www.deaglo.com/",
     "tech": ["rt", "ts", "tw", "plt", "aws", "rtq"],
-    "tags": ["Dashboard", "From-scratch", "Team"]
+    "tags": ["Web-app", "From-scratch", "Team"]
   },
   {
     "title": "Zeal academy dashboard",
@@ -62,7 +62,7 @@
     "image": "/portfolio/zeal-academy.png",
     "link": "https://zealacademy.info",
     "tech": ["rt", "ts", "tw", "aws", "njs", "swr"],
-    "tags": ["Dashboard", "From-scratch", "Solo"]
+    "tags": ["Web-app", "Landing page", "From-scratch", "Solo"]
   },
   {
     "title": "Mission KAS dashboard",
@@ -74,7 +74,7 @@
     ],
     "image": "/portfolio/mission-kas.png",
     "tech": ["rt", "ts", "tw", "chrt", "aws", "njs"],
-    "tags": ["Dashboard", "From-scratch", "Solo"]
+    "tags": ["Web-app", "Landing page", "From-scratch", "Solo"]
   },
   {
     "title": "Ambassador Portal",
@@ -87,7 +87,7 @@
     "image": "/portfolio/anthology.png",
     "link": "https://www.anthology.com/",
     "tech": ["rt", "ts", "css", "btsrp", "chrt", "rdx"],
-    "tags": ["Dashboard", "Phased Migration", "Team"]
+    "tags": ["Web-app", "Dashboard", "Phased Migration", "Team"]
   },
   {
     "title": "Camelcase Tech lab",
@@ -114,7 +114,7 @@
     "image": "/portfolio/GE.png",
     "link": "https://gehealthcare.com",
     "tech": ["rt", "ts", "gql", "css"],
-    "tags": ["Dashboard", "Phased Migration", "Team"]
+    "tags": ["Web-app", "Phased Migration", "Team"]
   },
   {
     "title": "Nuvolo and EnCompass ROI Calculator",
