@@ -13,11 +13,11 @@ export const Logo = ({ className }: LogoProps) => {
       to={"/"}
       className={cn(
         buttonVariants({ variant: "link" }),
-        "font-bold",
+        "font-bold gap-0.5",
         className,
       )}
     >
-      @_mdrj
+      mdrj<span className="inline-block p-0 animate-blink">_</span>
     </Link>
   );
 };

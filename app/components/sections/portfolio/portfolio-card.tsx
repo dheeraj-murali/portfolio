@@ -87,19 +87,15 @@ export const PortfolioCard = ({
                 <DialogDescription>{client}</DialogDescription>
               </div>
             </div>
-            {/* {tags.length > 0 && (
+            {tags.length > 0 && (
               <div className="flex flex-row flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
-                  <Badge
-                    variant="outline"
-                    className="uppercase text-[0.64rem] bg-muted"
-                    key={tag}
-                  >
+                  <Badge variant="outline" key={tag}>
                     {tag}
                   </Badge>
                 ))}
               </div>
-            )} */}
+            )}
           </div>
           <ScrollArea className="h-full max-h-[calc(100vh-24rem)] flex flex-col gap-4">
             {description.map((desc, index) => (
