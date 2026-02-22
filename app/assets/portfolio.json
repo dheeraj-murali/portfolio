@@ -62,7 +62,7 @@
     "image": "/portfolio/zeal-academy.png",
     "link": "https://zealacademy.info",
     "tech": ["rt", "ts", "tw", "aws", "njs", "swr"],
-    "tags": ["Dashboard", "From-scratch", "Solo"]
+    "tags": ["Dashboard", "Landing page", "From-scratch", "Solo"]
   },
   {
     "title": "Mission KAS dashboard",
@@ -74,7 +74,7 @@
     ],
     "image": "/portfolio/mission-kas.png",
     "tech": ["rt", "ts", "tw", "chrt", "aws", "njs"],
-    "tags": ["Dashboard", "From-scratch", "Solo"]
+    "tags": ["Dashboard", "Landing page", "From-scratch", "Solo"]
   },
   {
     "title": "Ambassador Portal",
