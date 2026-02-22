@@ -11,6 +11,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { useEffect } from "react";
+import { TooltipProvider } from "./components/ui/tooltip";
 
 const GA_ID = import.meta.env.VITE_GA_ID;
 
@@ -87,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

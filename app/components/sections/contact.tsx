@@ -20,10 +20,16 @@ import { Textarea } from "~/components/ui/textarea";
 const formName = "contact-form";
 
 const formSchema = z.object({
-  name: z.string().min(2, 'Just need a name that is at least 2 characters').max(50, 'Your name seems a bit long—please keep it under 50 characters'),
-  email: z.email('Please enter a valid email address'),
+  name: z
+    .string()
+    .min(2, "Just need a name that is at least 2 characters")
+    .max(50, "Your name seems a bit long—please keep it under 50 characters"),
+  email: z.email("Please enter a valid email address"),
   phone: z.string().optional(),
-  message: z.string().min(10, 'Please share a bit more—at least 10 characters').max(500, 'Okay, that\'s a lot—let\'s keep it under 500 characters'),
+  message: z
+    .string()
+    .min(10, "Please share a bit more—at least 10 characters")
+    .max(500, "Okay, that's a lot—let's keep it under 500 characters"),
 });
 
 export type FormValues = z.infer<typeof formSchema>;

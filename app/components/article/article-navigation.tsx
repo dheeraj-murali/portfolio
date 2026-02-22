@@ -12,7 +12,7 @@ export const Navigation = () => {
         variant="ghost"
         size="lg"
         className="font-bold"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
       >
         <ArrowBigLeft className="fill-foreground" />
         Back
