@@ -1,6 +1,8 @@
-export const title = "CSS Text Decoration Caveats: Understanding Inline Element Behavior"
-export const date = "2024-09-06"
-export const description = "Explore the unexpected behavior of CSS text decorations on inline elements and why descendant elements can't override parent text decorations. Learn the gotchas and workarounds for better text styling control."
+export const title =
+  "CSS Text Decoration Caveats: Understanding Inline Element Behavior";
+export const date = "2024-09-06";
+export const description =
+  "Explore the unexpected behavior of CSS text decorations on inline elements and why descendant elements can't override parent text decorations. Learn the gotchas and workarounds for better text styling control.";
 
 # CSS Text Decoration Caveats: Understanding Inline Element Behavior
 
@@ -14,8 +16,8 @@ One of the most surprising aspects of CSS text decorations is how they behave wi
 
 ```html
 <p>
-  This is some text with an 
-  <span class="underlined">underlined section</span> 
+  This is some text with an
+  <span class="underlined">underlined section</span>
   that continues here.
 </p>
 ```
@@ -35,9 +37,9 @@ Let's see this in action with a more complex example:
 ```html
 <div class="container">
   <span class="parent-decoration">
-    This text has an underline that 
+    This text has an underline that
     <strong>continues through bold text</strong>
-    and even through 
+    and even through
     <em>italic text</em>
     without any breaks.
   </span>
@@ -71,7 +73,7 @@ Here's where things get even more counterintuitive. **The `text-decoration` prop
 
 ```html
 <p class="underlined-paragraph">
-  This paragraph is underlined, and 
+  This paragraph is underlined, and
   <span class="no-decoration">this span tries to remove the underline</span>
   but it won't work as expected.
 </p>
@@ -101,7 +103,7 @@ A common scenario where this becomes problematic:
 
 ```html
 <p class="highlighted-text">
-  This is important text with a 
+  This is important text with a
   <a href="/link" class="clean-link">link that should not be underlined</a>
   in the middle.
 </p>
@@ -126,7 +128,7 @@ The link will still have the underline from its parent, even though you explicit
 ```html
 <div class="article-content">
   <span class="strikethrough">
-    This text is struck through, including 
+    This text is struck through, including
     <code class="code-snippet">this code snippet</code>
     and <mark class="highlight">this highlighted text</mark>.
   </span>
@@ -160,14 +162,12 @@ Instead of applying decorations to parent elements, apply them to specific child
 
 ```html
 <!-- Instead of this -->
-<p class="underlined">
-  Text with <span>nested content</span> here.
-</p>
+<p class="underlined">Text with <span>nested content</span> here.</p>
 
 <!-- Do this -->
 <p>
-  <span class="underlined">Text with</span> 
-  <span>nested content</span> 
+  <span class="underlined">Text with</span>
+  <span>nested content</span>
   <span class="underlined">here.</span>
 </p>
 ```
@@ -183,7 +183,7 @@ Create your own "decorations" using pseudo-elements:
 }
 
 .custom-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -199,7 +199,7 @@ Create your own "decorations" using pseudo-elements:
 
 ```html
 <p class="custom-underline">
-  This has a custom underline, but 
+  This has a custom underline, but
   <span class="no-custom-underline">this part doesn't</span>
   and this part does again.
 </p>
@@ -234,7 +234,7 @@ Change the display property to break the inline context:
 
 ```html
 <span class="parent-underline">
-  This is underlined, but 
+  This is underlined, but
   <span class="break-decoration">this part isn't</span>
   because it's inline-block.
 </span>
@@ -306,6 +306,7 @@ When debugging decoration problems:
 CSS text decorations have quirky behaviors that stem from their original design as simple typographical enhancements. Understanding these limitations—particularly how decorations flow through inline elements and cannot be overridden by descendants—is crucial for creating the text styling you actually want.
 
 The key takeaways:
+
 - Text decorations on inline elements create continuous lines across all content
 - Descendant elements cannot remove or modify parent text decorations
 - Workarounds involve restructuring HTML, using pseudo-elements, or changing display properties

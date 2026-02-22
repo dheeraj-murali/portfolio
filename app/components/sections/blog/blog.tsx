@@ -10,7 +10,7 @@ export const Blog = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {posts
           .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
           )
           .map((post) => (
             <BlogCard key={post.slug} {...post} />

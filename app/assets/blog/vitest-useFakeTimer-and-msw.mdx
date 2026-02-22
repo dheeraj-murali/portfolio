@@ -1,6 +1,8 @@
-export const title = "Solving the MSW v2 and Fake Timers Conflict in Vitest and Jest"
-export const date = "2024-12-18"
-export const description = "Learn how to resolve the known compatibility issue between MSW v2 and fake timers in Vitest and Jest, including different approaches to skip mocking queueMicrotask for seamless API testing."
+export const title =
+  "Solving the MSW v2 and Fake Timers Conflict in Vitest and Jest";
+export const date = "2024-12-18";
+export const description =
+  "Learn how to resolve the known compatibility issue between MSW v2 and fake timers in Vitest and Jest, including different approaches to skip mocking queueMicrotask for seamless API testing.";
 
 # Solving the MSW v2 and Fake Timers Conflict in Vitest and Jest
 
@@ -13,18 +15,18 @@ Mock Service Worker (MSW) v2 is an excellent tool for mocking API requests in te
 When you use `useFakeTimers()` with MSW v2, you might encounter tests that never complete or hang indefinitely. Here's a typical scenario:
 
 ```js
-import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
-import { http, HttpResponse } from 'msw';
-import { setupServer } from 'msw/node';
+import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { http, HttpResponse } from "msw";
+import { setupServer } from "msw/node";
 
 const server = setupServer(
-  http.get('/api/data', () => {
-    return HttpResponse.json({ message: 'Hello from MSW' });
-  })
+  http.get("/api/data", () => {
+    return HttpResponse.json({ message: "Hello from MSW" });
+  }),
 );
 
-describe('Component with API call and timer', () => {
+describe("Component with API call and timer", () => {
   beforeEach(() => {
     server.listen();
     vi.useFakeTimers(); // This causes the issue!
@@ -35,12 +37,12 @@ describe('Component with API call and timer', () => {
     vi.useRealTimers();
   });
 
-  it('should fetch data and update after delay', async () => {
+  it("should fetch data and update after delay", async () => {
     render(<MyComponent />);
-    
+
     // This test might hang indefinitely
     await waitFor(() => {
-      expect(screen.getByText('Hello from MSW')).toBeInTheDocument();
+      expect(screen.getByText("Hello from MSW")).toBeInTheDocument();
     });
   });
 });
@@ -51,6 +53,7 @@ describe('Component with API call and timer', () => {
 The root cause is that **fake timers mock the microtask queue** (`queueMicrotask`), which MSW v2 relies on to process its internal promises and complete network requests. When the microtask queue is mocked, MSW's promises never resolve, causing tests to hang.
 
 MSW v2 uses microtasks internally for:
+
 - Processing request handlers
 - Managing response lifecycles
 - Coordinating with service workers
@@ -62,15 +65,15 @@ When `useFakeTimers()` mocks `queueMicrotask`, these internal operations get stu
 Vitest provides a `toFake` option that allows you to specify which timer functions to mock:
 
 ```js
-import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
 
-describe('MSW with Fake Timers - Vitest', () => {
+describe("MSW with Fake Timers - Vitest", () => {
   beforeEach(() => {
     server.listen();
-    
+
     // Only mock specific timers, exclude queueMicrotask
     vi.useFakeTimers({
-      toFake: ['setTimeout', 'setInterval', 'clearTimeout', 'clearInterval']
+      toFake: ["setTimeout", "setInterval", "clearTimeout", "clearInterval"],
     });
   });
 
@@ -79,18 +82,18 @@ describe('MSW with Fake Timers - Vitest', () => {
     vi.useRealTimers();
   });
 
-  it('should work with MSW and fake timers', async () => {
+  it("should work with MSW and fake timers", async () => {
     render(<ComponentWithTimerAndAPI />);
-    
+
     // MSW requests work normally
     await waitFor(() => {
-      expect(screen.getByText('Data loaded')).toBeInTheDocument();
+      expect(screen.getByText("Data loaded")).toBeInTheDocument();
     });
 
     // Fake timers still work for your component logic
     vi.advanceTimersByTime(1000);
-    
-    expect(screen.getByText('Timer expired')).toBeInTheDocument();
+
+    expect(screen.getByText("Timer expired")).toBeInTheDocument();
   });
 });
 ```
@@ -100,15 +103,22 @@ describe('MSW with Fake Timers - Vitest', () => {
 Jest requires a different approach. You can use `jest.advanceTimersToNextTimer()` or configure fake timers more precisely:
 
 ```js
-import { jest, describe, it, expect, beforeEach, afterEach } from '@jest/globals';
+import {
+  jest,
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+} from "@jest/globals";
 
-describe('MSW with Fake Timers - Jest', () => {
+describe("MSW with Fake Timers - Jest", () => {
   beforeEach(() => {
     server.listen();
-    
+
     // Use legacy fake timers or configure modern ones carefully
     jest.useFakeTimers({
-      doNotFake: ['queueMicrotask'],
+      doNotFake: ["queueMicrotask"],
     });
   });
 
@@ -117,18 +127,18 @@ describe('MSW with Fake Timers - Jest', () => {
     jest.useRealTimers();
   });
 
-  it('should work with MSW and fake timers', async () => {
+  it("should work with MSW and fake timers", async () => {
     render(<ComponentWithTimerAndAPI />);
-    
+
     // Let MSW process its microtasks
     await waitFor(() => {
-      expect(screen.getByText('Data loaded')).toBeInTheDocument();
+      expect(screen.getByText("Data loaded")).toBeInTheDocument();
     });
 
     // Advance timers for component logic
     jest.advanceTimersByTime(1000);
-    
-    expect(screen.getByText('Timer expired')).toBeInTheDocument();
+
+    expect(screen.getByText("Timer expired")).toBeInTheDocument();
   });
 });
 ```
@@ -140,7 +150,7 @@ For Jest, you can also use legacy timers which don't interfere with microtasks:
 ```js
 beforeEach(() => {
   server.listen();
-  jest.useFakeTimers('legacy');
+  jest.useFakeTimers("legacy");
 });
 ```
 
@@ -150,7 +160,7 @@ Here's a complete example showing how to test a component that uses both API cal
 
 ```jsx
 // TimerWithAPI.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export function TimerWithAPI() {
   const [data, setData] = useState(null);
@@ -158,13 +168,13 @@ export function TimerWithAPI() {
 
   useEffect(() => {
     // Fetch data from API
-    fetch('/api/data')
-      .then(res => res.json())
-      .then(data => setData(data.message));
+    fetch("/api/data")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
 
     // Start countdown timer
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
+      setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
           return 0;
@@ -178,7 +188,7 @@ export function TimerWithAPI() {
 
   return (
     <div>
-      <div>{data ? `Data: ${data}` : 'Loading...'}</div>
+      <div>{data ? `Data: ${data}` : "Loading..."}</div>
       <div>Time left: {timeLeft}</div>
       {timeLeft === 0 && <div>Timer expired</div>}
     </div>
@@ -188,24 +198,24 @@ export function TimerWithAPI() {
 
 ```js
 // TimerWithAPI.test.jsx (Vitest)
-import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
-import { http, HttpResponse } from 'msw';
-import { setupServer } from 'msw/node';
-import { TimerWithAPI } from './TimerWithAPI';
+import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { http, HttpResponse } from "msw";
+import { setupServer } from "msw/node";
+import { TimerWithAPI } from "./TimerWithAPI";
 
 const server = setupServer(
-  http.get('/api/data', () => {
-    return HttpResponse.json({ message: 'Hello from API' });
-  })
+  http.get("/api/data", () => {
+    return HttpResponse.json({ message: "Hello from API" });
+  }),
 );
 
-describe('TimerWithAPI', () => {
+describe("TimerWithAPI", () => {
   beforeEach(() => {
     server.listen();
     // Exclude queueMicrotask from mocking
     vi.useFakeTimers({
-      toFake: ['setTimeout', 'setInterval', 'clearTimeout', 'clearInterval']
+      toFake: ["setTimeout", "setInterval", "clearTimeout", "clearInterval"],
     });
   });
 
@@ -215,39 +225,39 @@ describe('TimerWithAPI', () => {
     vi.useRealTimers();
   });
 
-  it('should load data and countdown timer', async () => {
+  it("should load data and countdown timer", async () => {
     render(<TimerWithAPI />);
 
     // Wait for API data to load (MSW works normally)
     await waitFor(() => {
-      expect(screen.getByText('Data: Hello from API')).toBeInTheDocument();
+      expect(screen.getByText("Data: Hello from API")).toBeInTheDocument();
     });
 
     // Initial timer state
-    expect(screen.getByText('Time left: 5')).toBeInTheDocument();
+    expect(screen.getByText("Time left: 5")).toBeInTheDocument();
 
     // Advance timer by 3 seconds
     vi.advanceTimersByTime(3000);
-    expect(screen.getByText('Time left: 2')).toBeInTheDocument();
+    expect(screen.getByText("Time left: 2")).toBeInTheDocument();
 
     // Advance to completion
     vi.advanceTimersByTime(2000);
-    expect(screen.getByText('Time left: 0')).toBeInTheDocument();
-    expect(screen.getByText('Timer expired')).toBeInTheDocument();
+    expect(screen.getByText("Time left: 0")).toBeInTheDocument();
+    expect(screen.getByText("Timer expired")).toBeInTheDocument();
   });
 
-  it('should handle API errors', async () => {
+  it("should handle API errors", async () => {
     server.use(
-      http.get('/api/data', () => {
+      http.get("/api/data", () => {
         return new HttpResponse(null, { status: 500 });
-      })
+      }),
     );
 
     render(<TimerWithAPI />);
 
     // Timer should still work even if API fails
     vi.advanceTimersByTime(5000);
-    expect(screen.getByText('Timer expired')).toBeInTheDocument();
+    expect(screen.getByText("Timer expired")).toBeInTheDocument();
   });
 });
 ```
@@ -261,12 +271,12 @@ Only mock the timer functions you actually need:
 ```js
 // Vitest - Be explicit
 vi.useFakeTimers({
-  toFake: ['setTimeout', 'setInterval'] // Only what you need
+  toFake: ["setTimeout", "setInterval"], // Only what you need
 });
 
 // Jest - Exclude microtasks
 jest.useFakeTimers({
-  doNotFake: ['queueMicrotask', 'nextTick']
+  doNotFake: ["queueMicrotask", "nextTick"],
 });
 ```
 
@@ -280,7 +290,7 @@ export function setupTestWithMSWAndTimers() {
   beforeEach(() => {
     server.listen();
     vi.useFakeTimers({
-      toFake: ['setTimeout', 'setInterval', 'clearTimeout', 'clearInterval']
+      toFake: ["setTimeout", "setInterval", "clearTimeout", "clearInterval"],
     });
   });
 
@@ -297,15 +307,18 @@ export function setupTestWithMSWAndTimers() {
 For tests that primarily focus on API interactions, consider using real timers:
 
 ```js
-it('should handle complex API flows', async () => {
+it("should handle complex API flows", async () => {
   // Use real timers for this test
   vi.useRealTimers();
-  
+
   render(<ComplexAPIComponent />);
-  
-  await waitFor(() => {
-    expect(screen.getByText('All data loaded')).toBeInTheDocument();
-  }, { timeout: 5000 });
+
+  await waitFor(
+    () => {
+      expect(screen.getByText("All data loaded")).toBeInTheDocument();
+    },
+    { timeout: 5000 },
+  );
 });
 ```
 
@@ -317,13 +330,13 @@ it('should handle complex API flows', async () => {
 // vitest.config.js
 export default defineConfig({
   test: {
-    environment: 'jsdom',
-    setupFiles: ['./src/test-setup.js'],
+    environment: "jsdom",
+    setupFiles: ["./src/test-setup.js"],
     // Global fake timer config
     fakeTimers: {
-      toFake: ['setTimeout', 'setInterval', 'clearTimeout', 'clearInterval']
-    }
-  }
+      toFake: ["setTimeout", "setInterval", "clearTimeout", "clearInterval"],
+    },
+  },
 });
 ```
 
@@ -332,26 +345,29 @@ export default defineConfig({
 ```js
 // jest.config.js
 module.exports = {
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/src/test-setup.js'],
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/src/test-setup.js"],
   fakeTimers: {
     enableGlobally: true,
-    doNotFake: ['queueMicrotask']
-  }
+    doNotFake: ["queueMicrotask"],
+  },
 };
 ```
 
 ## Common Pitfalls and Troubleshooting
 
 ### 1. Tests Hanging Indefinitely
+
 **Symptom**: Tests never complete when using MSW with fake timers
 **Solution**: Exclude `queueMicrotask` from timer mocking
 
 ### 2. Inconsistent Test Results
+
 **Symptom**: Tests pass sometimes but fail other times
 **Solution**: Ensure proper cleanup in `afterEach` hooks
 
 ### 3. MSW Requests Not Completing
+
 **Symptom**: API mocks seem to work but responses never arrive
 **Solution**: Check that microtasks are not being mocked
 
@@ -360,6 +376,7 @@ module.exports = {
 The MSW v2 and fake timers compatibility issue is a known problem with a straightforward solution. By understanding that the conflict stems from mocking the microtask queue and configuring your test framework to exclude `queueMicrotask` from timer mocking, you can use both tools together effectively.
 
 Remember:
+
 - **Vitest**: Use `toFake` option to specify exactly which timers to mock
 - **Jest**: Use `doNotFake` option or legacy timers
 - **Always clean up**: Reset handlers and restore real timers in `afterEach`
